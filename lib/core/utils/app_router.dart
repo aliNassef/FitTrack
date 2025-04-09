@@ -6,6 +6,7 @@ import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/auth/presentation/views/signup_welcome_view.dart';
 import '../../features/auth/presentation/views/sucess_registration_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
+import '../../features/home/presentation/views/notification_view.dart';
 import '../../features/layout/presentation/layout_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
@@ -43,6 +44,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case LayoutView.routeName:
       return MaterialPageRoute(
         builder: (context) => const LayoutView(),
+      );
+    case NotificationView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const NotificationView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

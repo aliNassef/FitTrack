@@ -5,6 +5,7 @@ abstract class AppImages {
   static const String boarding4 = 'assets/images/boarding4.png';
   static const String welcome = 'assets/images/background_welcome.png';
   static const String logo = 'assets/images/logo.png';
+  static const String dummy = 'assets/images/dummy.png';
   static const String register1 = 'assets/images/register1.png';
   static const String register2 = 'assets/images/register2.png';
   static const String register3 = 'assets/images/register3.png';
@@ -35,6 +36,8 @@ abstract class AppIcons {
   static const String profileNavIcon = 'assets/icons/profile_icon_nav_bar.svg';
   static const String homeIcon = 'assets/icons/home_icon.svg';
   static const String activityIcon = 'assets/icons/activity_icon.svg';
+  static const String backArrowIcon = 'assets/icons/back_arrow_icon.svg';
+  static const String moreIcon = 'assets/icons/more_icon.svg';
 
   static const String homeBackgroundBannerIcon =
       'assets/icons/home_background.svg';
