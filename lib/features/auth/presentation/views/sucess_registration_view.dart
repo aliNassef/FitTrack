@@ -7,6 +7,7 @@ import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../home/presentation/views/home_view.dart';
 
 class SuccessfulRegistrationView extends StatelessWidget {
   const SuccessfulRegistrationView({super.key});
@@ -40,12 +41,22 @@ class SuccessfulRegistrationView extends StatelessWidget {
             Spacer(),
             DefaultAppButton(
               text: 'Go to Home',
-              onPressed: () {},
+              onPressed: () {
+                _goToHomePage(context);
+              },
             ),
             VerticalSpace(20),
           ],
         ).withHorizontalPadding(30),
       ),
+    );
+  }
+
+  void _goToHomePage(BuildContext context) {
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      HomeView.routeName,
+      (route) => false,
     );
   }
 }

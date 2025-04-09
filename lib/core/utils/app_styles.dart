@@ -72,6 +72,11 @@ abstract class AppStyles {
     fontSize: 15,
     fontWeight: FontWeight.w600,
   );
+  static final semiBold16 = _createStyle(
+    fontFamily: 'Poppins',
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
   static final regular16 = _createStyle(
     fontFamily: 'Poppins',
     fontSize: 16,

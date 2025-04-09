@@ -5,6 +5,7 @@ import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/auth/presentation/views/signup_welcome_view.dart';
 import '../../features/auth/presentation/views/sucess_registration_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
 
@@ -33,6 +34,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SuccessfulRegistrationView.routeName:
       return MaterialPageRoute(
         builder: (context) => const SuccessfulRegistrationView(),
+      );
+    case HomeView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const HomeView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

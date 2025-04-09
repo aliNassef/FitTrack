@@ -1,9 +1,9 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:fit_track_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/utils/app_router.dart';
-import 'features/onboarding/presentation/views/welcome_view.dart';
 
 class FitTrackApp extends StatelessWidget {
   const FitTrackApp({super.key});
@@ -24,7 +24,7 @@ class FitTrackApp extends StatelessWidget {
             primarySwatch: Colors.blue,
           ),
           onGenerateRoute: (settings) => onGenerateRoute(settings),
-          initialRoute: WelcomeView.routeName,
+          initialRoute: HomeView.routeName,
         );
       },
     );

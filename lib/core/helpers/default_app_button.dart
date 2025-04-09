@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
- 
+
 import '../utils/app_colors.dart';
 import '../utils/app_styles.dart';
 
@@ -11,17 +11,19 @@ class DefaultAppButton extends StatelessWidget {
     this.onPressed,
     this.backgroundColor,
     this.textColor = Colors.white,
-    this.icon = const SizedBox(),
+    this.icon,
     this.padding = 0,
     this.radius = 99,
+    this.textStyle,
   });
   final String text;
   final void Function()? onPressed;
   final Color? backgroundColor;
   final Color textColor;
-  final Widget icon;
+  final Widget? icon;
   final double padding;
   final double radius;
+  final TextStyle? textStyle;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,12 +48,13 @@ class DefaultAppButton extends StatelessWidget {
           spacing: 10.w,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            icon,
+            if (icon != null) icon!,
             Text(
               text,
-              style: AppStyles.bold16.copyWith(
-                color: textColor,
-              ),
+              style: textStyle ??
+                  AppStyles.bold16.copyWith(
+                    color: textColor,
+                  ),
             ),
           ],
         ),

@@ -9,6 +9,8 @@ abstract class AppImages {
   static const String register2 = 'assets/images/register2.png';
   static const String register3 = 'assets/images/register3.png';
   static const String successRegister = 'assets/images/sucess_reg.png';
+  static const String homeBackgroundItem =
+      'assets/images/home_background_item.png';
 }
 
 abstract class AppIcons {
@@ -24,4 +26,7 @@ abstract class AppIcons {
   static const String genderIcon = 'assets/icons/gender_icon.svg';
   static const String dateIcon = 'assets/icons/date_icon.svg';
   static const String logoIcon = 'assets/icons/logo_icon.svg';
+  static const String notificationIcon = 'assets/icons/notification_icon.svg';
+  static const String homeBackgroundBannerIcon =
+      'assets/icons/home_background.svg';
 }
