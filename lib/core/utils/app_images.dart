@@ -27,6 +27,15 @@ abstract class AppIcons {
   static const String dateIcon = 'assets/icons/date_icon.svg';
   static const String logoIcon = 'assets/icons/logo_icon.svg';
   static const String notificationIcon = 'assets/icons/notification_icon.svg';
+  static const String activeHomeIcon = 'assets/icons/home_active_icon.svg';
+  static const String activeActivityIcon =
+      'assets/icons/active_activity_icon.svg';
+  static const String activeProfileIcon =
+      'assets/icons/active_profile_icon.svg';
+  static const String profileNavIcon = 'assets/icons/profile_icon_nav_bar.svg';
+  static const String homeIcon = 'assets/icons/home_icon.svg';
+  static const String activityIcon = 'assets/icons/activity_icon.svg';
+
   static const String homeBackgroundBannerIcon =
       'assets/icons/home_background.svg';
 }
