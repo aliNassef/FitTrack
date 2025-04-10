@@ -7,6 +7,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../../../core/utils/app_images.dart';
 import '../../activity/presentation/views/activity_view.dart';
 import '../../home/presentation/views/home_view.dart';
+import '../../profile/presentation/views/profile_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -67,7 +68,7 @@ class _LayoutViewState extends State<LayoutView> {
     return [
       HomeView(),
       ActivityView(),
-      Center(child: Text('Profile')),
+      ProfileView(),
     ];
   }
 

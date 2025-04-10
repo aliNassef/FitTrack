@@ -40,6 +40,16 @@ abstract class AppIcons {
   static const String moreIcon = 'assets/icons/more_icon.svg';
   static const String cupOfWaterIcon = 'assets/icons/cup_water_icon.svg';
   static const String footStepIcon = 'assets/icons/foot_step_icon.svg';
+  static const String achivementsIcon = 'assets/icons/achivements_icon.svg';
+  static const String activityHistoryIcon =
+      'assets/icons/activity_history_icon.svg';
+  static const String contactusIcon = 'assets/icons/contactus_icon.svg';
+  static const String profilegreenIcon = 'assets/icons/Profile.svg';
+  static const String settingIcon = 'assets/icons/setting_icon.svg';
+  static const String workoutIcon = 'assets/icons/workout_icon.svg';
+  static const String popupNotificationIcon =
+      'assets/icons/popup_notification_icon.svg';
+  static const String privayPolicyIcon = 'assets/icons/privay_policy_icon.svg';
 
   static const String homeBackgroundBannerIcon =
       'assets/icons/home_background.svg';
