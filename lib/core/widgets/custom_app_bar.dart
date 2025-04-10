@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
-import '../../../../core/utils/app_styles.dart';
-import '../../../../core/widgets/custom_icon_button.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_images.dart';
+import '../utils/app_styles.dart';
+import 'custom_icon_button.dart';
 
-class NotificationTopBar extends StatelessWidget {
-  const NotificationTopBar({
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +23,7 @@ class NotificationTopBar extends StatelessWidget {
           image: AppIcons.backArrowIcon,
         ),
         Text(
-          'Notification',
+          title,
           style: AppStyles.bold16.copyWith(
             color: AppColors.blackColor,
           ),

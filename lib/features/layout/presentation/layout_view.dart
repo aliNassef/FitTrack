@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/utils/app_images.dart';
+import '../../activity/presentation/views/activity_view.dart';
 import '../../home/presentation/views/home_view.dart';
 
 class LayoutView extends StatefulWidget {
@@ -65,7 +66,7 @@ class _LayoutViewState extends State<LayoutView> {
   _buildScreens() {
     return [
       HomeView(),
-      Center(child: Text('Search')),
+      ActivityView(),
       Center(child: Text('Profile')),
     ];
   }

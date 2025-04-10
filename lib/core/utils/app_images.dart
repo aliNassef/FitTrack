@@ -38,6 +38,8 @@ abstract class AppIcons {
   static const String activityIcon = 'assets/icons/activity_icon.svg';
   static const String backArrowIcon = 'assets/icons/back_arrow_icon.svg';
   static const String moreIcon = 'assets/icons/more_icon.svg';
+  static const String cupOfWaterIcon = 'assets/icons/cup_water_icon.svg';
+  static const String footStepIcon = 'assets/icons/foot_step_icon.svg';
 
   static const String homeBackgroundBannerIcon =
       'assets/icons/home_background.svg';

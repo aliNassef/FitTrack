@@ -2,7 +2,7 @@ import 'package:fit_track_app/core/extensions/padding_extension.dart';
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:flutter/material.dart';
 import '../widgets/notification_item.dart';
-import '../widgets/notification_top_bar.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
@@ -13,7 +13,9 @@ class NotificationView extends StatelessWidget {
         body: SafeArea(
       child: Column(
         children: [
-          NotificationTopBar(),
+          CustomAppBar(
+            title: 'Notifications',
+          ),
           VerticalSpace(30),
           Expanded(
             child: ListView.separated(

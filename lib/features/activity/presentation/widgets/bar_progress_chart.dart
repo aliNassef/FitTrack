@@ -14,6 +14,13 @@ class BarProgressChart extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xff1D1617).withValues(alpha: 0.07),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
       ),
       height: context.height * .3,
       child: _BarChart(

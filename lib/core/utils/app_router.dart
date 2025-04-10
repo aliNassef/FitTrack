@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../features/activity/presentation/views/activity_view.dart';
 import '../../features/auth/presentation/views/complete_profile_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
@@ -48,6 +49,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case NotificationView.routeName:
       return MaterialPageRoute(
         builder: (context) => const NotificationView(),
+      );
+    case ActivityView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ActivityView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
