@@ -47,6 +47,11 @@ abstract class AppStyles {
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );
+    static final medium10= _createStyle(
+    fontFamily: 'Poppins',
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+  );
   static final bold13 = _createStyle(
     fontFamily: 'Poppins',
     fontSize: 13,

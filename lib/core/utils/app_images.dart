@@ -10,6 +10,7 @@ abstract class AppImages {
   static const String register2 = 'assets/images/register2.png';
   static const String register3 = 'assets/images/register3.png';
   static const String successRegister = 'assets/images/sucess_reg.png';
+  static const String character = 'assets/images/Character.png';
   static const String homeBackgroundItem =
       'assets/images/home_background_item.png';
 }
