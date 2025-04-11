@@ -12,6 +12,7 @@ import '../../features/layout/presentation/layout_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
 import '../../features/profile/presentation/views/profile_view.dart';
+import '../../features/workout/presentation/view/workout_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -58,6 +59,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ProfileView.routeName:
       return MaterialPageRoute(
         builder: (context) => const ProfileView(),
+      );
+    case WorkoutView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const WorkoutView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

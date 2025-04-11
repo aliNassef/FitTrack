@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
-import 'custom_gradient_switch.dart';
-
+import '../../../../core/widgets/custom_switch.dart';
+ 
 class ProfileListTile extends StatelessWidget {
   const ProfileListTile({
     super.key,
@@ -33,10 +33,7 @@ class ProfileListTile extends StatelessWidget {
         ),
       ),
       trailing: withSwitch
-          ? CustomGradientSwitch(
-              value: true,
-              onChanged: (value) {},
-            )
+          ? CustomSwitch()
           : Transform.rotate(
               angle: pi,
               child: SvgPicture.asset(

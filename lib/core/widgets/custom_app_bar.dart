@@ -9,8 +9,10 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.title,
+    this.titleColor,
   });
   final String title;
+  final Color? titleColor;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
         Text(
           title,
           style: AppStyles.bold16.copyWith(
-            color: AppColors.blackColor,
+            color: titleColor ?? AppColors.blackColor,
           ),
         ),
         CustomIconButton(image: AppIcons.moreIcon),

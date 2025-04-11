@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/utils/app_shadows.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class HomeGridItem extends StatelessWidget {
@@ -17,13 +18,7 @@ class HomeGridItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xffFFFFFF),
         borderRadius: BorderRadius.circular(20.r),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xff000000).withValues(alpha: 0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: AppShadows.shadow1,
       ),
       width: 150.w,
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),

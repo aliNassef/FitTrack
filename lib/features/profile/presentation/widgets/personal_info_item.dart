@@ -1,3 +1,4 @@
+import 'package:fit_track_app/core/utils/app_shadows.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,13 +23,7 @@ class PersonalInfoItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xff1D1617).withValues(alpha: 0.07),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+              boxShadow: AppShadows.shadow1,
       ),
       child: Column(
         spacing: 5.h,

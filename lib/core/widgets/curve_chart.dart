@@ -1,7 +1,7 @@
 import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
- 
+
 class CurveChart extends StatelessWidget {
   const CurveChart({super.key});
 
@@ -10,7 +10,7 @@ class CurveChart extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(20),
       ),
       height: context.height * .3,
@@ -51,7 +51,7 @@ FlBorderData _borderStyle() {
     show: true,
     border: Border.symmetric(
       horizontal: BorderSide(
-        color: Colors.black.withValues(alpha: 0.2),
+        color: Color(0xffF7F8F8),
         width: 1,
       ),
     ),
@@ -67,7 +67,7 @@ FlGridData _backgroundStyle() {
     checkToShowHorizontalLine: (value) => true,
     getDrawingHorizontalLine: (value) {
       return FlLine(
-        color: Colors.black.withValues(alpha: 0.2),
+        color: Color(0xffF7F8F8),
         strokeWidth: 1,
       );
     },
@@ -89,7 +89,7 @@ FlTitlesData _borderTitlesData() {
             child: Text(
               days[value.toInt()],
               style: const TextStyle(
-                color: Colors.grey,
+                color: Colors.white,
                 fontSize: 12,
               ),
             ),
@@ -113,7 +113,7 @@ FlTitlesData _borderTitlesData() {
             child: Text(
               '${(value * 10).toInt()}%',
               style: const TextStyle(
-                color: Colors.grey,
+                color: Colors.white,
                 fontSize: 10,
                 letterSpacing: 0.5,
               ),

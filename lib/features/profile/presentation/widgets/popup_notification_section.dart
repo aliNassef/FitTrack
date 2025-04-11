@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_shadows.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class PopupNotificationSection extends StatelessWidget {
@@ -18,13 +19,7 @@ class PopupNotificationSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xff1D1617).withValues(alpha: 0.07),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+              boxShadow: AppShadows.shadow1,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

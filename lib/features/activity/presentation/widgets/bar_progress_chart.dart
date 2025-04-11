@@ -2,6 +2,8 @@ import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_shadows.dart';
+
 class BarProgressChart extends StatelessWidget {
   const BarProgressChart({
     super.key,
@@ -14,13 +16,7 @@ class BarProgressChart extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xff1D1617).withValues(alpha: 0.07),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        boxShadow: AppShadows.shadow1,
       ),
       height: context.height * .3,
       child: _BarChart(

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/utils/app_images.dart';
+import '../../../core/utils/app_shadows.dart';
 import '../../activity/presentation/views/activity_view.dart';
 import '../../home/presentation/views/home_view.dart';
 import '../../profile/presentation/views/profile_view.dart';
@@ -32,13 +33,10 @@ class _LayoutViewState extends State<LayoutView> {
       controller: _controller,
       screens: _buildScreens(),
       items: _navBarsItems(),
-      decoration: NavBarDecoration(colorBehindNavBar: Colors.white, boxShadow: [
-        BoxShadow(
-          color: Color(0xff1d1617).withValues(alpha: 0.1),
-          blurRadius: 20,
-          offset: const Offset(0, 10),
-        ),
-      ]),
+      decoration: NavBarDecoration(
+        colorBehindNavBar: Colors.white,
+        boxShadow: AppShadows.shadow1,
+      ),
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,

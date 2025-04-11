@@ -4,9 +4,9 @@ import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/title_and_seemore.dart';
 import '../widgets/bar_progress_chart.dart';
 import '../widgets/custom_drop_down_menu.dart';
-import '../widgets/latest_activity_head_title.dart';
 import '../widgets/latest_activity_item.dart';
 import '../widgets/today_target_section.dart';
 
@@ -42,7 +42,9 @@ class ActivityView extends StatelessWidget {
                 VerticalSpace(15),
                 BarProgressChart(),
                 VerticalSpace(30),
-                LatestActivitySectionHeadTitle(),
+                TitleAndSeeMore(
+                  title: 'Latest Activity',
+                ),
                 VerticalSpace(18),
               ],
             ),

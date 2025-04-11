@@ -1,9 +1,9 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:fit_track_app/features/layout/presentation/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'core/utils/app_router.dart';
+import 'core/utils/app_themes.dart';
+import 'features/workout/presentation/view/workout_view.dart';
 
 class FitTrackApp extends StatelessWidget {
   const FitTrackApp({super.key});
@@ -20,11 +20,9 @@ class FitTrackApp extends StatelessWidget {
           builder: DevicePreview.appBuilder,
           title: 'Fit Track',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          theme: getLightTheme(),
           onGenerateRoute: (settings) => onGenerateRoute(settings),
-          initialRoute: LayoutView.routeName,
+          initialRoute: WorkoutView.routeName,
         );
       },
     );
