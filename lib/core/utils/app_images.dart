@@ -11,6 +11,8 @@ abstract class AppImages {
   static const String register3 = 'assets/images/register3.png';
   static const String successRegister = 'assets/images/sucess_reg.png';
   static const String character = 'assets/images/Character.png';
+  static const String workoutBackground =
+      'assets/images/workout_background.png';
   static const String homeBackgroundItem =
       'assets/images/home_background_item.png';
 }
@@ -48,9 +50,14 @@ abstract class AppIcons {
   static const String profilegreenIcon = 'assets/icons/Profile.svg';
   static const String settingIcon = 'assets/icons/setting_icon.svg';
   static const String workoutIcon = 'assets/icons/workout_icon.svg';
+  static const String favInactiveIcon = 'assets/icons/fav_inactive_icon.svg';
+  static const String favactiveIcon = 'assets/icons/fav_active_icon.svg';
   static const String popupNotificationIcon =
       'assets/icons/popup_notification_icon.svg';
   static const String privayPolicyIcon = 'assets/icons/privay_policy_icon.svg';
+  static const String difficultyIcon =
+      'assets/icons/diffculty_workout_icon.svg';
+  static const String schedualeIcon = 'assets/icons/scheduale_workout_icon.svg';
 
   static const String homeBackgroundBannerIcon =
       'assets/icons/home_background.svg';
