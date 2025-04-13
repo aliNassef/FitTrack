@@ -31,6 +31,7 @@ abstract class AppIcons {
   static const String dateIcon = 'assets/icons/date_icon.svg';
   static const String logoIcon = 'assets/icons/logo_icon.svg';
   static const String notificationIcon = 'assets/icons/notification_icon.svg';
+  static const String rightArrow = 'assets/icons/right_arrow_with_circle.svg';
   static const String activeHomeIcon = 'assets/icons/home_active_icon.svg';
   static const String activeActivityIcon =
       'assets/icons/active_activity_icon.svg';
