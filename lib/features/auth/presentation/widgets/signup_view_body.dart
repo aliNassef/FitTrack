@@ -18,7 +18,7 @@ class SignupViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: SignupFormSection(),
         ),
         SliverToBoxAdapter(
@@ -36,17 +36,17 @@ class SignupViewBody extends StatelessWidget {
                 },
                 text: 'Register',
               ),
-              VerticalSpace(20),
-              CustomOrDvider(),
-              VerticalSpace(20),
-              SocialSigning(),
-              VerticalSpace(30),
+              const VerticalSpace(20),
+              const CustomOrDvider(),
+              const VerticalSpace(20),
+              const SocialSigning(),
+              const VerticalSpace(30),
               HavingAccount(
                 onTap: () => _goToLogin(context),
                 text: 'Already have an account?',
                 action: 'Login',
               ),
-              VerticalSpace(20),
+              const VerticalSpace(20),
             ],
           ),
         ),
@@ -58,7 +58,7 @@ class SignupViewBody extends StatelessWidget {
     Navigator.push(
       context,
       goToPageWithAnimation(
-        LoginView(),
+        const LoginView(),
       ),
     );
   }

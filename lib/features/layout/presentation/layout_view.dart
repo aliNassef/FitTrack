@@ -64,9 +64,9 @@ class _LayoutViewState extends State<LayoutView> {
 
   _buildScreens() {
     return [
-      HomeView(),
-      ActivityView(),
-      ProfileView(),
+      const HomeView(),
+      const ActivityView(),
+      const ProfileView(),
     ];
   }
 

@@ -14,7 +14,7 @@ ThemeData getLightTheme() {
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
     useMaterial3: true,
     primaryColor: AppColors.primaryColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
       ),

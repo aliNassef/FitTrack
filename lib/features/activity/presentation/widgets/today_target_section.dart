@@ -16,7 +16,7 @@ class TodayTargetSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xfff6e3fa),
+        color:const Color(0xfff6e3fa),
         borderRadius: BorderRadius.circular(22),
       ),
       padding: const EdgeInsets.all(20),
@@ -32,7 +32,7 @@ class TodayTargetSection extends StatelessWidget {
               ),
               DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       AppColors.secondaryColor,
                       AppColors.primaryColor,
@@ -40,7 +40,7 @@ class TodayTargetSection extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.add,
                   color: Colors.white,
                 ).withAllPadding(5),
@@ -50,14 +50,14 @@ class TodayTargetSection extends StatelessWidget {
           Row(
             spacing: 15.w,
             children: [
-              Expanded(
+            const  Expanded(
                 child: TargetTodayItem(
                   title: '8L',
                   subTitle: 'Water intake',
                   image: AppIcons.cupOfWaterIcon,
                 ),
               ),
-              Expanded(
+       const       Expanded(
                 child: TargetTodayItem(
                   title: '2400',
                   subTitle: 'Foot Steps',

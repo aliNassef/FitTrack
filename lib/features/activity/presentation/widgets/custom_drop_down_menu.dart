@@ -11,10 +11,10 @@ class CustomDropdownButton extends StatefulWidget {
   const CustomDropdownButton({super.key});
 
   @override
-  _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
+  CustomDropdownButtonState createState() => CustomDropdownButtonState();
 }
 
-class _CustomDropdownButtonState extends State<CustomDropdownButton> {
+class CustomDropdownButtonState extends State<CustomDropdownButton> {
   String selectedValue = 'Weekly'; // Default value
   List<String> dropdownItems = ['Daily', 'Weekly', 'Monthly', 'Yearly'];
 
@@ -26,7 +26,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
         vertical: 0,
       ),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             Color(0xff00F0FF),
             Color(0xff00FF66),
@@ -43,10 +43,10 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
             height: 20.h,
             width: 20.w,
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
           ),
         ),
-        underline: SizedBox(), // Remove the default underline
+        underline: const SizedBox(), // Remove the default underline
         // Background color of dropdown menu
         dropdownColor: Colors.teal,
         style: AppStyles.medium14.copyWith(

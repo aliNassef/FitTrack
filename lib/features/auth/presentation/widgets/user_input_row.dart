@@ -27,9 +27,9 @@ class UserInputRow extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color(0xffEEA4CE),
                 Color(0xffC150F6),

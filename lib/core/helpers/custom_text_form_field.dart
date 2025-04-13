@@ -60,18 +60,18 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           color: widget.hintColor ?? AppColors.greyColor,
         ),
         border: buildBorderStyle(
-          Color(0xffF7F8F8),
+          const Color(0xffF7F8F8),
         ),
         enabledBorder: buildBorderStyle(
-          Color(0xffF7F8F8),
+          const Color(0xffF7F8F8),
         ),
         focusedBorder: buildBorderStyle(
-          Color(0xffF7F8F8),
+          const Color(0xffF7F8F8),
         ),
         prefixIcon: widget.prefixIcon == null
             ? null
             : Padding(
-                padding: EdgeInsets.fromLTRB(16, 16, 10, 16),
+                padding: const EdgeInsets.fromLTRB(16, 16, 10, 16),
                 child: SvgPicture.asset(widget.prefixIcon!)),
         suffixIcon: widget.isPassword
             ? IconButton(

@@ -13,10 +13,10 @@ class NotificationView extends StatelessWidget {
         body: SafeArea(
       child: Column(
         children: [
-          CustomAppBar(
+          const CustomAppBar(
             title: 'Notifications',
           ),
-          VerticalSpace(30),
+          const VerticalSpace(30),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (_, index) {

@@ -17,7 +17,7 @@ class TrainLessonsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xfff6e3fa),
+        color: const Color(0xfff6e3fa),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -54,15 +54,15 @@ class TrainLessonsItem extends StatelessWidget {
                   ],
                 ),
               ),
-              VerticalSpace(15),
-              ViewMoreButton(),
+              const VerticalSpace(15),
+              const ViewMoreButton(),
             ],
           ).withAllPadding(20),
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.only(right: 20.w),
-            foregroundDecoration: BoxDecoration(
-              image: const DecorationImage(
+            foregroundDecoration: const BoxDecoration(
+              image: DecorationImage(
                 image: AssetImage(AppImages.character),
                 fit: BoxFit.fill,
               ),

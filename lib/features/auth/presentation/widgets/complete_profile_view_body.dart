@@ -20,33 +20,33 @@ class CompleteProfileViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        VerticalSpace(20),
+    const    VerticalSpace(20),
         Text(
           'Let’s complete your profile',
           style: AppStyles.bold20,
           textAlign: TextAlign.center,
         ),
-        VerticalSpace(5),
+     const   VerticalSpace(5),
         Text(
           'It will help us to know more about you!',
           style: AppStyles.regular12,
           textAlign: TextAlign.center,
         ),
         VerticalSpace(context.height * .16),
-        CustomDropDownButton(),
-        VerticalSpace(13),
+     const   CustomDropDownButton(),
+    const    VerticalSpace(13),
         CustomTextFormField(
           hintText: 'Date of Birth',
           prefixIcon: AppIcons.dateIcon,
           controller: TextEditingController(),
         ),
-        VerticalSpace(13),
+  const      VerticalSpace(13),
         UserInputRow(
           controller: TextEditingController(),
           hint: 'Your Weight',
           measurement: 'KG',
         ),
-        VerticalSpace(13),
+   const     VerticalSpace(13),
         UserInputRow(
           controller: TextEditingController(),
           hint: 'Your Height',

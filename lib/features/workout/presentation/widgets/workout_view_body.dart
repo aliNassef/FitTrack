@@ -31,8 +31,8 @@ class WorkoutViewBody extends StatelessWidget {
       ),
       child: CustomScrollView(
         slivers: [
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
             sliver: SliverAppBar(
               backgroundColor: Colors.transparent,
               title: CustomAppBar(
@@ -42,7 +42,7 @@ class WorkoutViewBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: Column(
+            child: const Column(
               children: [
                 VerticalSpace(30),
                 CurveChart(),
@@ -53,32 +53,32 @@ class WorkoutViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  VerticalSpace(10),
-                  Align(
+                  const VerticalSpace(10),
+                  const Align(
                     alignment: Alignment.center,
                     child: SwapScrollDvider(),
                   ),
-                  VerticalSpace(60),
-                  TitleAndSeeMore(
+                  const VerticalSpace(60),
+                  const TitleAndSeeMore(
                     title: 'Upcoming Workout',
                   ),
-                  VerticalSpace(15),
-                  UpComingWorkoutListTile(),
-                  VerticalSpace(15),
-                  UpComingWorkoutListTile(),
+                  const VerticalSpace(15),
+                  const UpComingWorkoutListTile(),
+                  const VerticalSpace(15),
+                  const UpComingWorkoutListTile(),
                   VerticalSpace(context.height * .08),
                   Text(
                     'What Do You Want to Train',
                     style: AppStyles.semiBold16,
                   ),
-                  VerticalSpace(15),
+                  const VerticalSpace(15),
                   Column(
                     children: List.generate(
                       10,

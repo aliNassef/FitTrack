@@ -15,7 +15,7 @@ class UpComingWorkoutListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: AppShadows.shadow1,
@@ -42,7 +42,7 @@ class UpComingWorkoutListTile extends StatelessWidget {
             color: AppColors.greyLighterColor,
           ),
         ),
-        trailing: CustomSwitch(),
+        trailing: const CustomSwitch(),
       ),
     );
   }

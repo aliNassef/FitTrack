@@ -6,7 +6,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_switch.dart';
- 
+
 class ProfileListTile extends StatelessWidget {
   const ProfileListTile({
     super.key,
@@ -33,7 +33,7 @@ class ProfileListTile extends StatelessWidget {
         ),
       ),
       trailing: withSwitch
-          ? CustomSwitch()
+          ? const CustomSwitch()
           : Transform.rotate(
               angle: pi,
               child: SvgPicture.asset(

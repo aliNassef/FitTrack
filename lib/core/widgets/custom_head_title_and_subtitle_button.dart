@@ -26,7 +26,7 @@ class CustomHeadTittleAndSubTitleButton extends StatelessWidget {
           child: Text(
             subtitle,
             style: AppStyles.medium12.copyWith(
-              color: Color(0xffA5A3B0),
+              color: const Color(0xffA5A3B0),
             ),
           ),
         ),

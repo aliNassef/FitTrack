@@ -13,19 +13,19 @@ class PersonalInfoListItems extends StatelessWidget {
     return Row(
       spacing: 15.w,
       children: [
-        Expanded(
+        const Expanded(
           child: PersonalInfoItem(
             subTitle: 'Weight',
             title: '70kg',
           ),
         ),
-        Expanded(
+        const Expanded(
           child: PersonalInfoItem(
             subTitle: 'Age',
             title: '25',
           ),
         ),
-        Expanded(
+        const Expanded(
           child: PersonalInfoItem(
             subTitle: 'Height',
             title: '180cm',

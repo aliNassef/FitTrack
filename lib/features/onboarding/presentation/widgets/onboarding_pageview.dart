@@ -28,12 +28,12 @@ class OnboardingPageView extends StatelessWidget {
               OnBoardingImageItem(
                 image: boardingItems[currentPage].image,
               ),
-              VerticalSpace(50),
+              const VerticalSpace(50),
               Text(
                 boardingItems[currentPage].title,
                 style: AppStyles.bold24,
               ).withHorizontalPadding(30),
-              VerticalSpace(15),
+              const VerticalSpace(15),
               Text(
                 boardingItems[currentPage].description,
                 style: AppStyles.regular14.copyWith(

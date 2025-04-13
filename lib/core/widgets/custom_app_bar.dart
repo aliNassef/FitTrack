@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget {
             color: titleColor ?? AppColors.blackColor,
           ),
         ),
-        CustomIconButton(image: AppIcons.moreIcon),
+        const CustomIconButton(image: AppIcons.moreIcon),
       ],
     );
   }

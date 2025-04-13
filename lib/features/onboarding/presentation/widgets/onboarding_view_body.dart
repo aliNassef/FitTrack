@@ -37,7 +37,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
         ),
         OnboardingButtonProgress(controller: pageController)
             .withHorizontalPadding(30),
-        VerticalSpace(40),
+        const VerticalSpace(40),
       ],
     );
   }

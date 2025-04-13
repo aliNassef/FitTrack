@@ -30,19 +30,19 @@ class _SignupWelcomeViewBodyState extends State<SignupWelcomeViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VerticalSpace(30),
+        const VerticalSpace(30),
         Text(
           'What is your goal ?',
           style: AppStyles.bold20,
         ).withHorizontalPadding(30),
-        VerticalSpace(5),
+        const VerticalSpace(5),
         Text(
           'It will help us to choose a best program for you',
           style: AppStyles.regular12.copyWith(
             color: AppColors.greyDeeperColor,
           ),
         ).withHorizontalPadding(30),
-        VerticalSpace(50),
+        const VerticalSpace(50),
         GoalCardItemsList(
           onPageChanged: (int index, CarouselPageChangedReason reason) {
             setState(() {
@@ -51,7 +51,7 @@ class _SignupWelcomeViewBodyState extends State<SignupWelcomeViewBody> {
           },
           controller: buttonCarouselController,
         ),
-        VerticalSpace(50),
+        const VerticalSpace(50),
         DefaultAppButton(
           text: 'Confirm',
           onPressed: () {
@@ -68,7 +68,7 @@ class _SignupWelcomeViewBodyState extends State<SignupWelcomeViewBody> {
             }
           },
         ).withHorizontalPadding(30),
-        VerticalSpace(20),
+        const VerticalSpace(20),
       ],
     );
   }

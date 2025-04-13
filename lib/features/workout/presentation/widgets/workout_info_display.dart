@@ -33,21 +33,21 @@ class WorkoutInfoDisplay extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset(image),
-          HorizontalSpace(10),
+          const HorizontalSpace(10),
           Text(
             title,
             style: AppStyles.regular12.copyWith(
               color: AppColors.greyLighterColor,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             date,
             style: AppStyles.regular10.copyWith(
               color: AppColors.greyLighterColor,
             ),
           ),
-          HorizontalSpace(10),
+          const HorizontalSpace(10),
           Transform.rotate(
             angle: 3.14,
             child: SvgPicture.asset(

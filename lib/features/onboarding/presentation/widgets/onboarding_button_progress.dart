@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart'; 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../auth/presentation/views/signup_view.dart';
@@ -22,10 +22,10 @@ class OnboardingButtonProgress extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.all(5),
+                margin: const EdgeInsets.all(5),
                 width: 70.w,
                 height: 70.h,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: LinearGradient(
                     colors: [
@@ -34,7 +34,7 @@ class OnboardingButtonProgress extends StatelessWidget {
                     ],
                   ),
                 ),
-                child: Center(
+                child: const Center(
                   child: Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: Colors.white,
@@ -62,7 +62,7 @@ class OnboardingButtonProgress extends StatelessWidget {
       Navigator.pushReplacementNamed(context, SignupView.routeName);
     } else {
       controller.nextPage(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
     }

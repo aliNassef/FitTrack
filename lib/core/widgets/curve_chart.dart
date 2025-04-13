@@ -8,7 +8,7 @@ class CurveChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(20),
@@ -34,13 +34,13 @@ class CurveChart extends StatelessWidget {
       isCurved: true,
       show: true,
       spots: [
-        FlSpot(0, 0),
-        FlSpot(1, 3),
-        FlSpot(2, 4),
-        FlSpot(3, 6),
-        FlSpot(4, 8),
-        FlSpot(5, 10),
-        FlSpot(6, 0),
+        const FlSpot(0, 0),
+        const FlSpot(1, 3),
+        const FlSpot(2, 4),
+        const FlSpot(3, 6),
+        const FlSpot(4, 8),
+        const FlSpot(5, 10),
+        const FlSpot(6, 0),
       ],
     );
   }
@@ -49,7 +49,7 @@ class CurveChart extends StatelessWidget {
 FlBorderData _borderStyle() {
   return FlBorderData(
     show: true,
-    border: Border.symmetric(
+    border: const Border.symmetric(
       horizontal: BorderSide(
         color: Color(0xffF7F8F8),
         width: 1,
@@ -66,7 +66,7 @@ FlGridData _backgroundStyle() {
     horizontalInterval: 2,
     checkToShowHorizontalLine: (value) => true,
     getDrawingHorizontalLine: (value) {
-      return FlLine(
+      return const FlLine(
         color: Color(0xffF7F8F8),
         strokeWidth: 1,
       );
@@ -97,7 +97,7 @@ FlTitlesData _borderTitlesData() {
         },
       ),
     ),
-    topTitles: AxisTitles(
+    topTitles: const AxisTitles(
       sideTitles: SideTitles(
         showTitles: false,
       ),
@@ -122,7 +122,7 @@ FlTitlesData _borderTitlesData() {
         },
       ),
     ),
-    leftTitles: AxisTitles(
+    leftTitles: const AxisTitles(
       sideTitles: SideTitles(
         showTitles: false,
       ),

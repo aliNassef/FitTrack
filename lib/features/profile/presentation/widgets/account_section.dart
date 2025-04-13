@@ -15,11 +15,11 @@ class AccountSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-              boxShadow: AppShadows.shadow1,
+        boxShadow: AppShadows.shadow1,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,23 +28,23 @@ class AccountSection extends StatelessWidget {
             'Account',
             style: AppStyles.semiBold16,
           ),
-          VerticalSpace(15),
-          ProfileListTile(
+          const VerticalSpace(15),
+          const ProfileListTile(
             title: 'Personal Data',
             image: AppIcons.profilegreenIcon,
           ),
-          VerticalSpace(5),
-          ProfileListTile(
+          const VerticalSpace(5),
+          const ProfileListTile(
             title: 'Achievement',
             image: AppIcons.achivementsIcon,
           ),
-          VerticalSpace(5),
-          ProfileListTile(
+          const VerticalSpace(5),
+          const ProfileListTile(
             title: 'Activity History',
             image: AppIcons.activityHistoryIcon,
           ),
-          VerticalSpace(5),
-          ProfileListTile(
+          const VerticalSpace(5),
+          const ProfileListTile(
             title: 'Workout Progress',
             image: AppIcons.workoutIcon,
           ),

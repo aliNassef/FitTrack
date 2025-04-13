@@ -1,3 +1,4 @@
+import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,10 +33,10 @@ class DefaultAppButton extends StatelessWidget {
         height: 60.h,
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: padding),
-        width: double.infinity,
+        width: context.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               AppColors.primaryColor,
               AppColors.secondaryColor,

@@ -15,30 +15,30 @@ class LoginFormSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VerticalSpace(10),
+        const VerticalSpace(10),
         Text(
           'Hey there,',
           style: AppStyles.regular16,
         ),
-        VerticalSpace(5),
+        const VerticalSpace(5),
         Text(
           'Welcome Back',
           style: AppStyles.bold20,
         ),
-        VerticalSpace(30),
+        const VerticalSpace(30),
         CustomTextFormField(
           prefixIcon: AppIcons.emailIcon,
           hintText: 'Email',
           controller: TextEditingController(),
         ),
-        VerticalSpace(16),
+        const VerticalSpace(16),
         CustomTextFormField(
           prefixIcon: AppIcons.lockIcon,
           controller: TextEditingController(),
           hintText: 'Password',
           isPassword: true,
         ),
-        VerticalSpace(10),
+        const VerticalSpace(10),
         TextButton(
           onPressed: () {},
           child: Text(

@@ -6,7 +6,7 @@ class SignupWelcomeView extends StatelessWidget {
   static const String routeName = 'signup_welcome_view';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         bottom: false,
         child: SingleChildScrollView(

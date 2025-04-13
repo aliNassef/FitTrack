@@ -6,7 +6,7 @@ class WorkoutDetailsView extends StatelessWidget {
   static const String routeName = 'workoutDetailsView';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: WorkoutDetailsViewBody(),
     );
   }

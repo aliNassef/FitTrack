@@ -1,7 +1,7 @@
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; 
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_images.dart';
@@ -21,7 +21,7 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: LoginFormSection(),
         ),
         SliverToBoxAdapter(
@@ -38,17 +38,17 @@ class LoginViewBody extends StatelessWidget {
                 onPressed: () {},
                 text: 'Login',
               ),
-              VerticalSpace(20),
-              CustomOrDvider(),
-              VerticalSpace(20),
-              SocialSigning(),
-              VerticalSpace(30),
+              const VerticalSpace(20),
+              const CustomOrDvider(),
+              const VerticalSpace(20),
+              const SocialSigning(),
+              const VerticalSpace(30),
               HavingAccount(
                 onTap: () => _goToRegister(context),
                 text: 'Don\'t have an account yet?',
                 action: 'Register',
               ),
-              VerticalSpace(20),
+              const VerticalSpace(20),
             ],
           ),
         ),
@@ -60,7 +60,7 @@ class LoginViewBody extends StatelessWidget {
     Navigator.push(
       context,
       goToPageWithAnimation(
-        SignupView(),
+        const SignupView(),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
@@ -14,21 +13,21 @@ class CustomOrDvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: Divider(
             color: AppColors.greyMoreLighterColor,
             thickness: 1,
           ),
         ),
-        HorizontalSpace(10),
+        const HorizontalSpace(10),
         Text(
           'Or',
           style: AppStyles.regular12.copyWith(
             color: AppColors.blackColor,
           ),
         ),
-        HorizontalSpace(10),
-        Expanded(
+        const HorizontalSpace(10),
+        const Expanded(
           child: Divider(
             color: AppColors.greyMoreLighterColor,
             thickness: 1,

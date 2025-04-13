@@ -12,7 +12,7 @@ class HomeChart extends StatelessWidget {
       width: context.width,
       padding: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
-        color: Color(0xfff4dffc),
+        color: const Color(0xfff4dffc),
         borderRadius: BorderRadius.circular(20),
       ),
       child: LineChart(
@@ -20,17 +20,17 @@ class HomeChart extends StatelessWidget {
           lineBarsData: [
             LineChartBarData(
               spots: [
-                FlSpot(0, 1),
-                FlSpot(1, 2),
-                FlSpot(2, 3),
-                FlSpot(3, 4),
-                FlSpot(4, 5),
-                FlSpot(5, 6),
+                const FlSpot(0, 1),
+                const FlSpot(1, 2),
+                const FlSpot(2, 3),
+                const FlSpot(3, 4),
+                const FlSpot(4, 5),
+                const FlSpot(5, 6),
               ],
               isCurved: true,
               barWidth: 4,
               belowBarData: BarAreaData(show: false),
-              dotData: FlDotData(show: false),
+              dotData: const FlDotData(show: false),
             ),
           ],
           titlesData: _homeChartTitle(),
@@ -42,7 +42,7 @@ class HomeChart extends StatelessWidget {
   }
 
   FlGridData _homeChartBackgroundStyle() {
-    return FlGridData(
+    return const FlGridData(
       show: false,
     );
   }
@@ -54,7 +54,7 @@ class HomeChart extends StatelessWidget {
   }
 
   FlTitlesData _homeChartTitle() {
-    return FlTitlesData(
+    return const FlTitlesData(
       leftTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: false,

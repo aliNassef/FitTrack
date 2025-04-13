@@ -22,10 +22,10 @@ class ActivityView extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                CustomAppBar(title: 'Activity Tracker'),
-                VerticalSpace(30),
-                TodayTargetSection(),
-                VerticalSpace(30),
+                const CustomAppBar(title: 'Activity Tracker'),
+                const VerticalSpace(30),
+                const TodayTargetSection(),
+                const VerticalSpace(30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -35,30 +35,30 @@ class ActivityView extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 30.h,
-                      child: CustomDropdownButton(),
+                      child: const CustomDropdownButton(),
                     ),
                   ],
                 ),
-                VerticalSpace(15),
-                BarProgressChart(),
-                VerticalSpace(30),
-                TitleAndSeeMore(
+                const VerticalSpace(15),
+                const BarProgressChart(),
+                const VerticalSpace(30),
+                const TitleAndSeeMore(
                   title: 'Latest Activity',
                 ),
-                VerticalSpace(18),
+                const VerticalSpace(18),
               ],
             ),
           ),
           SliverList.separated(
             itemBuilder: (_, index) {
-              return LatestActivityItem();
+              return const LatestActivityItem();
             },
             separatorBuilder: (_, index) {
-              return VerticalSpace(15);
+              return const VerticalSpace(15);
             },
             itemCount: 4,
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: VerticalSpace(30),
           ),
         ],

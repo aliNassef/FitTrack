@@ -22,8 +22,8 @@ class CustomSwitchState extends State<CustomSwitch> {
         });
       },
       activeColor: Colors.white,
-      inactiveTrackColor: Color(0xffC6C4D4),
-      activeTrackColor: Color(0xff00F0FF),
+      inactiveTrackColor: const Color(0xffC6C4D4),
+      activeTrackColor: const Color(0xff00F0FF),
       inactiveThumbColor: Colors.white,
       splashRadius: 0,
     );

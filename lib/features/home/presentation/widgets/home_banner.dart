@@ -15,7 +15,7 @@ class HomeBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         image: const DecorationImage(
           image: svg.Svg(
@@ -42,14 +42,14 @@ class HomeBanner extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              VerticalSpace(5),
+              const VerticalSpace(5),
               Text(
                 'You have a normal weight',
                 style: AppStyles.regular12.copyWith(
                   color: Colors.white,
                 ),
               ),
-              VerticalSpace(15),
+              const VerticalSpace(15),
               SizedBox(
                 height: 35.h,
                 width: 100.w,
@@ -63,7 +63,7 @@ class HomeBanner extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           CircleAvatar(
             radius: 44.r,
             backgroundColor: Colors.white,

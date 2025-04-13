@@ -53,7 +53,7 @@ class FullBodyListTileWithFavButton extends StatelessWidget {
           ],
         ),
       ),
-      trailing: ToggleFavoriteButton(),
+      trailing: const ToggleFavoriteButton(),
     );
   }
 }

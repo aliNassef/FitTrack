@@ -15,11 +15,11 @@ class PopupNotificationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-              boxShadow: AppShadows.shadow1,
+        boxShadow: AppShadows.shadow1,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,8 +28,8 @@ class PopupNotificationSection extends StatelessWidget {
             'Notification',
             style: AppStyles.semiBold16,
           ),
-          VerticalSpace(15),
-          ProfileListTile(
+          const VerticalSpace(15),
+          const ProfileListTile(
             withSwitch: true,
             title: 'Pop-up Notification',
             image: AppIcons.popupNotificationIcon,

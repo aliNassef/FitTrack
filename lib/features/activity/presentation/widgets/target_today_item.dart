@@ -28,7 +28,7 @@ class TargetTodayItem extends StatelessWidget {
         contentPadding: const EdgeInsets.all(0),
         leading: SvgPicture.asset(image),
         title: ShaderMask(
-          shaderCallback: (bounds) => LinearGradient(
+          shaderCallback: (bounds) => const LinearGradient(
             colors: [
               AppColors.secondaryColor,
               AppColors.primaryColor,

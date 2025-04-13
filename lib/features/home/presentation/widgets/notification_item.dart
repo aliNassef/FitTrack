@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
+
 class NotificationItem extends StatelessWidget {
   const NotificationItem({
     super.key,
@@ -33,7 +34,7 @@ class NotificationItem extends StatelessWidget {
           color: AppColors.greyLighterColor,
         ),
       ),
-      trailing: Icon(
+      trailing: const Icon(
         Icons.more_vert_outlined,
         color: AppColors.greyColor,
       ),

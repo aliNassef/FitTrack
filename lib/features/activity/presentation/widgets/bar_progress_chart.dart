@@ -12,14 +12,14 @@ class BarProgressChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: AppShadows.shadow1,
       ),
       height: context.height * .3,
-      child: _BarChart(
+      child: const _BarChart(
         precentages: [
           10,
           20,
@@ -81,7 +81,7 @@ class _BarChart extends StatelessWidget {
               ),
               child: Text(
                 days[value.toInt()],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 12,
                 ),
@@ -90,17 +90,17 @@ class _BarChart extends StatelessWidget {
           },
         ),
       ),
-      topTitles: AxisTitles(
+      topTitles: const AxisTitles(
         sideTitles: SideTitles(
           showTitles: false,
         ),
       ),
-      rightTitles: AxisTitles(
+      rightTitles: const AxisTitles(
         sideTitles: SideTitles(
           showTitles: false,
         ),
       ),
-      leftTitles: AxisTitles(
+      leftTitles: const AxisTitles(
         sideTitles: SideTitles(
           showTitles: false,
         ),
@@ -109,7 +109,7 @@ class _BarChart extends StatelessWidget {
   }
 
   FlGridData _backgroundStyle() {
-    return FlGridData(
+    return const FlGridData(
       show: false,
       drawVerticalLine: false,
     );
@@ -119,7 +119,7 @@ class _BarChart extends StatelessWidget {
     return BarChartRodData(
       toY: toY,
       backDrawRodData: BackgroundBarChartRodData(
-        color: Color(0xffF7F8F8),
+        color: const Color(0xffF7F8F8),
         fromY: 0,
         toY: 100,
         show: true,
@@ -129,12 +129,12 @@ class _BarChart extends StatelessWidget {
       gradient: LinearGradient(
         colors: index % 2 == 0
             ? [
-                Color(0xff00F0FF),
-                Color(0xff00FF66),
+                const Color(0xff00F0FF),
+                const Color(0xff00FF66),
               ]
             : [
-                Color(0xffEEA4CE),
-                Color(0xffC150F6),
+                const Color(0xffEEA4CE),
+                const Color(0xffC150F6),
               ],
       ),
       width: 22,

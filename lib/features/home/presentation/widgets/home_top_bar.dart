@@ -22,7 +22,7 @@ class HomeTopBar extends StatelessWidget {
             Text(
               'Welcome Back,',
               style: AppStyles.regular12.copyWith(
-                color: Color(0xffA5A3B0),
+                color: const Color(0xffA5A3B0),
               ),
             ),
             Text(

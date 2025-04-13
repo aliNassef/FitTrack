@@ -27,11 +27,11 @@ class HomeGridItem extends StatelessWidget {
           Text(
             'Equipment You Need',
             style: AppStyles.medium14.copyWith(
-              color: Color(0xff000000),
+              color: const Color(0xff000000),
             ),
             textAlign: TextAlign.center,
           ),
-          VerticalSpace(7),
+          const VerticalSpace(7),
           Positioned(
             top: 50.h,
             left: 0,

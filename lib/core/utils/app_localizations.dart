@@ -8,9 +8,9 @@ abstract class AppLocalizations {
   Future<Locale> findSystemLocale() async {
     final systemLocale = ui.PlatformDispatcher.instance.locale;
     if (systemLocale.languageCode == 'ar') {
-      return Locale('ar');
+      return const Locale('ar');
     } else {
-      return Locale('en');
+      return const Locale('en');
     }
   }
 

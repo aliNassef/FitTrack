@@ -17,7 +17,7 @@ class WelcomeView extends StatelessWidget {
       body: Container(
         width: context.width,
         height: context.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color(0xffEEA4CE),
@@ -28,13 +28,13 @@ class WelcomeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
+            const Spacer(),
             Image.asset(
               AppImages.logo,
             ),
             ShaderMask(
               shaderCallback: (Rect bounds) {
-                return LinearGradient(
+                return const LinearGradient(
                   colors: [
                     Color(0xffFFFFFF),
                     Color(0xffB8B2B2),
@@ -64,12 +64,12 @@ class WelcomeView extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             DefaultAppButton(
               text: 'Get Started',
               onPressed: () => _goToOnboardingPage(context),
             ).withHorizontalPadding(30),
-            VerticalSpace(40),
+            const VerticalSpace(40),
           ],
         ),
       ),

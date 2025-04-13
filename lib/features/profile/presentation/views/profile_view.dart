@@ -18,7 +18,7 @@ class ProfileView extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: SingleChildScrollView(
-          child: Column(
+          child: const Column(
             children: [
               CustomAppBar(title: 'Profile'),
               VerticalSpace(30),

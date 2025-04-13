@@ -42,7 +42,7 @@ class LatestActivityItem extends StatelessWidget {
         ),
         trailing: Transform.translate(
           offset: const Offset(0, -10),
-          child: Icon(
+          child: const Icon(
             Icons.more_vert_outlined,
             color: AppColors.greyColor,
           ),

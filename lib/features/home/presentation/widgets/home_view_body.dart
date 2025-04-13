@@ -19,17 +19,17 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeTopBar(),
-              VerticalSpace(8),
-              HomeBanner(),
-              VerticalSpace(30),
+              const HomeTopBar(),
+              const VerticalSpace(8),
+              const HomeBanner(),
+              const VerticalSpace(30),
               Text(
                 'Activity Status',
                 style: AppStyles.semiBold16,
               ),
-              VerticalSpace(15),
-              HomeChart(),
-              VerticalSpace(16),
+              const VerticalSpace(15),
+              const HomeChart(),
+              const VerticalSpace(16),
             ],
           ),
         ),
@@ -41,10 +41,10 @@ class HomeViewBody extends StatelessWidget {
             mainAxisSpacing: 8,
           ),
           itemBuilder: (_, index) {
-            return HomeGridItem();
+            return const HomeGridItem();
           },
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: VerticalSpace(30),
         ),
       ],

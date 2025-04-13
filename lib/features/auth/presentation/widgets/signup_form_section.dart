@@ -13,17 +13,17 @@ class SignupFormSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VerticalSpace(10),
+        const VerticalSpace(10),
         Text(
           'Hey there,',
           style: AppStyles.regular16,
         ),
-        VerticalSpace(5),
+        const VerticalSpace(5),
         Text(
           'Create an Account',
           style: AppStyles.bold20,
         ),
-        VerticalSpace(30),
+        const VerticalSpace(30),
         CustomTextFormField(
           prefixIcon: AppIcons.profileIcon,
           hintText: 'Full Name',
@@ -34,20 +34,20 @@ class SignupFormSection extends StatelessWidget {
           hintText: 'Email',
           controller: TextEditingController(),
         ),
-        VerticalSpace(16),
+        const VerticalSpace(16),
         CustomTextFormField(
           prefixIcon: AppIcons.phoneIcon,
           hintText: 'Phone Number',
           controller: TextEditingController(),
         ),
-        VerticalSpace(16),
+        const VerticalSpace(16),
         CustomTextFormField(
           prefixIcon: AppIcons.lockIcon,
           controller: TextEditingController(),
           hintText: 'Password',
           isPassword: true,
         ),
-        VerticalSpace(10),
+        const VerticalSpace(10),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 10.w,

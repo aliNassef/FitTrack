@@ -18,19 +18,19 @@ class SuccessfulRegistrationView extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            VerticalSpace(50),
+          const  VerticalSpace(50),
             Image.asset(
               AppImages.successRegister,
               height: context.height * 0.45,
               width: context.width,
               fit: BoxFit.fill,
             ),
-            VerticalSpace(40),
+   const         VerticalSpace(40),
             Text(
               'Welcome, Stefani',
               style: AppStyles.bold20,
             ),
-            VerticalSpace(5),
+       const     VerticalSpace(5),
             Text(
               'You are all set now, let’s reach your goals together with us',
               style: AppStyles.regular12.copyWith(
@@ -38,14 +38,14 @@ class SuccessfulRegistrationView extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+    const        Spacer(),
             DefaultAppButton(
               text: 'Go to Home',
               onPressed: () {
                 _goToHomePage(context);
               },
             ),
-            VerticalSpace(20),
+  const          VerticalSpace(20),
           ],
         ).withHorizontalPadding(30),
       ),

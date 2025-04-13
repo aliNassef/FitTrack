@@ -10,7 +10,7 @@ class CompleteProfileView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: CompleteProfileViewBody().withHorizontalPadding(16),
+          child: const CompleteProfileViewBody().withHorizontalPadding(16),
         ),
       ),
     );
