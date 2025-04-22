@@ -1,5 +1,5 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:fit_track_app/features/workout/presentation/view/workout_details_view.dart';
+import 'package:device_preview_plus/device_preview_plus.dart';
+import 'package:fit_track_app/features/workout/presentation/view/workout_excersises_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/utils/app_router.dart';
@@ -22,7 +22,7 @@ class FitTrackApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: getLightTheme(),
           onGenerateRoute: (settings) => onGenerateRoute(settings),
-          initialRoute: WorkoutDetailsView.routeName,
+          initialRoute: WorkoutExerciseView.routeName,
         );
       },
     );

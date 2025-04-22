@@ -10,8 +10,9 @@ dependencies:
   carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
-  device_preview: ^1.2.0
+  device_preview_plus: ^2.3.4
   dio: ^5.8.0+1
+  dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
   easy_localization: ^3.0.7+1
   fl_chart: ^0.70.2
