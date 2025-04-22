@@ -2,11 +2,10 @@ import 'package:fit_track_app/core/extensions/padding_extension.dart';
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/widgets/title_and_seemore.dart';
+import '../../../../core/widgets/title_with_customdropdown.dart';
 import '../widgets/bar_progress_chart.dart';
-import '../widgets/custom_drop_down_menu.dart';
 import '../widgets/latest_activity_item.dart';
 import '../widgets/today_target_section.dart';
 
@@ -19,33 +18,24 @@ class ActivityView extends StatelessWidget {
       bottom: false,
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Column(
               children: [
-                const CustomAppBar(title: 'Activity Tracker'),
-                const VerticalSpace(30),
-                const TodayTargetSection(),
-                const VerticalSpace(30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Activity Progress',
-                      style: AppStyles.semiBold16,
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                      child: const CustomDropdownButton(),
-                    ),
-                  ],
+                CustomAppBar(title: 'Activity Tracker'),
+                VerticalSpace(30),
+                TodayTargetSection(),
+                VerticalSpace(30),
+                TitleWithCustomDropDown(
+                  title: 'Activity Progress',
+                  gradientColor: AppGradients.greenGradient,
                 ),
-                const VerticalSpace(15),
-                const BarProgressChart(),
-                const VerticalSpace(30),
-                const TitleAndSeeMore(
+                VerticalSpace(15),
+                BarProgressChart(),
+                VerticalSpace(30),
+                TitleAndSeeMore(
                   title: 'Latest Activity',
                 ),
-                const VerticalSpace(18),
+                VerticalSpace(18),
               ],
             ),
           ),

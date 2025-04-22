@@ -5,6 +5,7 @@ import 'package:fit_track_app/core/widgets/custom_head_title_and_subtitle_button
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'equipment_list_items.dart';
@@ -27,10 +28,7 @@ class WorkoutDetailsViewBody extends StatelessWidget {
           width: context.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xffEEA4CE),
-                Color(0xffC150F6),
-              ],
+              colors: AppGradients.pinkGradient,
             ),
           ),
           child: CustomScrollView(

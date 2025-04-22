@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../data/model/step_model.dart';
 
@@ -22,10 +23,7 @@ class StepItem extends StatelessWidget {
       children: [
         ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(
-            colors: [
-              Color(0xffC150F6),
-              Color(0xffEEA4CE),
-            ],
+            colors: AppGradients.pinkGradient,
           ).createShader(bounds),
           child: SizedBox(
             width: 15.w,
@@ -48,10 +46,7 @@ class StepItem extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: const LinearGradient(
-                  colors: [
-                    Color(0xffEEA4CE),
-                    Color(0xffC150F6),
-                  ],
+                  colors: AppGradients.pinkGradient,
                 ),
                 color: Colors.white,
                 border: Border.all(
@@ -69,10 +64,7 @@ class StepItem extends StatelessWidget {
                   ),
                   shape: BoxShape.circle,
                   gradient: const LinearGradient(
-                    colors: [
-                      Color(0xffEEA4CE),
-                      Color(0xffC150F6),
-                    ],
+                    colors: AppGradients.pinkGradient,
                   ),
                 ),
               ),

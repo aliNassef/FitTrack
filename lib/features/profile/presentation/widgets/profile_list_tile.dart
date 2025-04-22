@@ -13,13 +13,16 @@ class ProfileListTile extends StatelessWidget {
     required this.title,
     required this.image,
     this.withSwitch = false,
+    this.onTap,
   });
   final String title;
   final String image;
   final bool withSwitch;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap  ,
       contentPadding: EdgeInsets.zero,
       leading: SvgPicture.asset(
         image,

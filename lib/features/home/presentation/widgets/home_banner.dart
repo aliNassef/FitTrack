@@ -4,6 +4,7 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 
@@ -24,10 +25,7 @@ class HomeBanner extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         gradient: const LinearGradient(
-          colors: [
-            Color(0xffEEA4CE),
-            Color(0xffC150F6),
-          ],
+          colors:AppGradients.pinkGradient,
         ),
         borderRadius: BorderRadius.circular(16),
       ),

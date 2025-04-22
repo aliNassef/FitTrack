@@ -5,6 +5,7 @@ import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_shadows.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../workout/presentation/view/workout_view.dart';
 import 'profile_list_tile.dart';
 
 class AccountSection extends StatelessWidget {
@@ -44,7 +45,13 @@ class AccountSection extends StatelessWidget {
             image: AppIcons.activityHistoryIcon,
           ),
           const VerticalSpace(5),
-          const ProfileListTile(
+          ProfileListTile(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                WorkoutView.routeName,
+              );
+            },
             title: 'Workout Progress',
             image: AppIcons.workoutIcon,
           ),

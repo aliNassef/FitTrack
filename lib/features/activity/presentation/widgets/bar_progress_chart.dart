@@ -2,6 +2,7 @@ import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_shadows.dart';
 
 class BarProgressChart extends StatelessWidget {
@@ -128,14 +129,8 @@ class _BarChart extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       gradient: LinearGradient(
         colors: index % 2 == 0
-            ? [
-                const Color(0xff00F0FF),
-                const Color(0xff00FF66),
-              ]
-            : [
-                const Color(0xffEEA4CE),
-                const Color(0xffC150F6),
-              ],
+            ? AppGradients.greenGradient
+            : AppGradients.pinkGradient,
       ),
       width: 22,
     );

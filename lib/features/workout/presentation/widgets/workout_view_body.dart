@@ -5,6 +5,7 @@ import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/widgets/curve_chart.dart';
 import '../../../../core/widgets/title_and_seemore.dart';
 import 'swap_scroll_dvider.dart';
@@ -23,10 +24,7 @@ class WorkoutViewBody extends StatelessWidget {
       width: context.width,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color(0xffEEA4CE),
-            Color(0xffC150F6),
-          ],
+          colors: AppGradients.pinkGradient,
         ),
       ),
       child: CustomScrollView(

@@ -2,6 +2,7 @@ import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../data/model/goal_model.dart';
 
@@ -16,10 +17,7 @@ class GoalCardItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [
-            Color(0xffEEA4CE),
-            Color(0xffC150F6),
-          ],
+          colors: AppGradients.pinkGradient,
         ),
         borderRadius: BorderRadius.circular(22),
       ),

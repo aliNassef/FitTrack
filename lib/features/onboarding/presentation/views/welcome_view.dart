@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'onboarding_view.dart';
@@ -19,10 +20,7 @@ class WelcomeView extends StatelessWidget {
         height: context.height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xffEEA4CE),
-              Color(0xffC150F6),
-            ],
+            colors: AppGradients.pinkGradient,
           ),
         ),
         child: Column(

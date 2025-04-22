@@ -8,8 +8,8 @@ import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class CustomDropdownButton extends StatefulWidget {
-  const CustomDropdownButton({super.key});
-
+  const CustomDropdownButton({super.key, required this.gradientColor});
+  final List<Color> gradientColor;
   @override
   CustomDropdownButtonState createState() => CustomDropdownButtonState();
 }
@@ -26,11 +26,8 @@ class CustomDropdownButtonState extends State<CustomDropdownButton> {
         vertical: 0,
       ),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xff00F0FF),
-            Color(0xff00FF66),
-          ], // Gradient colors from the image
+        gradient: LinearGradient(
+          colors: widget.gradientColor, // Gradient colors from the image
         ),
         borderRadius: BorderRadius.circular(50.0), // Rounded corners
       ),

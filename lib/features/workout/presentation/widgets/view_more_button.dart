@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class ViewMoreButton extends StatelessWidget {
@@ -23,10 +24,7 @@ class ViewMoreButton extends StatelessWidget {
       child: ShaderMask(
         shaderCallback: (bounds) {
           return const LinearGradient(
-            colors: [
-              Color(0xffEEA4CE),
-              Color(0xffC150F6),
-            ],
+            colors:AppGradients.pinkGradient,
           ).createShader(bounds);
         },
         child: Center(
