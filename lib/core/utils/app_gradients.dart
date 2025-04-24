@@ -10,4 +10,8 @@ abstract class AppGradients {
     Color(0xffEEA4CE),
     Color(0xffC150F6),
   ];
+  static const List<Color> purpleGradient = [
+    Color(0xff6B50F6),
+    Color(0xffCC8FED),
+  ];
 }

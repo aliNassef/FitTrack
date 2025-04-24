@@ -2,6 +2,7 @@ import 'package:fit_track_app/core/extensions/padding_extension.dart';
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/widgets/title_and_seemore.dart';
 import '../../../../core/widgets/title_with_customdropdown.dart';
@@ -10,7 +11,8 @@ import '../widgets/latest_activity_item.dart';
 import '../widgets/today_target_section.dart';
 
 class ActivityView extends StatelessWidget {
-  const ActivityView({super.key});
+  const ActivityView({super.key, required this.controller});
+  final PersistentTabController controller;
   static const String routeName = 'activity';
   @override
   Widget build(BuildContext context) {
@@ -18,24 +20,29 @@ class ActivityView extends StatelessWidget {
       bottom: false,
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               children: [
-                CustomAppBar(title: 'Activity Tracker'),
-                VerticalSpace(30),
-                TodayTargetSection(),
-                VerticalSpace(30),
-                TitleWithCustomDropDown(
+                CustomAppBar(
+                  title: 'Activity Tracker',
+                  onBackButtonPressed: () {
+                    controller.jumpToTab(0);
+                  },
+                ),
+                const VerticalSpace(30),
+                const TodayTargetSection(),
+                const VerticalSpace(30),
+                const TitleWithCustomDropDown(
                   title: 'Activity Progress',
                   gradientColor: AppGradients.greenGradient,
                 ),
-                VerticalSpace(15),
-                BarProgressChart(),
-                VerticalSpace(30),
-                TitleAndSeeMore(
+                const VerticalSpace(15),
+                const BarProgressChart(),
+                const VerticalSpace(30),
+                const TitleAndSeeMore(
                   title: 'Latest Activity',
                 ),
-                VerticalSpace(18),
+                const VerticalSpace(18),
               ],
             ),
           ),

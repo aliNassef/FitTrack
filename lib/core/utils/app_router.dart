@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-
-import '../../features/activity/presentation/views/activity_view.dart';
 import '../../features/auth/presentation/views/complete_profile_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/auth/presentation/views/signup_welcome_view.dart';
 import '../../features/auth/presentation/views/sucess_registration_view.dart';
-import '../../features/home/presentation/views/home_view.dart';
 import '../../features/home/presentation/views/notification_view.dart';
 import '../../features/layout/presentation/layout_view.dart';
 import '../../features/meal_planner/presentation/view/meal_planner_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
-import '../../features/profile/presentation/views/profile_view.dart';
 import '../../features/workout/presentation/view/workout_details_view.dart';
 import '../../features/workout/presentation/view/workout_excersises_view.dart'
     show WorkoutExerciseView;
@@ -44,10 +40,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const SuccessfulRegistrationView(),
       );
-    case HomeView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const HomeView(),
-      );
+
     case LayoutView.routeName:
       return MaterialPageRoute(
         builder: (context) => const LayoutView(),
@@ -56,14 +49,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const NotificationView(),
       );
-    case ActivityView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const ActivityView(),
-      );
-    case ProfileView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const ProfileView(),
-      );
+
     case WorkoutView.routeName:
       return MaterialPageRoute(
         builder: (context) => const WorkoutView(),

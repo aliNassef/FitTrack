@@ -47,8 +47,11 @@ class WorkoutExerciseViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomAppBar(
+          CustomAppBar(
             title: '',
+            onBackButtonPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
           const VerticalSpace(30),
           const VideoSection(),

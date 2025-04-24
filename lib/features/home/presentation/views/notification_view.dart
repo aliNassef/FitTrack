@@ -13,8 +13,11 @@ class NotificationView extends StatelessWidget {
         body: SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(
+          CustomAppBar(
             title: 'Notifications',
+            onBackButtonPressed: () {
+              Navigator.pop(context);
+            },
           ),
           const VerticalSpace(30),
           Expanded(

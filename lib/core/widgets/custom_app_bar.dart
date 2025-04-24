@@ -10,18 +10,18 @@ class CustomAppBar extends StatelessWidget {
     super.key,
     required this.title,
     this.titleColor,
+    this.onBackButtonPressed,
   });
   final String title;
   final Color? titleColor;
+  final void Function()? onBackButtonPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomIconButton(
-          onTap: () {
-            Navigator.pop(context);
-          },
+          onTap: onBackButtonPressed,
           image: AppIcons.backArrowIcon,
         ),
         Text(
