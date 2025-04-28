@@ -52,10 +52,6 @@ class SuccessfulRegistrationView extends StatelessWidget {
   }
 
   void _goToHomePage(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(
-      context,
-      HomeView.routeName,
-      (route) => false,
-    );
+    Navigator.of(context).pushNamed(HomeView.routeName);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:fit_track_app/features/home/data/models/home_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -10,7 +11,12 @@ class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
     super.key,
   });
-
+  static final gridItems = [
+    HomeModel(title: 'Equipment You Need', subTitle: 'Store'),
+    HomeModel(title: 'Nutrition', subTitle: ' Meal planner'),
+    HomeModel(title: 'Let’s Keep Your Goal!', subTitle: ' Work out'),
+    HomeModel(title: 'Calories', subTitle: ' 760 kCal'),
+  ];
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -34,14 +40,17 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         SliverGrid.builder(
-          itemCount: 6,
+          itemCount: gridItems.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 1,
             mainAxisSpacing: 8,
           ),
           itemBuilder: (_, index) {
-            return const HomeGridItem();
+            return HomeGridItem(
+              index: index,
+              instance: gridItems[index],
+            );
           },
         ),
         const SliverToBoxAdapter(

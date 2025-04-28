@@ -32,6 +32,7 @@ class WorkoutViewBody extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             sliver: SliverAppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               title: CustomAppBar(
                 title: 'Workout Tracker',

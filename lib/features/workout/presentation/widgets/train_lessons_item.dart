@@ -16,69 +16,68 @@ class TrainLessonsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, WorkoutDetailsView.routeName);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xfff6e3fa),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Fullbody Workout',
-                  style: AppStyles.medium14,
-                ),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: '11 Exercises',
-                        style: AppStyles.regular12.copyWith(
-                          color: AppColors.greyLighterColor,
-                        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xfff6e3fa),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Fullbody Workout',
+                style: AppStyles.medium14,
+              ),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: '11 Exercises',
+                      style: AppStyles.regular12.copyWith(
+                        color: AppColors.greyLighterColor,
                       ),
-                      TextSpan(
-                        text: ' | ',
-                        style: AppStyles.regular12.copyWith(
-                          color: AppColors.greyLighterColor,
-                        ),
+                    ),
+                    TextSpan(
+                      text: ' | ',
+                      style: AppStyles.regular12.copyWith(
+                        color: AppColors.greyLighterColor,
                       ),
-                      TextSpan(
-                        text: '32mins',
-                        style: AppStyles.regular12.copyWith(
-                          color: AppColors.greyLighterColor,
-                        ),
+                    ),
+                    TextSpan(
+                      text: '32mins',
+                      style: AppStyles.regular12.copyWith(
+                        color: AppColors.greyLighterColor,
                       ),
-                    ],
-                  ),
-                ),
-                const VerticalSpace(15),
-                const ViewMoreButton(),
-              ],
-            ).withAllPadding(20),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(right: 20.w),
-              foregroundDecoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(AppImages.character),
-                  fit: BoxFit.fill,
+                    ),
+                  ],
                 ),
               ),
-              child: CircleAvatar(
-                radius: 45.r,
-                backgroundColor: Colors.white,
+              const VerticalSpace(15),
+              ViewMoreButton(
+                onTap: () {
+                  Navigator.pushNamed(context, WorkoutDetailsView.routeName);
+                },
+              ),
+            ],
+          ).withAllPadding(20),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(right: 20.w),
+            foregroundDecoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(AppImages.character),
+                fit: BoxFit.fill,
               ),
             ),
-          ],
-        ),
+            child: CircleAvatar(
+              radius: 45.r,
+              backgroundColor: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }

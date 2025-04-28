@@ -33,11 +33,15 @@ class WorkoutDetailsViewBody extends StatelessWidget {
           ),
           child: CustomScrollView(
             slivers: [
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 sliver: SliverAppBar(
+                  automaticallyImplyLeading: false,
                   backgroundColor: Colors.transparent,
                   title: CustomAppBar(
+                    onBackButtonPressed: () {
+                      Navigator.of(context).pop();
+                    },
                     title: '',
                     titleColor: Colors.white,
                   ),

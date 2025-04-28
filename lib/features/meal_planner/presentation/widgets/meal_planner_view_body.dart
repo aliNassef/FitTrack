@@ -1,13 +1,14 @@
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:fit_track_app/core/widgets/curve_chart.dart';
 import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
+import 'package:fit_track_app/features/meal_planner/presentation/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/title_with_customdropdown.dart';
+import 'explore_meal_item.dart';
 
 class MealPlannerViewBody extends StatelessWidget {
   const MealPlannerViewBody({super.key});
@@ -16,7 +17,10 @@ class MealPlannerViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomAppBar(
+        CustomAppBar(
+          onBackButtonPressed: () {
+            Navigator.of(context).pop();
+          },
           title: 'Meal Planner',
         ),
         const VerticalSpace(30),
@@ -61,7 +65,13 @@ class MealPlannerViewBody extends StatelessWidget {
           gradientColor: AppGradients.greenGradient,
         ),
         const VerticalSpace(18),
-        
+        const MealItem(),
+        Text(
+          'Find Something to Eat',
+          style: AppStyles.semiBold16,
+        ),
+        const VerticalSpace(15),
+        const ExploreMealItem(),
       ],
     );
   }

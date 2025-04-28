@@ -1,4 +1,7 @@
 import 'package:fit_track_app/core/utils/app_images.dart';
+import 'package:fit_track_app/features/home/data/models/home_model.dart';
+import 'package:fit_track_app/features/meal_planner/presentation/view/meal_planner_view.dart';
+import 'package:fit_track_app/features/workout/presentation/view/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,8 +13,11 @@ import '../../../../core/utils/app_styles.dart';
 class HomeGridItem extends StatelessWidget {
   const HomeGridItem({
     super.key,
+    required this.instance,
+    required this.index,
   });
-
+  final HomeModel instance;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +31,7 @@ class HomeGridItem extends StatelessWidget {
       child: Stack(
         children: [
           Text(
-            'Equipment You Need',
+            instance.title,
             style: AppStyles.medium14.copyWith(
               color: const Color(0xff000000),
             ),
@@ -41,13 +47,15 @@ class HomeGridItem extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 20.h,
-                  width: 60.w,
+                  width: 55.w,
                   child: DefaultAppButton(
                     text: 'Go To',
                     textStyle: AppStyles.semiBold10.copyWith(
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      _goToSelectedPage(context);
+                    },
                   ),
                 ),
                 ShaderMask(
@@ -62,7 +70,7 @@ class HomeGridItem extends StatelessWidget {
                     Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                   ),
                   child: Text(
-                    '  Store',
+                    '  ${instance.subTitle}',
                     style: AppStyles.semiBold10.copyWith(
                       color: Colors.white,
                     ),
@@ -81,5 +89,16 @@ class HomeGridItem extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _goToSelectedPage(BuildContext context) {
+    if (index == 2) {
+      Navigator.of(context, rootNavigator: true)
+          .pushNamed(WorkoutView.routeName);
+    }
+    if (index == 1) {
+      Navigator.of(context, rootNavigator: true)
+          .pushNamed(MealPlannerView.routeName);
+    }
   }
 }
