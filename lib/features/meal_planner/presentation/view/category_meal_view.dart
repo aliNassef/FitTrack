@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
 import '../widgets/category_list_items.dart';
+import '../widgets/custom_search_bar.dart';
 import '../widgets/popular_meal_item.dart';
 import '../widgets/recommended_meal_list_items.dart';
 
@@ -20,7 +21,8 @@ class CategoryMealView extends StatelessWidget {
           children: [
             const CustomAppBar(title: 'Breakfast'),
             const VerticalSpace(34),
-            // CustomSearchBar(),
+            const CustomSearchBar(),
+            const VerticalSpace(30),
             Text(
               'Category',
               style: AppStyles.semiBold16,
