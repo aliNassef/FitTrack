@@ -61,6 +61,7 @@ abstract class AppIcons {
       'assets/icons/diffculty_workout_icon.svg';
   static const String schedualeIcon = 'assets/icons/scheduale_workout_icon.svg';
   static const String activeReminderIcon = 'assets/icons/remider_icon.svg';
+  static const String goToIcon = 'assets/icons/go_to_icon.svg';
   static const String inActiveReminderIcon =
       'assets/icons/in_active_reminder_icon.svg';
 

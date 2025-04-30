@@ -1,5 +1,7 @@
 import 'package:fit_track_app/core/utils/app_images.dart';
+import 'package:fit_track_app/features/meal_planner/presentation/view/category_meal_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
@@ -14,6 +16,12 @@ class ExploreMealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 200.h,
+      width: 200.w,
+      padding: EdgeInsets.only(
+        left: 20.w,
+        bottom: 20.h,
+      ),
       decoration: const BoxDecoration(
         color: Color(0xffccfee9),
         borderRadius: BorderRadius.only(
@@ -43,8 +51,15 @@ class ExploreMealItem extends StatelessWidget {
             ),
           ),
           const VerticalSpace(15),
-          const DefaultAppButton(
-            text: 'Select',
+          SizedBox(
+            width: 100.w,
+            height: 40.h,
+            child: DefaultAppButton(
+              onPressed: () {
+                Navigator.pushNamed(context, CategoryMealView.routeName);
+              },
+              text: 'Select',
+            ),
           ),
         ],
       ),
