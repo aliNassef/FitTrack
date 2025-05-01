@@ -7,6 +7,7 @@ import '../../features/auth/presentation/views/sucess_registration_view.dart';
 import '../../features/home/presentation/views/notification_view.dart';
 import '../../features/layout/presentation/layout_view.dart';
 import '../../features/meal_planner/presentation/view/category_meal_view.dart';
+import '../../features/meal_planner/presentation/view/meal_details_view.dart';
 import '../../features/meal_planner/presentation/view/meal_planner_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
@@ -70,6 +71,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case CategoryMealView.routeName:
       return MaterialPageRoute(
         builder: (context) => const CategoryMealView(),
+      );
+    case MealDetailsView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MealDetailsView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
