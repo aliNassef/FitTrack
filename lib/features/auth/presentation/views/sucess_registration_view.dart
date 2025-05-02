@@ -6,7 +6,8 @@ import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../home/presentation/views/home_view.dart';
+
+import '../../../layout/presentation/layout_view.dart';
 
 class SuccessfulRegistrationView extends StatelessWidget {
   const SuccessfulRegistrationView({super.key});
@@ -52,6 +53,6 @@ class SuccessfulRegistrationView extends StatelessWidget {
   }
 
   void _goToHomePage(BuildContext context) {
-    Navigator.of(context).pushNamed(HomeView.routeName);
+    Navigator.of(context).pushNamed(LayoutView.routeName);
   }
 }
