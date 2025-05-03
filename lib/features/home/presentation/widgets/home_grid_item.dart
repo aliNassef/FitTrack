@@ -25,8 +25,8 @@ class HomeGridItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: AppShadows.shadow1,
       ),
-      width: 150.w,
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+      width: 160.w,
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       child: Stack(
         children: [
           Text(
@@ -46,7 +46,7 @@ class HomeGridItem extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 20.h,
-                  width: 55.w,
+                  width: 50.w,
                   child: DefaultAppButton(
                     text: 'Go To',
                     textStyle: AppStyles.semiBold10.copyWith(
@@ -69,7 +69,7 @@ class HomeGridItem extends StatelessWidget {
                     Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                   ),
                   child: Text(
-                    '  ${instance.subTitle}',
+                    ' ${instance.subTitle}',
                     style: AppStyles.semiBold10.copyWith(
                       color: Colors.white,
                     ),
