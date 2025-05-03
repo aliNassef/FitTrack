@@ -58,9 +58,12 @@ class TrainLessonsItem extends StatelessWidget {
               const VerticalSpace(15),
               ViewMoreButton(
                 onTap: () {
-                  Navigator.pushNamed(context, WorkoutDetailsView.routeName);
-                },
-              ),
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const WorkoutDetailsView(),),
+                
+                );},),
+              
             ],
           ).withAllPadding(20),
           Container(

@@ -14,9 +14,13 @@ class SetExcersiseItemListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Navigator.pushNamed(
+        Navigator.push(
           context,
-          WorkoutExerciseView.routeName,
+          MaterialPageRoute(
+            builder: (context) {
+              return const WorkoutExerciseView();
+            },
+          ),
         );
       },
       contentPadding: EdgeInsets.zero,
