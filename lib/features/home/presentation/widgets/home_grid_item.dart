@@ -4,7 +4,6 @@ import 'package:fit_track_app/features/meal_planner/presentation/view/meal_plann
 import 'package:fit_track_app/features/workout/presentation/view/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_shadows.dart';
@@ -93,12 +92,20 @@ class HomeGridItem extends StatelessWidget {
 
   void _goToSelectedPage(BuildContext context) {
     if (index == 2) {
-      Navigator.of(context, rootNavigator: true)
-          .pushNamed(WorkoutView.routeName);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WorkoutView(),
+        ),
+      );
     }
     if (index == 1) {
-      Navigator.of(context, rootNavigator: true)
-          .pushNamed(MealPlannerView.routeName);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MealPlannerView(),
+        ),
+      );
     }
   }
 }
