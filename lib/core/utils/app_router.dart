@@ -12,6 +12,7 @@ import '../../features/meal_planner/presentation/view/meal_planner_view.dart';
 import '../../features/meal_planner/presentation/view/meal_scheduale_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
+import '../../features/profile/presentation/views/statistics_view.dart';
 import '../../features/workout/presentation/view/workout_details_view.dart';
 import '../../features/workout/presentation/view/workout_excersises_view.dart'
     show WorkoutExerciseView;
@@ -80,6 +81,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case MealSchedualeView.routeName:
       return MaterialPageRoute(
         builder: (context) => const MealSchedualeView(),
+      );
+    case StatisticsView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const StatisticsView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

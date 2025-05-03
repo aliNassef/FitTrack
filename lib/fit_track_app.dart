@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/app_themes.dart';
 import 'features/onboarding/presentation/views/welcome_view.dart';
+import 'features/profile/presentation/views/statistics_view.dart';
 
 class FitTrackApp extends StatelessWidget {
   const FitTrackApp({super.key});
@@ -22,7 +23,7 @@ class FitTrackApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: getLightTheme(),
           onGenerateRoute: (settings) => onGenerateRoute(settings),
-          initialRoute: WelcomeView.routeName,
+          initialRoute: StatisticsView.routeName,
         );
       },
     );
