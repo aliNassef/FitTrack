@@ -20,7 +20,9 @@ class CheckoutViewBody extends StatelessWidget {
           spacing: 50.w,
           children: [
             CustomIconButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               image: AppIcons.backArrowIcon,
             ),
             Text(
