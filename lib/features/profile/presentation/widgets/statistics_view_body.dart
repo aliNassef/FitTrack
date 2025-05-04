@@ -15,9 +15,16 @@ class StatisticsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomAppBar(title: 'Statistics'),
+        CustomAppBar(
+          title: 'Statistics',
+          onBackButtonPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         const VerticalSpace(40),
-        const CurveChart(),
+        const CurveChart(
+          textColor: AppColors.greyLighterColor,
+        ),
         const VerticalSpace(60),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

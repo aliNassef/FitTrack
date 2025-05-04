@@ -30,7 +30,9 @@ class MealPlannerViewBody extends StatelessWidget {
           title: 'Meal Nutritions',
           gradientColor: AppGradients.purpleGradient,
         ).withHorizontalPadding(30),
-        const CurveChart().withHorizontalPadding(30),
+        const CurveChart(
+          textColor: AppColors.greyLighterColor,
+        ).withHorizontalPadding(30),
         const VerticalSpace(30),
         Container(
           padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 20.w),

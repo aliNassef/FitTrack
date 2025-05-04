@@ -15,7 +15,6 @@ import '../widgets/ingredients_list_items.dart';
 import '../widgets/meal_list_tile_details_title_with_favorite.dart';
 import '../widgets/nurition_list_items.dart';
 
-
 class MealDetailsViewBody extends StatelessWidget {
   const MealDetailsViewBody({
     super.key,
@@ -129,7 +128,6 @@ class MealDetailsViewBody extends StatelessWidget {
                         subtitle: '8 Steps',
                       ),
                       const VerticalSpace(15),
-                      
                       const VerticalSpace(100),
                     ],
                   ),
@@ -151,7 +149,3 @@ class MealDetailsViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

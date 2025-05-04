@@ -24,7 +24,10 @@ class StoreViewBody extends StatelessWidget {
               Row(
                 spacing: 100.w,
                 children: [
-                  const CustomIconButton(
+                  CustomIconButton(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     image: AppIcons.backArrowIcon,
                   ),
                   Text(

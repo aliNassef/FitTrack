@@ -46,7 +46,6 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const SuccessfulRegistrationView(),
       );
-
     case LayoutView.routeName:
       return MaterialPageRoute(
         builder: (context) => const LayoutView(),

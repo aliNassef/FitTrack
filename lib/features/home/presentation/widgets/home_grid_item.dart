@@ -1,7 +1,7 @@
-
 import 'package:fit_track_app/core/utils/app_images.dart';
 import 'package:fit_track_app/features/home/data/models/home_model.dart';
 import 'package:fit_track_app/features/meal_planner/presentation/view/meal_planner_view.dart';
+import 'package:fit_track_app/features/profile/presentation/views/statistics_view.dart';
 import 'package:fit_track_app/features/workout/presentation/view/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +9,7 @@ import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_shadows.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../store/presentation/views/store_view.dart';
 
 class HomeGridItem extends StatelessWidget {
   const HomeGridItem({
@@ -95,21 +96,27 @@ class HomeGridItem extends StatelessWidget {
   }
 
   void _goToSelectedPage(BuildContext context) {
-    if (index == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const WorkoutView(),
-        ),
-      );
-    }
-    if (index == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const MealPlannerView(),
-        ),
-      );
+    switch (index) {
+      case 0:
+        Navigator.of(context, rootNavigator: true).pushNamed(
+          StoreView.routeName,
+        );
+        break;
+      case 1:
+        Navigator.of(context, rootNavigator: true).pushNamed(
+          MealPlannerView.routeName,
+        );
+        break;
+      case 2:
+        Navigator.of(context, rootNavigator: true).pushNamed(
+          WorkoutView.routeName,
+        );
+        break;
+      case 3:
+        Navigator.of(context, rootNavigator: true).pushNamed(
+          StatisticsView.routeName,
+        );
+        break;
     }
   }
 }

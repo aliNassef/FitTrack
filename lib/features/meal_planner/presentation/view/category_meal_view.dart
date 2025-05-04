@@ -19,7 +19,12 @@ class CategoryMealView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomAppBar(title: 'Breakfast'),
+              CustomAppBar(
+                title: 'Breakfast',
+                onBackButtonPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
               const VerticalSpace(34),
               const CustomSearchBar(),
               const VerticalSpace(30),

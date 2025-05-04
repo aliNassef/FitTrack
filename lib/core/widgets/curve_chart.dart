@@ -3,8 +3,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class CurveChart extends StatelessWidget {
-  const CurveChart({super.key});
-
+  const CurveChart({super.key, this.textColor = Colors.white});
+  final Color textColor;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class CurveChart extends StatelessWidget {
           minY: 0,
           gridData: _backgroundStyle(),
           borderData: _borderStyle(),
-          titlesData: _borderTitlesData(),
+          titlesData: _borderTitlesData(textColor),
           lineBarsData: [
             _chartItemLine(),
           ],
@@ -74,7 +74,7 @@ FlGridData _backgroundStyle() {
   );
 }
 
-FlTitlesData _borderTitlesData() {
+FlTitlesData _borderTitlesData(Color textColor) {
   return FlTitlesData(
     show: true,
     bottomTitles: AxisTitles(
@@ -88,8 +88,8 @@ FlTitlesData _borderTitlesData() {
             padding: const EdgeInsets.only(top: 12),
             child: Text(
               days[value.toInt()],
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: textColor,
                 fontSize: 12,
               ),
             ),
@@ -112,8 +112,8 @@ FlTitlesData _borderTitlesData() {
             padding: const EdgeInsets.only(left: 8),
             child: Text(
               '${(value * 10).toInt()}%',
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: textColor,
                 fontSize: 10,
                 letterSpacing: 0.5,
               ),
