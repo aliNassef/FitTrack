@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/model/step_model.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_head_title_and_subtitle_button.dart';
+import '../../../workout/presentation/widgets/step_item.dart';
 import '../../../workout/presentation/widgets/swap_scroll_dvider.dart';
 import '../widgets/ingredients_list_items.dart';
 import '../widgets/meal_list_tile_details_title_with_favorite.dart';
@@ -74,64 +76,7 @@ class MealDetailsViewBody extends StatelessWidget {
                 ).withHorizontalPadding(30),
               ),
               SliverToBoxAdapter(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(40),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const VerticalSpace(10),
-                      const Align(
-                        alignment: Alignment.center,
-                        child: SwapScrollDvider(),
-                      ),
-                      const VerticalSpace(30),
-                      const MealListTileDetailsTitleWithFavorite(),
-                      const VerticalSpace(30),
-                      Text(
-                        'Nutrition',
-                        style: AppStyles.semiBold16,
-                      ),
-                      const VerticalSpace(15),
-                      SizedBox(
-                        height: 45.h,
-                        child: const NutritionListItems(),
-                      ),
-                      const VerticalSpace(30),
-                      Text(
-                        'Descriptions',
-                        style: AppStyles.semiBold16,
-                      ),
-                      const VerticalSpace(30),
-                      const ReadMoreText(
-                        text:
-                            'Pancakes are some people\'s favorite breakfast, who doesn\'t like pancakes? Especially with the real honey splash on top of the pancakes, of course everyone loves that! besides being ',
-                      ),
-                      const VerticalSpace(30),
-                      const CustomHeadTittleAndSubTitleButton(
-                        title: 'Ingredients That You Will Need',
-                        subtitle: '6 items',
-                      ),
-                      const VerticalSpace(15),
-                      SizedBox(
-                        height: 140.h,
-                        child: const IngredientsListItems(),
-                      ),
-                      const VerticalSpace(30),
-                      const CustomHeadTittleAndSubTitleButton(
-                        title: 'Step by Step',
-                        subtitle: '8 Steps',
-                      ),
-                      const VerticalSpace(15),
-                      const VerticalSpace(100),
-                    ],
-                  ),
-                ),
+                child: _buildMealDetailsContent(),
               ),
             ],
           ),
@@ -146,6 +91,80 @@ class MealDetailsViewBody extends StatelessWidget {
           ).withHorizontalPadding(30),
         ),
       ],
+    );
+  }
+
+  Container _buildMealDetailsContent() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(40),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const VerticalSpace(10),
+          const Align(
+            alignment: Alignment.center,
+            child: SwapScrollDvider(),
+          ),
+          const VerticalSpace(30),
+          const MealListTileDetailsTitleWithFavorite(),
+          const VerticalSpace(30),
+          Text(
+            'Nutrition',
+            style: AppStyles.semiBold16,
+          ),
+          const VerticalSpace(15),
+          SizedBox(
+            height: 45.h,
+            child: const NutritionListItems(),
+          ),
+          const VerticalSpace(30),
+          Text(
+            'Descriptions',
+            style: AppStyles.semiBold16,
+          ),
+          const VerticalSpace(30),
+          const ReadMoreText(
+            text:
+                'Pancakes are some people\'s favorite breakfast, who doesn\'t like pancakes? Especially with the real honey splash on top of the pancakes, of course everyone loves that! besides being ',
+          ),
+          const VerticalSpace(30),
+          const CustomHeadTittleAndSubTitleButton(
+            title: 'Ingredients That You Will Need',
+            subtitle: '6 items',
+          ),
+          const VerticalSpace(15),
+          SizedBox(
+            height: 140.h,
+            child: const IngredientsListItems(),
+          ),
+          const VerticalSpace(30),
+          const CustomHeadTittleAndSubTitleButton(
+            title: 'Step by Step',
+            subtitle: '8 Steps',
+          ),
+          const VerticalSpace(15),
+          ...List.generate(
+            4,
+            (index) => StepItem(
+              isLast: index == 3,
+              stepModel: StepModel(
+                stepNumber: index + 1,
+                title: 'Step ${index + 1}',
+                description:
+                    'To make the gestures feel more relaxed, stretch your arms as you start this movement. No bending of hands.',
+                isActive: false,
+              ),
+            ),
+          ),
+          const VerticalSpace(100),
+        ],
+      ),
     );
   }
 }

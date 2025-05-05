@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../data/model/step_model.dart';
+import '../../../../core/model/step_model.dart';
 
 class StepItem extends StatelessWidget {
   final StepModel stepModel;
@@ -22,8 +22,13 @@ class StepItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ShaderMask(
-          shaderCallback: (bounds) => const LinearGradient(
-            colors: AppGradients.pinkGradient,
+          shaderCallback: (bounds) => LinearGradient(
+            colors: stepModel.isActive
+                ? AppGradients.pinkGradient
+                : [
+                    const Color(0xffA5A3B0),
+                    const Color(0xffA5A3B0),
+                  ],
           ).createShader(bounds),
           child: SizedBox(
             width: 15.w,
@@ -45,8 +50,13 @@ class StepItem extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: const LinearGradient(
-                  colors: AppGradients.pinkGradient,
+                gradient: LinearGradient(
+                  colors: stepModel.isActive
+                      ? AppGradients.pinkGradient
+                      : [
+                          const Color(0xffA5A3B0),
+                          const Color(0xffA5A3B0),
+                        ],
                 ),
                 color: Colors.white,
                 border: Border.all(
@@ -71,7 +81,9 @@ class StepItem extends StatelessWidget {
             ),
             if (!isLast)
               DottedBorder(
-                color: Colors.purple,
+                color: stepModel.isActive
+                    ? Colors.purple
+                    : const Color(0xffA5A3B0),
                 strokeWidth: 2,
                 dashPattern: const [4, 4],
                 customPath: (size) {

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../data/model/step_model.dart';
+import '../../../../core/model/step_model.dart';
 import 'custom_list_wheel.dart';
 
 class WorkoutExerciseViewBody extends StatelessWidget {

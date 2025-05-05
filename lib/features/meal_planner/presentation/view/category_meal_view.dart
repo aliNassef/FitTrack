@@ -1,6 +1,7 @@
 import 'package:fit_track_app/core/extensions/padding_extension.dart';
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
+import 'package:fit_track_app/features/meal_planner/presentation/view/meal_details_view.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../widgets/category_list_items.dart';
@@ -47,7 +48,14 @@ class CategoryMealView extends StatelessWidget {
                 style: AppStyles.semiBold16,
               ),
               const VerticalSpace(15),
-              const PopularMealItem(),
+              PopularMealItem(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    MealDetailsView.routeName,
+                  );
+                },
+              ),
             ],
           ).withHorizontalPadding(30),
         ),
