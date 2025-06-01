@@ -1,13 +1,14 @@
 import 'package:fit_track_app/core/utils/app_colors.dart';
+import 'package:fit_track_app/features/home/data/models/notification_model.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class NotificationItem extends StatelessWidget {
   const NotificationItem({
     super.key,
+    required this.notificationModel,
   });
+  final NotificationModel notificationModel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +17,20 @@ class NotificationItem extends StatelessWidget {
       leading: CircleAvatar(
         radius: 20,
         backgroundColor: AppColors.secondaryColor,
-        child: Image.asset(
-          AppImages.dummy,
+        child: Image.network(
+          notificationModel.icon ?? '',
           height: 20,
           width: 20,
         ),
       ),
       title: Text(
-        'Hey, it’s time for lunch',
+        notificationModel.title,
         style: AppStyles.medium12.copyWith(
           color: AppColors.blackColor,
         ),
       ),
       subtitle: Text(
-        'About 1 minutes ago',
+        notificationModel.createdAt,
         style: AppStyles.regular10.copyWith(
           color: AppColors.greyLighterColor,
         ),

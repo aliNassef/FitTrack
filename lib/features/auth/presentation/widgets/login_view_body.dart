@@ -1,10 +1,6 @@
-import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/helpers/app_spacer.dart';
-import '../../../../core/helpers/default_app_button.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_router.dart';
 import '../views/signup_view.dart';
 import 'custom_or_dvider.dart';
@@ -25,19 +21,9 @@ class LoginViewBody extends StatelessWidget {
           child: LoginFormSection(),
         ),
         SliverToBoxAdapter(
-          child: SizedBox(
-            height: context.height * .28,
-          ),
-        ),
-        SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              DefaultAppButton(
-                icon: SvgPicture.asset(AppIcons.loginIcon),
-                onPressed: () {},
-                text: 'Login',
-              ),
               const VerticalSpace(20),
               const CustomOrDvider(),
               const VerticalSpace(20),

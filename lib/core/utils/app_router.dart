@@ -1,3 +1,4 @@
+import 'package:fit_track_app/features/auth/data/model/signup_input_model.dart';
 import 'package:flutter/material.dart';
 import '../../features/auth/presentation/views/complete_profile_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
@@ -27,8 +28,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SignupView.routeName:
       return MaterialPageRoute(builder: (context) => const SignupView());
     case CompleteProfileView.routeName:
+      var signupInputModel = settings.arguments as SignupInputModel;
       return MaterialPageRoute(
-        builder: (context) => const CompleteProfileView(),
+        builder: (context) =>   CompleteProfileView(
+          signupInputModel :signupInputModel
+        ),
       );
     case OnboardingView.routeName:
       return MaterialPageRoute(

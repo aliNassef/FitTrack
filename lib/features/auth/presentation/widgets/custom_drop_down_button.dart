@@ -9,10 +9,10 @@ import '../../../../core/utils/app_styles.dart';
 
 class CustomDropDownButton extends StatelessWidget {
   const CustomDropDownButton({
-    super.key,
+    super.key, this.onChanged,
   });
-
-  @override
+  final void Function(String?)? onChanged;
+  @override 
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
       icon: const SizedBox.shrink(),
@@ -31,7 +31,7 @@ class CustomDropDownButton extends StatelessWidget {
           child: Text('Female'),
         )
       ],
-      onChanged: (val) {},
+      onChanged: onChanged,
       decoration: InputDecoration(
         suffixIcon: Transform.rotate(
           angle: pi / 2,

@@ -11,7 +11,6 @@ class AppIntialization {
   AppIntialization._();
   static Future<void> initializer() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // await EasyLocalization.ensureInitialized();
     await setupServiceLocator();
     await CacheHelper.init();
     await ScreenUtil.ensureScreenSize();

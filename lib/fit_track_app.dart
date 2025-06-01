@@ -1,8 +1,11 @@
 import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/di/service_locator.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/app_themes.dart';
+import 'features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'features/onboarding/presentation/views/welcome_view.dart';
 
 class FitTrackApp extends StatelessWidget {
@@ -15,14 +18,17 @@ class FitTrackApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp(
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
-          title: 'Fit Track',
-          debugShowCheckedModeBanner: false,
-          theme: getLightTheme(),
-          onGenerateRoute: (settings) => onGenerateRoute(settings),
-          initialRoute: WelcomeView.routeName,
+        return BlocProvider(
+          create: (context) => injector<AuthCubit>(),
+          child: MaterialApp(
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
+            title: 'Fit Track',
+            debugShowCheckedModeBanner: false,
+            theme: getLightTheme(),
+            onGenerateRoute: (settings) => onGenerateRoute(settings),
+            initialRoute: WelcomeView.routeName,
+          ),
         );
       },
     );
