@@ -7,7 +7,7 @@ void showErrorMessage(BuildContext context,
     {required String errMessage, int secondes = 4}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.secondaryColor,
       duration: Duration(seconds: secondes),
       content: Text(
         errMessage,

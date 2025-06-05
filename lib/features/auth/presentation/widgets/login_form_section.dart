@@ -1,6 +1,7 @@
 import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:fit_track_app/core/helpers/show_loading_box.dart';
 import 'package:fit_track_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:fit_track_app/features/layout/presentation/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,7 +13,6 @@ import '../../../../core/helpers/show_error_message.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../views/login_view.dart';
 
 class LoginFormSection extends StatefulWidget {
   const LoginFormSection({
@@ -74,7 +74,7 @@ class _LoginFormSectionState extends State<LoginFormSection> {
           isPassword: true,
         ),
         const VerticalSpace(10),
-        _buildForgetPassword(),
+        _buildForgetPasswordButton(),
         SizedBox(
           height: context.height * .28,
         ),
@@ -85,7 +85,7 @@ class _LoginFormSectionState extends State<LoginFormSection> {
               current is LoginLoading,
           listener: (context, state) {
             if (state is LoginSuccess) {
-              _goToLogin();
+              _goToLayout();
             } else if (state is LoginFailure) {
               showErrorMessage(context, errMessage: state.errMessage);
             } else if (state is LoginLoading) {
@@ -107,14 +107,14 @@ class _LoginFormSectionState extends State<LoginFormSection> {
     );
   }
 
-  _goToLogin() {
+  _goToLayout() {
     Navigator.pushNamed(
       context,
-      LoginView.routeName,
+      LayoutView.routeName,
     );
   }
 
-  TextButton _buildForgetPassword() {
+  TextButton _buildForgetPasswordButton() {
     return TextButton(
       onPressed: () {},
       child: Text(
