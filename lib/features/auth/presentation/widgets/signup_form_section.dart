@@ -70,12 +70,14 @@ class _SignupFormSectionState extends State<SignupFormSection> {
           ),
           const VerticalSpace(16),
           CustomTextFormField(
+            keyboardType: TextInputType.emailAddress,
             prefixIcon: AppIcons.emailIcon,
             hintText: 'Email',
             controller: _email,
           ),
           const VerticalSpace(16),
           CustomTextFormField(
+            keyboardType: TextInputType.phone,
             prefixIcon: AppIcons.phoneIcon,
             hintText: 'Phone Number',
             controller: _phone,

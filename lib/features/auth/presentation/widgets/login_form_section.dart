@@ -85,8 +85,10 @@ class _LoginFormSectionState extends State<LoginFormSection> {
               current is LoginLoading,
           listener: (context, state) {
             if (state is LoginSuccess) {
+              Navigator.pop(context);
               _goToLayout();
             } else if (state is LoginFailure) {
+              Navigator.pop(context);
               showErrorMessage(context, errMessage: state.errMessage);
             } else if (state is LoginLoading) {
               showLoadingBox(context);

@@ -38,7 +38,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       keyboardType: widget.keyboardType,
       cursorColor: AppColors.greyColor,
-      obscureText: isSecure,
+      obscureText: widget.isPassword ? !isSecure : isSecure,
+      obscuringCharacter: '●',
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Field is required';
@@ -82,14 +83,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 },
                 icon: isSecure
                     ? const Icon(
-                        Icons.visibility_sharp,
-                        color: AppColors.greyColor,
-                        size: 18,
-                      )
-                    : const Icon(
                         Icons.visibility_off,
                         color: AppColors.greyColor,
-                        size: 18,
+                      )
+                    : const Icon(
+                        Icons.visibility_sharp,
+                        color: AppColors.greyColor,
                       ),
               )
             : const SizedBox(),

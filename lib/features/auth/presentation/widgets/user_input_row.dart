@@ -22,6 +22,7 @@ class UserInputRow extends StatelessWidget {
       children: [
         Expanded(
           child: CustomTextFormField(
+            keyboardType: TextInputType.number,
             hintText: hint,
             prefixIcon: AppIcons.heightIcon,
             controller: controller,

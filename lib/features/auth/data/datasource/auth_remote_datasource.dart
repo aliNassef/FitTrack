@@ -39,7 +39,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       EndPoints.register,
       data: input.toJson(),
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       return SignupModel.fromJson(response.data);
     } else {
       throw ServerException(ErrorModel.fromJson(response.data));

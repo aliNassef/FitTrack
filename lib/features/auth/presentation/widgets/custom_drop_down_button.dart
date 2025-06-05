@@ -9,10 +9,11 @@ import '../../../../core/utils/app_styles.dart';
 
 class CustomDropDownButton extends StatelessWidget {
   const CustomDropDownButton({
-    super.key, this.onChanged,
+    super.key,
+    this.onChanged,
   });
   final void Function(String?)? onChanged;
-  @override 
+  @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
       icon: const SizedBox.shrink(),
@@ -40,7 +41,7 @@ class CustomDropDownButton extends StatelessWidget {
             color: AppColors.greyColor,
           ),
         ),
-        focusColor: AppColors.greyColor,
+        // focusColor: Colors.white,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Color(0xffF7F8F8)),
           borderRadius: BorderRadius.circular(14),

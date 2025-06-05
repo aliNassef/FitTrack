@@ -83,7 +83,7 @@ class _CompleteProfileViewBodyState extends State<CompleteProfileViewBody> {
           ),
           const VerticalSpace(13),
           CustomTextFormField(
-            hintText: 'Date of Birth',
+            hintText: 'Date of Birth (YYYY-MM-DD)',
             prefixIcon: AppIcons.dateIcon,
             controller: _dateOfBirth,
           ),
@@ -107,12 +107,14 @@ class _CompleteProfileViewBodyState extends State<CompleteProfileViewBody> {
                 current is SignupSuccess,
             listener: (context, state) {
               if (state is SignupFailure) {
+                Navigator.pop(context);
                 showErrorMessage(context, errMessage: state.errMessage);
               }
               if (state is SignupLoading) {
                 showLoadingBox(context);
               }
               if (state is SignupSuccess) {
+                Navigator.pop(context);
                 _goToGoalItems(context);
               }
             },
@@ -126,7 +128,7 @@ class _CompleteProfileViewBodyState extends State<CompleteProfileViewBody> {
                     email: widget.signupInputModel.email!,
                     password: widget.signupInputModel.password!,
                     phoneNumber: widget.signupInputModel.phoneNumber!,
-                    gender: widget.signupInputModel.gender!,
+                    gender: _gender.text,
                     dateOfBirth: _dateOfBirth.text.trim(),
                     weight: num.parse(_weight.text.trim()),
                     height: num.parse(_height.text.trim()),
