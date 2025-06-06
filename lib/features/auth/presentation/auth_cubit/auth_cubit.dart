@@ -30,4 +30,15 @@ class AuthCubit extends Cubit<AuthState> {
       ),
     );
   }
+
+  void checkAuthState() async {
+    emit(AuthLoading());
+    final tokenOrfailure = authRepo.checkAuthState();
+    tokenOrfailure.fold(
+      (failure) => emit(UnAuthenticated()),
+      (isAuthenticated) => emit(
+        isAuthenticated ? Authenticated() : UnAuthenticated(),
+      ),
+    );
+  }
 }

@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:fit_track_app/features/home/data/repo/home_repo.dart';
+import 'package:fit_track_app/features/profile/data/datasource/profile_remote_datasource.dart';
+import 'package:fit_track_app/features/profile/data/repo/profile_repo.dart';
+import 'package:fit_track_app/features/profile/presentation/cubit/get_profile_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/datasource/auth_local_datasource.dart';
@@ -10,6 +13,7 @@ import '../../features/auth/presentation/auth_cubit/auth_cubit.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/data/source/home_remote_datasource.dart';
 import '../../features/home/presentation/cubit/get_all_notification_cubit/get_all_notifications_cubit.dart';
+import '../../features/profile/data/repo/profile_repo_impl.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,6 +27,25 @@ Future<void> setupServiceLocator() async {
   await _setupExternalFeature();
   _setupAuthFeature();
   _setupHomeFeature();
+  _setupProfileFeature();
+}
+
+void _setupProfileFeature() {
+  injector.registerFactory(
+    () => GetProfileCubit(
+      injector<ProfileRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(
+      profileRemoteDatasource: injector<ProfileRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<ProfileRemoteDatasource>(
+    () => ProfileRemoteDatasourceImpl(
+      api: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupHomeFeature() {

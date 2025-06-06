@@ -9,8 +9,11 @@ import '../../../../core/utils/app_styles.dart';
 class ProfileHeadTile extends StatelessWidget {
   const ProfileHeadTile({
     super.key,
+    required this.email,
+    required this.name,
   });
-
+  final String email;
+  final String name;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -25,11 +28,11 @@ class ProfileHeadTile extends StatelessWidget {
         ),
       ),
       title: Text(
-        'Masi Ramezanzade',
+        name,
         style: AppStyles.medium14,
       ),
       subtitle: Text(
-        'Lose a Fat Program',
+        email,
         style: AppStyles.regular12.copyWith(
           color: AppColors.greyLighterColor,
         ),

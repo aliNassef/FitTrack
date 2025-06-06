@@ -38,4 +38,14 @@ class AuthRepoImpl extends AuthRepo {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }
   }
+
+  @override
+  Either<Failure, bool> checkAuthState() {
+    try {
+      final result = authLocalDatasource.getToken();
+      return Right(result != null);
+    } on CustomException catch (e) {
+      return Left(Failure(errMessage: e.errorMessage));
+    }
+  }
 }

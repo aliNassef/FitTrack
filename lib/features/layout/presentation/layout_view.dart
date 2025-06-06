@@ -47,13 +47,13 @@ class _LayoutViewState extends State<LayoutView> {
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
-          duration: Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 0),
           curve: Curves.ease,
         ),
         screenTransitionAnimation: ScreenTransitionAnimationSettings(
-          animateTabTransition: true,
-          duration: Duration(milliseconds: 300),
-          screenTransitionAnimationType: ScreenTransitionAnimationType.fadeIn,
+          animateTabTransition: false,
+          duration: Duration(milliseconds: 0),
+          screenTransitionAnimationType: ScreenTransitionAnimationType.slide,
         ),
       ),
       confineToSafeArea: true,

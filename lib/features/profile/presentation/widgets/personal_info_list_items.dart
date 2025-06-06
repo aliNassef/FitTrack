@@ -1,3 +1,4 @@
+import 'package:fit_track_app/features/profile/data/model/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,29 +7,31 @@ import 'personal_info_item.dart';
 class PersonalInfoListItems extends StatelessWidget {
   const PersonalInfoListItems({
     super.key,
+    required this.user,
   });
-
+  final UserProfile user;
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: 15.w,
       children: [
-        const Expanded(
+        Expanded(
           child: PersonalInfoItem(
             subTitle: 'Weight',
-            title: '70kg',
+            title: '${user.weight}kg',
           ),
         ),
-        const Expanded(
+        Expanded(
           child: PersonalInfoItem(
             subTitle: 'Age',
-            title: '25',
+            title:
+                '${DateTime.now().difference(DateTime.parse(user.dataOfbirth)).inDays ~/ 365}',
           ),
         ),
-        const Expanded(
+        Expanded(
           child: PersonalInfoItem(
             subTitle: 'Height',
-            title: '180cm',
+            title: '${user.height}cm',
           ),
         ),
       ],
