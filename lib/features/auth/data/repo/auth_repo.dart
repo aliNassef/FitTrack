@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/core/errors/failure.dart';
-import 'package:fit_track_app/features/auth/data/model/login_model.dart';
-import 'package:fit_track_app/features/auth/data/model/signup_model.dart';
+import '../../../../core/errors/failure.dart';
+import '../model/login_model.dart';
+import '../model/signup_model.dart';
 
 import '../model/signup_input_model.dart';
 

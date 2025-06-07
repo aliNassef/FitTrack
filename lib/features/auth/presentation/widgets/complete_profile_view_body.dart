@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:fit_track_app/core/helpers/show_error_message.dart';
-import 'package:fit_track_app/core/helpers/show_loading_box.dart';
-import 'package:fit_track_app/features/auth/data/model/signup_input_model.dart';
-import 'package:fit_track_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import '../../../../core/helpers/show_error_message.dart';
+import '../../../../core/helpers/show_loading_box.dart';
+import '../../data/model/signup_input_model.dart';
+import '../auth_cubit/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/mediaquery_size.dart';
 import 'package:flutter/material.dart';

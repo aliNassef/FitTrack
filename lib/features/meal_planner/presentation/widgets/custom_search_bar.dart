@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
+import '../../../../core/helpers/app_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/app_shadows.dart';

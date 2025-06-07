@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/auth/data/repo/auth_repo.dart';
+import '../../data/repo/auth_repo.dart';
 
 import '../../data/model/signup_input_model.dart';
 

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
+import '../extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

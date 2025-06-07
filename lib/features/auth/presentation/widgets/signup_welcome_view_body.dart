@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
+import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';

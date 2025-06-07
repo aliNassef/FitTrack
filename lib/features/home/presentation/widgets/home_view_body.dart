@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/home/data/models/home_model.dart';
+import '../../data/models/home_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_styles.dart';

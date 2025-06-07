@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/helpers/default_app_button.dart';
-import 'package:fit_track_app/features/auth/presentation/views/complete_profile_view.dart';
+import '../../../../core/helpers/default_app_button.dart';
+import '../views/complete_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';

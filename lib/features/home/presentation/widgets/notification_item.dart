@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/utils/app_colors.dart';
-import 'package:fit_track_app/features/home/data/models/notification_model.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../data/models/notification_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_styles.dart';
 

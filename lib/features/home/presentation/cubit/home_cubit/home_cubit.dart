@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/home/data/repo/home_repo.dart';
+import '../../../data/repo/home_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';

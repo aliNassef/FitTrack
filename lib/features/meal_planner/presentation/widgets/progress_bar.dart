@@ -1,9 +1,9 @@
-import 'package:fit_track_app/core/utils/app_shadows.dart';
+import '../../../../core/utils/app_shadows.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fit_track_app/core/utils/app_styles.dart';
-import 'package:fit_track_app/core/utils/app_colors.dart';
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/helpers/app_spacer.dart';
 
 class CaloriesProgressBar extends StatelessWidget {
   final int calories;

@@ -1,6 +1,6 @@
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/core/widgets/read_more_text.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/widgets/read_more_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';

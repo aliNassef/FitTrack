@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/core/errors/exceptions.dart';
-import 'package:fit_track_app/core/errors/failure.dart';
-import 'package:fit_track_app/features/profile/data/datasource/profile_remote_datasource.dart';
-import 'package:fit_track_app/features/profile/data/model/profile_model.dart';
-import 'package:fit_track_app/features/profile/data/repo/profile_repo.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../datasource/profile_remote_datasource.dart';
+import '../model/profile_model.dart';
+import 'profile_repo.dart';
 
 class ProfileRepoImpl extends ProfileRepo {
   final ProfileRemoteDatasource _profileRemoteDatasource;

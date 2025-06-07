@@ -1,10 +1,10 @@
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
-import 'package:fit_track_app/core/utils/app_colors.dart';
-import 'package:fit_track_app/core/utils/app_images.dart';
-import 'package:fit_track_app/core/widgets/custom_icon_button.dart';
-import 'package:fit_track_app/features/meal_planner/presentation/widgets/custom_search_bar.dart';
-import 'package:fit_track_app/features/store/presentation/widgets/category_card_item.dart';
-import 'package:fit_track_app/features/store/presentation/widgets/product_card_item.dart';
+import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../../core/widgets/custom_icon_button.dart';
+import '../../../meal_planner/presentation/widgets/custom_search_bar.dart';
+import 'category_card_item.dart';
+import 'product_card_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

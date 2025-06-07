@@ -1,6 +1,6 @@
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
-import 'package:fit_track_app/core/helpers/default_app_button.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/helpers/default_app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

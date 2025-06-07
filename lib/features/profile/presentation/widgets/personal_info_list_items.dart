@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/profile/data/model/profile_model.dart';
+import '../../data/model/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

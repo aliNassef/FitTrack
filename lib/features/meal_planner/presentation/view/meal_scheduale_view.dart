@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
+import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/meal_scheduale_view_body.dart';

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/utils/app_styles.dart';
+import '../utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomFailureWidget extends StatelessWidget {

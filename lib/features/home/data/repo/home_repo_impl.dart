@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/core/errors/exceptions.dart';
+import '../../../../core/errors/exceptions.dart';
 
-import 'package:fit_track_app/core/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 
-import 'package:fit_track_app/features/home/data/models/notification_model.dart';
-import 'package:fit_track_app/features/home/data/models/notification_status_model.dart';
+import '../models/notification_model.dart';
+import '../models/notification_status_model.dart';
 
 import '../source/home_remote_datasource.dart';
 import 'home_repo.dart';

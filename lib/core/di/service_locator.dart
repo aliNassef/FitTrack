@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:fit_track_app/features/home/data/repo/home_repo.dart';
-import 'package:fit_track_app/features/profile/data/datasource/profile_remote_datasource.dart';
-import 'package:fit_track_app/features/profile/data/repo/profile_repo.dart';
-import 'package:fit_track_app/features/profile/presentation/cubit/get_profile_cubit.dart';
+import '../../features/home/data/repo/home_repo.dart';
+import '../../features/profile/data/datasource/profile_remote_datasource.dart';
+import '../../features/profile/data/repo/profile_repo.dart';
+import '../../features/profile/presentation/cubit/get_profile_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/datasource/auth_local_datasource.dart';

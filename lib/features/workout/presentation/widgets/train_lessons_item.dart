@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/features/workout/presentation/view/workout_details_view.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../view/workout_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

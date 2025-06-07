@@ -1,8 +1,8 @@
-import 'package:fit_track_app/core/utils/app_images.dart';
-import 'package:fit_track_app/features/home/data/models/home_model.dart';
-import 'package:fit_track_app/features/meal_planner/presentation/view/meal_planner_view.dart';
-import 'package:fit_track_app/features/profile/presentation/views/statistics_view.dart';
-import 'package:fit_track_app/features/workout/presentation/view/workout_view.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../data/models/home_model.dart';
+import '../../../meal_planner/presentation/view/meal_planner_view.dart';
+import '../../../profile/presentation/views/statistics_view.dart';
+import '../../../workout/presentation/view/workout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';

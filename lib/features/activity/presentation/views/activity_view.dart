@@ -1,6 +1,6 @@
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
-import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../../../../core/utils/app_gradients.dart';

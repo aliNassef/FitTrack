@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/meal_planner/presentation/widgets/nurition_item.dart';
+import 'nurition_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/helpers/app_spacer.dart';

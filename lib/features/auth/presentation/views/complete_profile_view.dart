@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/auth/data/model/signup_input_model.dart';
+import '../../data/model/signup_input_model.dart';
 
 import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';

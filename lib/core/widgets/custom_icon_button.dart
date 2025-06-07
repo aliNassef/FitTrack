@@ -1,5 +1,5 @@
 import 'package:badges/badges.dart' as badges;
-import 'package:fit_track_app/core/utils/app_styles.dart';
+import '../utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,11 +1,11 @@
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
-import 'package:fit_track_app/core/helpers/default_app_button.dart';
-import 'package:fit_track_app/core/utils/app_styles.dart';
-import 'package:fit_track_app/core/widgets/custom_head_title_and_subtitle_button.dart';
-import 'package:fit_track_app/core/widgets/read_more_text.dart';
-import 'package:fit_track_app/features/workout/presentation/widgets/step_item.dart';
-import 'package:fit_track_app/features/workout/presentation/widgets/video_section.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_head_title_and_subtitle_button.dart';
+import '../../../../core/widgets/read_more_text.dart';
+import 'step_item.dart';
+import 'video_section.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';

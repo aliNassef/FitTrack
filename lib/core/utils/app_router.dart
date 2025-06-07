@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/auth/data/model/signup_input_model.dart';
+import '../../features/auth/data/model/signup_input_model.dart';
 import 'package:flutter/material.dart';
 import '../../features/auth/presentation/views/complete_profile_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';

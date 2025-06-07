@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/home/data/models/notification_model.dart';
+import '../../../data/models/notification_model.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/repo/home_repo.dart';

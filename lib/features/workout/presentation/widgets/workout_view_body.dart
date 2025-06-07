@@ -1,7 +1,7 @@
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/core/utils/app_styles.dart';
-import 'package:fit_track_app/core/widgets/custom_app_bar.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';

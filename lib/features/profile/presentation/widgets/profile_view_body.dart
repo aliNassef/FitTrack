@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
-import 'package:fit_track_app/features/profile/data/model/profile_model.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../../data/model/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';

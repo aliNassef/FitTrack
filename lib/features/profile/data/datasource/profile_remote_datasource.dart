@@ -1,8 +1,8 @@
-import 'package:fit_track_app/core/api/api_consumer.dart';
-import 'package:fit_track_app/core/api/end_ponits.dart';
-import 'package:fit_track_app/core/errors/error_model.dart';
-import 'package:fit_track_app/core/errors/exceptions.dart';
-import 'package:fit_track_app/features/profile/data/model/profile_model.dart';
+import '../../../../core/api/api_consumer.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/errors/error_model.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../model/profile_model.dart';
 
 abstract class ProfileRemoteDatasource {
   Future<ProfileModel> getProfile();
