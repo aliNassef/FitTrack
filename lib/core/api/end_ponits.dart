@@ -4,6 +4,7 @@ class EndPoints {
   static const String login = 'auth/login';
   static const String getNotifications = 'notifications';
   static const String getUserProfile = 'user/profile';
+  static const String getNotificationsStats = 'notifications/stats';
 }
 
 class ApiKey {}

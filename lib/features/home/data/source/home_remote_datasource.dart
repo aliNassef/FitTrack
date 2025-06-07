@@ -4,9 +4,11 @@ import 'package:fit_track_app/core/errors/error_model.dart';
 import 'package:fit_track_app/core/errors/exceptions.dart';
 
 import '../models/notification_model.dart';
+import '../models/notification_status_model.dart';
 
 abstract class HomeRemoteDatasource {
   Future<NotificationResponse> getNotifications();
+  Future<NotificationStatusResponse> getNotificationStatus();
 }
 
 class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
@@ -18,6 +20,16 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
     final response = await apiConsumer.get(EndPoints.getNotifications);
     if (response.statusCode == 200) {
       return NotificationResponse.fromJson(response.data);
+    } else {
+      throw ServerException(ErrorModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<NotificationStatusResponse> getNotificationStatus() async {
+    final response = await apiConsumer.get(EndPoints.getNotificationsStats);
+    if (response.statusCode == 200) {
+      return NotificationStatusResponse.fromJson(response.data);
     } else {
       throw ServerException(ErrorModel.fromJson(response.data));
     }

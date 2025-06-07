@@ -13,6 +13,7 @@ import '../../features/auth/presentation/auth_cubit/auth_cubit.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/data/source/home_remote_datasource.dart';
 import '../../features/home/presentation/cubit/get_all_notification_cubit/get_all_notifications_cubit.dart';
+import '../../features/home/presentation/cubit/home_cubit/home_cubit.dart';
 import '../../features/profile/data/repo/profile_repo_impl.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
@@ -51,6 +52,11 @@ void _setupProfileFeature() {
 void _setupHomeFeature() {
   injector.registerFactory(
     () => GetAllNotificationsCubit(
+      injector<HomeRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => HomeCubit(
       injector<HomeRepo>(),
     ),
   );
