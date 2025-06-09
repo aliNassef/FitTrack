@@ -1,0 +1,90 @@
+import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
+import 'package:fit_track_app/core/helpers/app_spacer.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../core/widgets/title_and_seemore.dart';
+
+class ProgressPhotoViewBody extends StatelessWidget {
+  const ProgressPhotoViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const CustomAppBar(
+          title: 'Progress Photo',
+        ),
+        SizedBox(
+          height: context.height * .1,
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+          decoration: BoxDecoration(
+            color: const Color(0xfff6e2fa),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Upload your Photo',
+                style: AppStyles.medium14,
+              ),
+              SizedBox(
+                height: 40.h,
+                width: 100.w,
+                child: const DefaultAppButton(
+                  text: 'Upload',
+                ),
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: context.height * .1,
+        ),
+        const TitleAndSeeMore(title: 'Gallery'),
+        const VerticalSpace(15),
+        Text(
+          '2 June',
+          style: AppStyles.regular12.copyWith(
+            color: AppColors.greyLighterColor,
+          ),
+          textAlign: TextAlign.start,
+        ),
+        const VerticalSpace(15),
+        SizedBox(
+          height: context.height * .1,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Container(
+                height: 120.h,
+                width: 100.w,
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/dummy_gym.png'),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return const HorizontalSpace(10);
+            },
+            itemCount: 5,
+          ),
+        ),
+        VerticalSpace(context.height * .1),
+        const DefaultAppButton(text: 'Compare'),
+      ],
+    );
+  }
+}

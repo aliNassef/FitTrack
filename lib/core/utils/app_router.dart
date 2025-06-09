@@ -14,6 +14,7 @@ import '../../features/meal_planner/presentation/view/meal_scheduale_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
 import '../../features/profile/presentation/views/statistics_view.dart';
+import '../../features/progress/presentation/views/progress_photo_view.dart';
 import '../../features/store/presentation/views/checkout_view.dart';
 import '../../features/store/presentation/views/store_view.dart';
 import '../../features/workout/presentation/view/workout_details_view.dart';
@@ -30,9 +31,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case CompleteProfileView.routeName:
       var signupInputModel = settings.arguments as SignupInputModel;
       return MaterialPageRoute(
-        builder: (context) =>   CompleteProfileView(
-          signupInputModel :signupInputModel
-        ),
+        builder: (context) =>
+            CompleteProfileView(signupInputModel: signupInputModel),
       );
     case OnboardingView.routeName:
       return MaterialPageRoute(
@@ -98,6 +98,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case StoreView.routeName:
       return MaterialPageRoute(
         builder: (context) => const StoreView(),
+      );
+    case ProgressPhotoView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ProgressPhotoView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
