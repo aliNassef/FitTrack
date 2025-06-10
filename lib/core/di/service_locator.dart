@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
+import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/profile/data/datasource/profile_remote_datasource.dart';
 import '../../features/profile/data/repo/profile_repo.dart';
@@ -15,6 +17,9 @@ import '../../features/home/data/source/home_remote_datasource.dart';
 import '../../features/home/presentation/cubit/get_all_notification_cubit/get_all_notifications_cubit.dart';
 import '../../features/home/presentation/cubit/home_cubit/home_cubit.dart';
 import '../../features/profile/data/repo/profile_repo_impl.dart';
+import '../../features/store/data/datasource/store_remote_datasource.dart';
+import '../../features/store/data/repo/store_repo_impl.dart';
+import '../../features/store/presentation/cubits/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +34,30 @@ Future<void> setupServiceLocator() async {
   _setupAuthFeature();
   _setupHomeFeature();
   _setupProfileFeature();
+  _setupStoreFeature();
+}
+
+void _setupStoreFeature() {
+  injector.registerFactory(
+    () => GetAllCategoriesCubit(
+      injector<StoreRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => GetAllProductsCubitCubit(
+      injector<StoreRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<StoreRepo>(
+    () => StoreRepoImpl(
+      remoteDataSource: injector<StoreRemoteDataSource>(),
+    ),
+  );
+  injector.registerLazySingleton<StoreRemoteDataSource>(
+    () => StoreRemoteDataSourceImpl(
+      apiConsumer: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupProfileFeature() {

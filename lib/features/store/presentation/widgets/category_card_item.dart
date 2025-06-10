@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_network_image.dart';
 
 class CategoryCardItem extends StatelessWidget {
   final String title;
@@ -38,11 +38,10 @@ class CategoryCardItem extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Center(
-              child: Image.asset(
-                image,
-                width: 50.w,
-                height: 50.h,
-                fit: BoxFit.contain,
+              child: CustomNetworkImage(
+                img: image,
+                fit: BoxFit.fill,
+                radius: 50,
               ),
             ),
           ),

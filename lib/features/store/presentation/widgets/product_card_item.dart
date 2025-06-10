@@ -1,3 +1,5 @@
+import 'package:fit_track_app/core/widgets/custom_network_image.dart';
+
 import '../../../../core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,11 +41,10 @@ class ProductCard extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Center(
-              child: Image.asset(
-                image,
-                width: 60.w,
-                height: 60.h,
-                fit: BoxFit.contain,
+              child: CustomNetworkImage(
+                img: image,
+                radius: 45.r,
+                fit: BoxFit.fill,
               ),
             ),
           ),

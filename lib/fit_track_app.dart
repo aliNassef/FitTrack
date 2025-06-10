@@ -8,6 +8,7 @@ import 'core/di/service_locator.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/app_themes.dart';
 import 'features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'features/layout/presentation/layout_view.dart';
 
 class FitTrackApp extends StatelessWidget {
   const FitTrackApp({super.key});
@@ -35,7 +36,7 @@ class FitTrackApp extends StatelessWidget {
                       debugShowCheckedModeBanner: false,
                       theme: getLightTheme(),
                       onGenerateRoute: (settings) => onGenerateRoute(settings),
-                      initialRoute: ProgressPhotoView.routeName,
+                      initialRoute: LayoutView.routeName,
                     );
                   }
                   return MaterialApp(

@@ -3,12 +3,12 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/widgets/custom_icon_button.dart';
 import '../../../meal_planner/presentation/widgets/custom_search_bar.dart';
-import 'category_card_item.dart';
-import 'product_card_item.dart';
+import 'category_items_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_styles.dart';
+import 'product_items_bloc_builder.dart';
 
 class StoreViewBody extends StatelessWidget {
   const StoreViewBody({super.key});
@@ -53,21 +53,7 @@ class StoreViewBody extends StatelessWidget {
                 style: AppStyles.semiBold16,
               ),
               const VerticalSpace(16),
-              SizedBox(
-                height: 180.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  separatorBuilder: (context, index) => SizedBox(width: 15.w),
-                  itemBuilder: (context, index) {
-                    return const CategoryCardItem(
-                      title: 'Resistance &\nStretching',
-                      image: AppImages.meal,
-                      backgroundColor: Color(0xFFF6E6FA),
-                    );
-                  },
-                ),
-              ),
+              const CategoryItemsBlocBuilder(),
               const VerticalSpace(16),
               Text(
                 'Strength Training & Weightlifting',
@@ -77,23 +63,7 @@ class StoreViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverGrid.builder(
-          itemCount: 10,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 6.w,
-            mainAxisSpacing: 12.h,
-            childAspectRatio: 0.7,
-          ),
-          itemBuilder: (_, index) {
-            return const ProductCard(
-              name: 'Dumbbells',
-              price: '200\$',
-              image: AppImages.meal, // Replace with actual dumbbell image
-              backgroundColor: Color(0xFFCCF7F2),
-            );
-          },
-        ),
+        const ProductItemsBlocBuilder(),
       ],
     );
   }
