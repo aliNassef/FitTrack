@@ -7,6 +7,9 @@ class EndPoints {
   static const String getNotificationsStats = 'notifications/stats';
   static const String getAllCategories = 'category';
   static const String getAllProducts = 'product';
+  static const String getTrackerData = 'activity';
+  static const String dailyTarget = 'activity/progress';
+  static const String getAllExcersises = '';
 }
 
 class ApiKey {}

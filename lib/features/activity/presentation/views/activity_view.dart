@@ -1,14 +1,12 @@
+import 'package:fit_track_app/core/di/service_locator.dart';
+import 'package:fit_track_app/features/activity/presentation/cubits/cubit/activity_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/extensions/padding_extension.dart';
-import '../../../../core/helpers/app_spacer.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import '../../../../core/utils/app_gradients.dart';
-import '../../../../core/widgets/title_and_seemore.dart';
-import '../../../../core/widgets/title_with_customdropdown.dart';
-import '../widgets/bar_progress_chart.dart';
-import '../widgets/latest_activity_item.dart';
-import '../widgets/today_target_section.dart';
+import '../cubits/get_activity_cubit/get_activity_cubit.dart';
+import '../widgets/activity_view_body.dart';
 
 class ActivityView extends StatelessWidget {
   const ActivityView({super.key, required this.controller});
@@ -18,47 +16,16 @@ class ActivityView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       bottom: false,
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                CustomAppBar(
-                  title: 'Activity Tracker',
-                  onBackButtonPressed: () {
-                    controller.jumpToTab(0);
-                  },
-                ),
-                const VerticalSpace(30),
-                const TodayTargetSection(),
-                const VerticalSpace(30),
-                const TitleWithCustomDropDown(
-                  title: 'Activity Progress',
-                  gradientColor: AppGradients.greenGradient,
-                ),
-                const VerticalSpace(15),
-                const BarProgressChart(),
-                const VerticalSpace(30),
-                const TitleAndSeeMore(
-                  title: 'Latest Activity',
-                ),
-                const VerticalSpace(18),
-              ],
-            ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => injector<GetActivityCubit>()..getTrackerData(),
           ),
-          SliverList.separated(
-            itemBuilder: (_, index) {
-              return const LatestActivityItem();
-            },
-            separatorBuilder: (_, index) {
-              return const VerticalSpace(15);
-            },
-            itemCount: 4,
-          ),
-          const SliverToBoxAdapter(
-            child: VerticalSpace(30),
+          BlocProvider(
+            create: (context) => injector<ActivityCubit>(),
           ),
         ],
+        child: ActivityViewBody(controller: controller),
       ).withHorizontalPadding(30),
     );
   }

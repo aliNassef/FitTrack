@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:fit_track_app/features/activity/data/datasource/activity_remote_datasource.dart';
+import 'package:fit_track_app/features/activity/data/repo/activity_repo.dart';
+import 'package:fit_track_app/features/activity/data/repo/activity_repo_impl.dart';
+ import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
 import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
 import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
+import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/profile/data/datasource/profile_remote_datasource.dart';
 import '../../features/profile/data/repo/profile_repo.dart';
@@ -35,6 +40,30 @@ Future<void> setupServiceLocator() async {
   _setupHomeFeature();
   _setupProfileFeature();
   _setupStoreFeature();
+  _setupActivityFeature();
+}
+
+void _setupActivityFeature() {
+  injector.registerFactory(
+    () => GetActivityCubit(
+      activityRepo: injector<ActivityRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => ActivityCubit(
+      activityRepo: injector<ActivityRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<ActivityRepo>(
+    () => ActivityRepoImpl(
+      remoteDatasource: injector<ActivityRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<ActivityRemoteDatasource>(
+    () => ActivityRemoteDatasourceImpl(
+      apiConsumer: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupStoreFeature() {
