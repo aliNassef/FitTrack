@@ -3,6 +3,10 @@ import 'package:fit_track_app/features/activity/data/datasource/activity_remote_
 import 'package:fit_track_app/features/activity/data/repo/activity_repo.dart';
 import 'package:fit_track_app/features/activity/data/repo/activity_repo_impl.dart';
 import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
+import 'package:fit_track_app/features/progress/data/datasource/progress_remote_datasource.dart';
+import 'package:fit_track_app/features/progress/data/repo/progress_repo.dart';
+import 'package:fit_track_app/features/progress/data/repo/progress_repo_impl.dart';
+import 'package:fit_track_app/features/progress/presentation/cubits/progress_cubit/progress_cubit.dart';
 import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
 import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
@@ -46,6 +50,25 @@ Future<void> setupServiceLocator() async {
   _setupStoreFeature();
   _setupActivityFeature();
   _setupWorkoutFeature();
+  _setupProgressFeature();
+}
+
+void _setupProgressFeature() {
+  injector.registerFactory(
+    () => ProgressCubit(
+      injector<ProgressRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<ProgressRepo>(
+    () => ProgressRepoImpl(
+      progressRemoteDatasource: injector<ProgressRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<ProgressRemoteDatasource>(
+    () => ProgressRemoteDatasourceImpl(
+      api: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupWorkoutFeature() {

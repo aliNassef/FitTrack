@@ -11,6 +11,9 @@ class EndPoints {
   static const String dailyTarget = 'activity/progress';
   static const String getAllExcersises = '';
   static const String getWorkouts = 'workouts';
+  static const String uplaodImage = 'compare/gallery/upload';
+  static const String getProgress = 'compare/gallery';
+
 }
 
 class ApiKey {}

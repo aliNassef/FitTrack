@@ -1,5 +1,6 @@
 import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:fit_track_app/features/onboarding/presentation/views/welcome_view.dart';
+import 'package:fit_track_app/features/progress/presentation/views/progress_photo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,9 +36,9 @@ class FitTrackApp extends StatelessWidget {
                       debugShowCheckedModeBanner: false,
                       theme: getLightTheme(),
                       onGenerateRoute: (settings) => onGenerateRoute(settings),
-                      initialRoute: LayoutView.routeName,
+                      initialRoute: ProgressPhotoView.routeName,
                     );
-                  }
+                }
                   return MaterialApp(
                     locale: DevicePreview.locale(context),
                     builder: DevicePreview.appBuilder,
