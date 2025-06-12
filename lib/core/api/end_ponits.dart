@@ -10,6 +10,7 @@ class EndPoints {
   static const String getTrackerData = 'activity';
   static const String dailyTarget = 'activity/progress';
   static const String getAllExcersises = '';
+  static const String getWorkouts = 'workouts';
 }
 
 class ApiKey {}

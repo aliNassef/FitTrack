@@ -1,3 +1,5 @@
+import 'package:fit_track_app/features/workout/data/model/workout_model.dart';
+
 import '../../../../core/extensions/padding_extension.dart';
 import '../view/workout_details_view.dart';
 import 'package:flutter/material.dart';
@@ -5,15 +7,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'view_more_button.dart';
 
 class TrainLessonsItem extends StatelessWidget {
   const TrainLessonsItem({
     super.key,
+    required this.instance,
   });
-
+  final WorkoutModel instance;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,14 +30,14 @@ class TrainLessonsItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Fullbody Workout',
+                instance.title,
                 style: AppStyles.medium14,
               ),
               Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: '11 Exercises',
+                      text: '${instance.exercises} Exercises',
                       style: AppStyles.regular12.copyWith(
                         color: AppColors.greyLighterColor,
                       ),
@@ -47,7 +49,7 @@ class TrainLessonsItem extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: '32mins',
+                      text: '${instance.duration} mins',
                       style: AppStyles.regular12.copyWith(
                         color: AppColors.greyLighterColor,
                       ),
@@ -65,20 +67,14 @@ class TrainLessonsItem extends StatelessWidget {
               ),
             ],
           ).withAllPadding(20),
-          Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(right: 20.w),
-            foregroundDecoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AppImages.character),
-                fit: BoxFit.fill,
-              ),
+          CircleAvatar(
+            radius: 45.r,
+            backgroundImage: NetworkImage(
+              instance.image,
             ),
-            child: CircleAvatar(
-              radius: 45.r,
-              backgroundColor: Colors.white,
-            ),
+            backgroundColor: Colors.white,
           ),
+          const HorizontalSpace(3),
         ],
       ),
     );

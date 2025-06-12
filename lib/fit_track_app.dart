@@ -50,6 +50,7 @@ class FitTrackApp extends StatelessWidget {
                 },
               );
             },
+            
           ),
         );
       },

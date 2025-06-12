@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:fit_track_app/features/activity/data/datasource/activity_remote_datasource.dart';
 import 'package:fit_track_app/features/activity/data/repo/activity_repo.dart';
 import 'package:fit_track_app/features/activity/data/repo/activity_repo_impl.dart';
- import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
+import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
 import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
 import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
@@ -25,6 +25,10 @@ import '../../features/profile/data/repo/profile_repo_impl.dart';
 import '../../features/store/data/datasource/store_remote_datasource.dart';
 import '../../features/store/data/repo/store_repo_impl.dart';
 import '../../features/store/presentation/cubits/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
+import '../../features/workout/data/datasource/workout_remote_datasource.dart';
+import '../../features/workout/data/repo/workout_repo.dart';
+import '../../features/workout/data/repo/workout_repo_impl.dart';
+import '../../features/workout/presentation/cubits/get_all_workout_cubit/get_all_workouts_cubit.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,6 +45,25 @@ Future<void> setupServiceLocator() async {
   _setupProfileFeature();
   _setupStoreFeature();
   _setupActivityFeature();
+  _setupWorkoutFeature();
+}
+
+void _setupWorkoutFeature() {
+  injector.registerFactory(
+    () => GetAllWorkoutsCubit(
+      workoutRepo: injector<WorkoutRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<WorkoutRepo>(
+    () => WorkoutRepoImpl(
+      remoteDatasource: injector<WorkoutRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<WorkoutRemoteDatasource>(
+    () => WorkoutRemoteDatasourceImpl(
+      apiConsumer: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupActivityFeature() {

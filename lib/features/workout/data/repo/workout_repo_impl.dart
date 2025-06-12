@@ -1,0 +1,24 @@
+import 'package:fit_track_app/features/workout/data/repo/workout_repo.dart';
+
+import '../datasource/workout_remote_datasource.dart';
+import '../model/workout_model.dart';
+import 'package:dartz/dartz.dart';
+
+import '../../../../core/errors/failure.dart';
+import '../../../../core/errors/exceptions.dart';
+
+class WorkoutRepoImpl implements WorkoutRepo {
+  final WorkoutRemoteDatasource remoteDatasource;
+  WorkoutRepoImpl({required this.remoteDatasource});
+  @override
+  Future<Either<Failure, List<WorkoutModel>>> getWorkouts() async {
+    try {
+      final workouts = await remoteDatasource.getWorkouts();
+      return Right(workouts);
+    } on ServerException catch (e) {
+      return Left(
+        Failure(errMessage: e.errorModel.errorMessage),
+      );
+    }
+  }
+}
