@@ -1,4 +1,5 @@
-import '../../../../core/utils/app_images.dart';
+import '../../../../core/widgets/custom_network_image.dart';
+import '../../data/model/suggest_category_model.dart';
 import '../view/category_meal_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,8 +12,9 @@ import '../../../../core/utils/app_styles.dart';
 class ExploreMealItem extends StatelessWidget {
   const ExploreMealItem({
     super.key,
+    required this.suggestedCategoryModel,
   });
-
+  final SuggestedCategoryModel suggestedCategoryModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,16 +38,20 @@ class ExploreMealItem extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: Image.asset(AppImages.meal),
+            child: CustomNetworkImage(
+              img: suggestedCategoryModel.image,
+              height: 80.h,
+              width: 100.w,
+            ),
           ),
           const VerticalSpace(12),
           Text(
-            'Breakfast',
+            suggestedCategoryModel.name,
             style: AppStyles.medium14,
           ),
           const VerticalSpace(5),
           Text(
-            '120+ Foods',
+            '${suggestedCategoryModel.totalFoods} Foods',
             style: AppStyles.regular12.copyWith(
               color: AppColors.greyLighterColor,
             ),

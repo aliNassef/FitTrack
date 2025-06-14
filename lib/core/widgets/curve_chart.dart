@@ -1,12 +1,32 @@
+import 'dart:developer';
+
+import '../../features/meal_planner/data/model/nuration_model.dart';
 import '../extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class CurveChart extends StatelessWidget {
-  const CurveChart({super.key, this.textColor = Colors.white});
+  const CurveChart({
+    super.key,
+    this.textColor = Colors.white,
+    required this.nutritionModel,
+  });
   final Color textColor;
+  final NutritionModel nutritionModel;
   @override
   Widget build(BuildContext context) {
+    double _getMaxNutritionValue() {
+      return [
+        nutritionModel.calories.toDouble(),
+        nutritionModel.protein.toDouble(),
+        nutritionModel.fat.toDouble(),
+        nutritionModel.carbs.toDouble(),
+        nutritionModel.fiber.toDouble(),
+        nutritionModel.sugar.toDouble(),
+      ].reduce((curr, next) => curr > next ? curr : next);
+    }
+
+    final _getMax = _getMaxNutritionValue();
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -16,7 +36,7 @@ class CurveChart extends StatelessWidget {
       height: context.height * .3,
       child: LineChart(
         LineChartData(
-          maxY: 10,
+          maxY: _getMax * 1.2,
           minY: 0,
           gridData: _backgroundStyle(),
           borderData: _borderStyle(),
@@ -34,13 +54,12 @@ class CurveChart extends StatelessWidget {
       isCurved: true,
       show: true,
       spots: [
-        const FlSpot(0, 0),
-        const FlSpot(1, 3),
-        const FlSpot(2, 4),
-        const FlSpot(3, 6),
-        const FlSpot(4, 8),
-        const FlSpot(5, 10),
-        const FlSpot(6, 0),
+        FlSpot(0, nutritionModel.calories.toDouble()),
+        FlSpot(1, nutritionModel.fat.toDouble()),
+        FlSpot(2, nutritionModel.carbs.toDouble()),
+        FlSpot(3, nutritionModel.protein.toDouble()),
+        FlSpot(4, nutritionModel.fiber.toDouble()),
+        FlSpot(5, nutritionModel.sugar.toDouble()),
       ],
     );
   }
@@ -83,11 +102,18 @@ FlTitlesData _borderTitlesData(Color textColor) {
         reservedSize: 30,
         interval: 1,
         getTitlesWidget: (value, meta) {
-          const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          const nurititons = [
+            'Calories',
+            'Fat',
+            'Carbs',
+            'Protein',
+            'Fiber',
+            'Sugar',
+          ];
           return Padding(
             padding: const EdgeInsets.only(top: 12),
             child: Text(
-              days[value.toInt()],
+              nurititons[value.toInt()],
               style: TextStyle(
                 color: textColor,
                 fontSize: 12,
@@ -104,7 +130,7 @@ FlTitlesData _borderTitlesData(Color textColor) {
     ),
     rightTitles: AxisTitles(
       sideTitles: SideTitles(
-        showTitles: true,
+        showTitles: false,
         interval: 2,
         reservedSize: 40,
         getTitlesWidget: (value, meta) {

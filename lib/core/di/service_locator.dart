@@ -3,6 +3,8 @@ import 'package:fit_track_app/features/activity/data/datasource/activity_remote_
 import 'package:fit_track_app/features/activity/data/repo/activity_repo.dart';
 import 'package:fit_track_app/features/activity/data/repo/activity_repo_impl.dart';
 import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
+import 'package:fit_track_app/features/meal_planner/data/datasource/meal_remote_datasource.dart';
+import 'package:fit_track_app/features/meal_planner/data/repo/meal_repo.dart';
 import 'package:fit_track_app/features/progress/data/datasource/progress_remote_datasource.dart';
 import 'package:fit_track_app/features/progress/data/repo/progress_repo.dart';
 import 'package:fit_track_app/features/progress/data/repo/progress_repo_impl.dart';
@@ -11,6 +13,9 @@ import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
 import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
+import '../../features/meal_planner/data/repo/meal_repo_impl.dart';
+import '../../features/meal_planner/presentation/cubits/get_meal_planner_cubit/get_meal_planner_cubit.dart'
+    show GetMealPlannerCubit;
 import '../../features/profile/data/datasource/profile_remote_datasource.dart';
 import '../../features/profile/data/repo/profile_repo.dart';
 import '../../features/profile/presentation/cubit/get_profile_cubit.dart';
@@ -51,6 +56,25 @@ Future<void> setupServiceLocator() async {
   _setupActivityFeature();
   _setupWorkoutFeature();
   _setupProgressFeature();
+  _setupMealPlannerFeature();
+}
+
+void _setupMealPlannerFeature() {
+  injector.registerFactory(
+    () => GetMealPlannerCubit(
+      injector<MealRepo>(),
+    ),
+  );
+  injector.registerLazySingleton<MealRepo>(
+    () => MealRepoImpl(
+      remoteDataSource: injector<MealRemoteDataSource>(),
+    ),
+  );
+  injector.registerLazySingleton<MealRemoteDataSource>(
+    () => MealRemoteDataSourceImpl(
+      api: injector<ApiConsumer>(),
+    ),
+  );
 }
 
 void _setupProgressFeature() {

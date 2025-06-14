@@ -1,3 +1,4 @@
+import 'package:fit_track_app/features/meal_planner/data/model/daily_meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,12 +7,14 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_shadows.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../../core/widgets/custom_network_image.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
+    required this.dailyMealModel,
   });
-
+  final DailyMealModel dailyMealModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,11 +25,11 @@ class MealItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         title: Text(
-          'Salmon Nigiri',
+          dailyMealModel.name,
           style: AppStyles.medium14,
         ),
         subtitle: Text(
-          'Today | 7am',
+          'Today | ${dailyMealModel.time}',
           style: AppStyles.regular12.copyWith(
             color: AppColors.greyLighterColor,
           ),
@@ -37,7 +40,11 @@ class MealItem extends StatelessWidget {
             AppIcons.activeReminderIcon,
           ),
         ),
-        leading: SvgPicture.asset(AppIcons.achivementsIcon),
+        leading: CustomNetworkImage(
+          img: dailyMealModel.image,
+          height: 48.h,
+          width: 48.w,
+        ),
       ),
     );
   }

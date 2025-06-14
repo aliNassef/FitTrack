@@ -97,7 +97,7 @@ class StepItem extends StatelessWidget {
                 ),
               ),
           ],
-        ),
+        ), 
         const HorizontalSpace(15),
         Expanded(
           child: Column(

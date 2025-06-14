@@ -6,6 +6,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/curve_chart.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../meal_planner/data/model/nuration_model.dart';
 import 'goal_progress_bar.dart';
 
 class StatisticsViewBody extends StatelessWidget {
@@ -23,6 +24,15 @@ class StatisticsViewBody extends StatelessWidget {
         ),
         const VerticalSpace(40),
         const CurveChart(
+          nutritionModel: NutritionModel(
+            carbs: 100,
+            calories: 100,
+            fat: 100,
+            protein: 100,
+            fiber: 11,
+            id: 'aa',
+            sugar: 444,
+          ),
           textColor: AppColors.greyLighterColor,
         ),
         const VerticalSpace(60),
