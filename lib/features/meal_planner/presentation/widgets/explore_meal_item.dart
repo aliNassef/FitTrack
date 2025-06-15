@@ -1,5 +1,7 @@
+import 'dart:developer';
+
 import '../../../../core/widgets/custom_network_image.dart';
-import '../../data/model/suggest_category_model.dart';
+import '../../data/model/meal_planner_model/suggest_category_model.dart';
 import '../view/category_meal_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,7 +64,14 @@ class ExploreMealItem extends StatelessWidget {
             height: 40.h,
             child: DefaultAppButton(
               onPressed: () {
-                Navigator.pushNamed(context, CategoryMealView.routeName);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CategoryMealView(
+                      id: suggestedCategoryModel.mainCategory,
+                    ),
+                  ),
+                );
               },
               text: 'Select',
             ),

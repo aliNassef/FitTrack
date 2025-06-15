@@ -1,6 +1,5 @@
-import 'dart:developer';
-
-import '../../features/meal_planner/data/model/nuration_model.dart';
+ 
+import '../../features/meal_planner/data/model/meal_planner_model/nuration_model.dart';
 import '../extensions/mediaquery_size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/meal_planner/data/model/daily_meal_model.dart';
+import 'package:fit_track_app/features/meal_planner/data/model/meal_planner_model/daily_meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,9 +18,12 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(boxShadow: AppShadows.shadow1),
+      decoration: BoxDecoration(
+        boxShadow: AppShadows.shadow1,
+        color: Colors.white,
+      ),
       child: ListTile(
-        contentPadding: EdgeInsets.symmetric(vertical: 19.h),
+        contentPadding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 6.w),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),

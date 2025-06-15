@@ -1,15 +1,18 @@
+import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/category_meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../data/model/meal_category_model/sub_category_meal_model.dart';
 
 class CategoryListItems extends StatelessWidget {
   const CategoryListItems({
     super.key,
+    required this.subcategoryMealModel,
   });
-
+  final List<SubcategoryMealModel> subcategoryMealModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -30,10 +33,13 @@ class CategoryListItems extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 20.r,
+                  backgroundImage: NetworkImage(
+                    subcategoryMealModel[index].image,
+                  ),
                   backgroundColor: Colors.white,
                 ),
                 Text(
-                  'Salad',
+                  subcategoryMealModel[index].name,
                   style: AppStyles.regular12,
                 ),
               ],
@@ -43,7 +49,7 @@ class CategoryListItems extends StatelessWidget {
         separatorBuilder: (_, index) {
           return const HorizontalSpace(15);
         },
-        itemCount: 10,
+        itemCount: subcategoryMealModel.length,
       ),
     );
   }

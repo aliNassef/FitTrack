@@ -76,8 +76,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const MealPlannerView(),
       );
     case CategoryMealView.routeName:
+      var id = settings.arguments as String;
       return MaterialPageRoute(
-        builder: (context) => const CategoryMealView(),
+        builder: (context) => CategoryMealView(
+          id: id,
+        ),
       );
     case MealDetailsView.routeName:
       return MaterialPageRoute(

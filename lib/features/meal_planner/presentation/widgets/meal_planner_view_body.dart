@@ -1,6 +1,6 @@
+import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
 import 'package:fit_track_app/features/meal_planner/presentation/cubits/get_meal_planner_cubit/get_meal_planner_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/extensions/padding_extension.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/widgets/curve_chart.dart';
@@ -86,6 +86,7 @@ class MealPlannerViewBody extends StatelessWidget {
                   dailyMealModel: meal,
                 ).withHorizontalPadding(30),
               ),
+              const VerticalSpace(30),
               Text(
                 'Find Something to Eat',
                 style: AppStyles.semiBold16,
@@ -97,6 +98,14 @@ class MealPlannerViewBody extends StatelessWidget {
               const VerticalSpace(30),
             ],
           );
+        }
+
+        if (state is GetMealPlannerFailure) {
+          return CustomFailureWidget(errMessage: state.errMessage);
+        }
+
+        if (state is GetMealPlannerLoading) {
+          return const CircularProgressIndicator.adaptive();
         }
 
         return const SizedBox.shrink();

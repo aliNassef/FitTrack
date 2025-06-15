@@ -1,63 +1,22 @@
+import 'package:fit_track_app/core/di/service_locator.dart';
+import 'package:fit_track_app/features/meal_planner/presentation/cubits/get_category_cubit/get_category_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/padding_extension.dart';
-import '../../../../core/helpers/app_spacer.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
-import 'meal_details_view.dart';
+import '../widgets/category_meal_view_body.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_styles.dart';
-import '../widgets/category_list_items.dart';
-import '../widgets/custom_search_bar.dart';
-import '../widgets/popular_meal_item.dart';
-import '../widgets/recommended_meal_list_items.dart';
 
 class CategoryMealView extends StatelessWidget {
-  const CategoryMealView({super.key});
+  const CategoryMealView({super.key, required this.id});
   static const routeName = 'category-meals';
+  final String id;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomAppBar(
-                title: 'Breakfast',
-                onBackButtonPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const VerticalSpace(34),
-              const CustomSearchBar(),
-              const VerticalSpace(30),
-              Text(
-                'Category',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              const CategoryListItems(),
-              const VerticalSpace(30),
-              Text(
-                'Recommendation for Diet',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              const RecommendedMealListItems(),
-              const VerticalSpace(30),
-              Text(
-                'Popular',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              PopularMealItem(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    MealDetailsView.routeName,
-                  );
-                },
-              ),
-            ],
-          ).withHorizontalPadding(30),
+        child: BlocProvider(
+          create: (context) =>
+              injector<GetCategoryCubit>()..getCategoryById(id),
+          child: const CategoryMealViewBody().withHorizontalPadding(30),
         ),
       ),
     );

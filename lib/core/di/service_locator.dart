@@ -14,6 +14,7 @@ import 'package:fit_track_app/features/store/presentation/cubits/get_all_product
 import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/meal_planner/data/repo/meal_repo_impl.dart';
+import '../../features/meal_planner/presentation/cubits/get_category_cubit/get_category_cubit.dart';
 import '../../features/meal_planner/presentation/cubits/get_meal_planner_cubit/get_meal_planner_cubit.dart'
     show GetMealPlannerCubit;
 import '../../features/profile/data/datasource/profile_remote_datasource.dart';
@@ -62,6 +63,11 @@ Future<void> setupServiceLocator() async {
 void _setupMealPlannerFeature() {
   injector.registerFactory(
     () => GetMealPlannerCubit(
+      injector<MealRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => GetCategoryCubit(
       injector<MealRepo>(),
     ),
   );

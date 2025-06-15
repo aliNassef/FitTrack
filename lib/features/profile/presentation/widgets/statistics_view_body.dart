@@ -6,8 +6,8 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/curve_chart.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../../meal_planner/data/model/nuration_model.dart';
-import 'goal_progress_bar.dart';
+import '../../../meal_planner/data/model/meal_planner_model/nuration_model.dart';
+ import 'goal_progress_bar.dart';
 
 class StatisticsViewBody extends StatelessWidget {
   const StatisticsViewBody({super.key});

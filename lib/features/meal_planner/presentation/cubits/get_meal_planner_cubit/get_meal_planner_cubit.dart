@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:fit_track_app/features/meal_planner/data/repo/meal_repo.dart';
 import 'package:meta/meta.dart';
 
-import '../../../data/model/meal_model.dart';
+import '../../../data/model/meal_planner_model/meal_model.dart';
 
 part 'get_meal_planner_state.dart';
 
