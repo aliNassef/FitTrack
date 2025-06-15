@@ -1,4 +1,3 @@
-import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/category_meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

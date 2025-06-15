@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class RecommendedMealListItems extends StatelessWidget {
