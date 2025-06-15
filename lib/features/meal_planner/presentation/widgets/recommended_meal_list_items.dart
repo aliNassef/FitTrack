@@ -7,6 +7,7 @@ import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../view/meal_details_view.dart';
 
 class RecommendedMealListItems extends StatelessWidget {
   const RecommendedMealListItems({
@@ -24,7 +25,7 @@ class RecommendedMealListItems extends StatelessWidget {
           width: 200.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: AppColors.greenLightColor,
+            color: const Color(0xffcdfee6),
           ),
           child: Column(
             children: [
@@ -49,7 +50,19 @@ class RecommendedMealListItems extends StatelessWidget {
               SizedBox(
                 width: 110.w,
                 height: 38.h,
-                child: const DefaultAppButton(text: 'View'),
+                child: DefaultAppButton(
+                  text: 'View',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MealDetailsView(
+                          meal: meals[index],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

@@ -1,4 +1,3 @@
- 
 import 'sub_category_meal_model.dart';
 
 class CategoryMealModel {
@@ -40,11 +39,11 @@ class CategoryMealModel {
     return {
       '_id': id,
       'name': name,
-      'subcategories': subcategories.map((subcategory) => subcategory.toJson()).toList(),
+      'subcategories':
+          subcategories.map((subcategory) => subcategory.toJson()).toList(),
       'createdAt': createdAt.toIso8601String(),
       'updatedAt': updatedAt.toIso8601String(),
       '__v': v,
     };
   }
- 
 }

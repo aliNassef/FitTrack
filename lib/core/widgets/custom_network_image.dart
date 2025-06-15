@@ -5,7 +5,8 @@ import 'package:skeletonizer/skeletonizer.dart';
 class CustomNetworkImage extends StatelessWidget {
   const CustomNetworkImage({
     super.key,
-    required this.img,
+    this.img =
+        'https://th.bing.com/th/id/OIP.kUCIxkO1NfJOCjfUVEj7lQHaEO?w=281&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3',
     this.width,
     this.height,
     this.fit = BoxFit.fill,

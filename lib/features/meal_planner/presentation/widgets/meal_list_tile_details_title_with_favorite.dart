@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../workout/presentation/widgets/toggle_favorite_button.dart';
+import '../../data/model/meal_category_model/meal_item_model.dart';
 
 class MealListTileDetailsTitleWithFavorite extends StatelessWidget {
   const MealListTileDetailsTitleWithFavorite({
     super.key,
+    required this.meal,
   });
+
+  final MealItemModel meal;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(
-        'Blueberry Pancake',
+        meal.name,
         style: AppStyles.bold16,
       ),
       subtitle: Text.rich(

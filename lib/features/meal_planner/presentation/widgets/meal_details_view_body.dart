@@ -1,11 +1,13 @@
+import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/meal_nutrition_model.dart';
+
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/widgets/custom_network_image.dart';
 import '../../../../core/widgets/read_more_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
-import '../../../../core/model/step_model.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -13,6 +15,7 @@ import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_head_title_and_subtitle_button.dart';
 import '../../../workout/presentation/widgets/step_item.dart';
 import '../../../workout/presentation/widgets/swap_scroll_dvider.dart';
+import '../../data/model/meal_category_model/meal_item_model.dart';
 import '../widgets/ingredients_list_items.dart';
 import '../widgets/meal_list_tile_details_title_with_favorite.dart';
 import '../widgets/nurition_list_items.dart';
@@ -20,8 +23,9 @@ import '../widgets/nurition_list_items.dart';
 class MealDetailsViewBody extends StatelessWidget {
   const MealDetailsViewBody({
     super.key,
+    required this.meal,
   });
-
+  final MealItemModel meal;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -65,10 +69,10 @@ class MealDetailsViewBody extends StatelessWidget {
                         ),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(
-                        AppImages.character,
-                        fit: BoxFit.fill,
-                        height: context.height * 0.3,
+                      child: CustomNetworkImage(
+                        img: meal.image,
+                        height: 150.h,
+                        width: 150.w,
                       ),
                     ),
                     const VerticalSpace(15),
@@ -112,7 +116,9 @@ class MealDetailsViewBody extends StatelessWidget {
             child: SwapScrollDvider(),
           ),
           const VerticalSpace(30),
-          const MealListTileDetailsTitleWithFavorite(),
+          MealListTileDetailsTitleWithFavorite(
+            meal: meal,
+          ),
           const VerticalSpace(30),
           Text(
             'Nutrition',
@@ -121,7 +127,15 @@ class MealDetailsViewBody extends StatelessWidget {
           const VerticalSpace(15),
           SizedBox(
             height: 45.h,
-            child: const NutritionListItems(),
+            child: NutritionListItems(
+              mealNutritionModel: meal.nutrition ??
+                  const MealNutritionModel(
+                    calories: 0,
+                    fats: 0,
+                    proteins: 0,
+                    id: '',
+                  ),
+            ),
           ),
           const VerticalSpace(30),
           Text(
@@ -129,37 +143,32 @@ class MealDetailsViewBody extends StatelessWidget {
             style: AppStyles.semiBold16,
           ),
           const VerticalSpace(30),
-          const ReadMoreText(
-            text:
-                'Pancakes are some people\'s favorite breakfast, who doesn\'t like pancakes? Especially with the real honey splash on top of the pancakes, of course everyone loves that! besides being ',
+          ReadMoreText(
+            text: meal.description,
           ),
           const VerticalSpace(30),
-          const CustomHeadTittleAndSubTitleButton(
+          CustomHeadTittleAndSubTitleButton(
             title: 'Ingredients That You Will Need',
-            subtitle: '6 items',
+            subtitle: '${meal.ingredients.length} items',
           ),
           const VerticalSpace(15),
           SizedBox(
             height: 140.h,
-            child: const IngredientsListItems(),
+            child: IngredientsListItems(
+              mealIngredients: meal.ingredients,
+            ),
           ),
           const VerticalSpace(30),
-          const CustomHeadTittleAndSubTitleButton(
+          CustomHeadTittleAndSubTitleButton(
             title: 'Step by Step',
-            subtitle: '8 Steps',
+            subtitle: '${meal.steps.length} Steps',
           ),
           const VerticalSpace(15),
           ...List.generate(
-            4,
+            meal.steps.length,
             (index) => StepItem(
-              isLast: index == 3,
-              stepModel: StepModel(
-                stepNumber: index + 1,
-                title: 'Step ${index + 1}',
-                description:
-                    'To make the gestures feel more relaxed, stretch your arms as you start this movement. No bending of hands.',
-                isActive: false,
-              ),
+              isLast: index == meal.steps.length - 1,
+              stepModel: meal.steps[index],
             ),
           ),
           const VerticalSpace(100),

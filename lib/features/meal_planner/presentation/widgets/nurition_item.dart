@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_styles.dart';
-
+ 
 class NutritionItem extends StatelessWidget {
-  const NutritionItem({super.key});
-
+  const NutritionItem({super.key, required this.mealNutritionModel});
+  final Map<String, num> mealNutritionModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +22,7 @@ class NutritionItem extends StatelessWidget {
             color: Colors.red,
           ),
           Text(
-            '180kCal',
+            '${mealNutritionModel.values.first} ${mealNutritionModel.keys.first}',
             style: AppStyles.regular10,
           ),
         ],

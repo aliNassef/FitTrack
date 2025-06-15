@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../data/model/meal_category_model/sub_category_meal_model.dart';
 
@@ -22,7 +21,7 @@ class CategoryListItems extends StatelessWidget {
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: AppColors.greenLightColor,
+              color: const Color(0xffcdfee6),
             ),
             width: 80.w,
             height: 100.h,

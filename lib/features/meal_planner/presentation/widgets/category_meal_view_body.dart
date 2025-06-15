@@ -93,7 +93,7 @@ class CategoryMealViewBody extends StatelessWidget {
         }
 
         if (state is GetCategoryLoading) {
-          return const CircularProgressIndicator.adaptive();
+          return const Center(child: CircularProgressIndicator.adaptive());
         }
         return const SizedBox.shrink();
       },
