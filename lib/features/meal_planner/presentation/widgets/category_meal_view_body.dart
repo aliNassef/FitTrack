@@ -70,10 +70,14 @@ class CategoryMealViewBody extends StatelessWidget {
                       meal:
                           getPopularMeal(state.categories.subcategories)[index],
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          MealDetailsView.routeName,
-                        );
+                       Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MealDetailsView(
+                          meal: state.categories.subcategories[index].meals[index],
+                        ),
+                      ),
+                    );
                       },
                     );
                   },
