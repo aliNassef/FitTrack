@@ -94,7 +94,7 @@ class NotificationView extends StatelessWidget {
               ),
               title: '1111',
               message: '1111',
-              icon: '1111',
+              icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyenz3c2a6SsginDmI72hFGEuqYJfWnGNBQw&s',
               priority: '1111',
               status: '1111',
               createdAt: '1111',
