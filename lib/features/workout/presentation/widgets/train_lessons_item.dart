@@ -62,6 +62,7 @@ class TrainLessonsItem extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context, rootNavigator: true).pushNamed(
                     WorkoutDetailsView.routeName,
+                    arguments: instance.id,
                   );
                 },
               ),

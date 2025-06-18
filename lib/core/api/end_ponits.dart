@@ -15,6 +15,11 @@ class EndPoints {
   static const String getProgress = 'compare/gallery';
   static const String getMealPlanner = 'meal';
   static const String getMealCategories = 'mealDetails/main/';
+  static const String getExcersisesByWorkout = 'exercise/';
+  static const String getExcersisesDetailsById = 'exerciseDetails/';
+  static const String uploadImageProgress = 'compare/gallery/upload';
+  static const String compareProgress = 'compare/gallerycompare';
+  static const String getLastCompare = 'compare/compareresult';
 }
 
 class ApiKey {}

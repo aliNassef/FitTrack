@@ -39,6 +39,7 @@ import '../../features/workout/data/datasource/workout_remote_datasource.dart';
 import '../../features/workout/data/repo/workout_repo.dart';
 import '../../features/workout/data/repo/workout_repo_impl.dart';
 import '../../features/workout/presentation/cubits/get_all_workout_cubit/get_all_workouts_cubit.dart';
+import '../../features/workout/presentation/cubits/get_excercise_cubit/get_excercise_cubit.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -105,6 +106,11 @@ void _setupWorkoutFeature() {
   injector.registerFactory(
     () => GetAllWorkoutsCubit(
       workoutRepo: injector<WorkoutRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => GetExcerciseCubit(
+      injector<WorkoutRepo>(),
     ),
   );
   injector.registerLazySingleton<WorkoutRepo>(

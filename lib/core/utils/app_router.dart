@@ -66,8 +66,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const WorkoutView(),
       );
     case WorkoutDetailsView.routeName:
+      var id = settings.arguments as String;
       return MaterialPageRoute(
-        builder: (context) => const WorkoutDetailsView(),
+        builder: (context) => WorkoutDetailsView(id: id),
       );
     case WorkoutExerciseView.routeName:
       return MaterialPageRoute(

@@ -18,3 +18,29 @@ final class ProgressFailure extends ProgressState {
 
   ProgressFailure({required this.errMessage});
 }
+
+final class ProgressComparisonLoaded extends ProgressState {
+  final ProgressComparisonModel progressComparisonModel;
+
+  ProgressComparisonLoaded({required this.progressComparisonModel});
+}
+
+final class ProgressComparisonFailure extends ProgressState {
+  final String errMessage;
+
+  ProgressComparisonFailure({required this.errMessage});
+}
+
+final class LastCompareLoading extends ProgressState {}
+
+final class LastCompareLoaded extends ProgressState {
+  final LastCompareModel lastCompareModel;
+
+  LastCompareLoaded({required this.lastCompareModel});
+}
+
+final class LastCompareFailure extends ProgressState {
+  final String errMessage;
+
+  LastCompareFailure({required this.errMessage});
+}

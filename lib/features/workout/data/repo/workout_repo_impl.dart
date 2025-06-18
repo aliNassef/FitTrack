@@ -1,6 +1,8 @@
+import 'package:fit_track_app/features/workout/data/model/excersise_model.dart';
 import 'package:fit_track_app/features/workout/data/repo/workout_repo.dart';
 
 import '../datasource/workout_remote_datasource.dart';
+import '../model/excersise_details_model.dart';
 import '../model/workout_model.dart';
 import 'package:dartz/dartz.dart';
 
@@ -15,6 +17,32 @@ class WorkoutRepoImpl implements WorkoutRepo {
     try {
       final workouts = await remoteDatasource.getWorkouts();
       return Right(workouts);
+    } on ServerException catch (e) {
+      return Left(
+        Failure(errMessage: e.errorModel.errorMessage),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ExerciseModel>>> getExercises(
+      String workoutId) async {
+    try {
+      final exercises = await remoteDatasource.getExercises(workoutId);
+      return Right(exercises);
+    } on ServerException catch (e) {
+      return Left(
+        Failure(errMessage: e.errorModel.errorMessage),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, ExerciseDetailsModel>> getExerciseDetails(
+      String exerciseId) async {
+    try {
+      final exerciseDetails = await remoteDatasource.getExerciseDetails(exerciseId);
+      return Right(exerciseDetails);
     } on ServerException catch (e) {
       return Left(
         Failure(errMessage: e.errorModel.errorMessage),
