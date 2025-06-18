@@ -1,11 +1,12 @@
-import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
+import 'package:fit_track_app/features/store/presentation/manger/search_bloc/search_store_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/service_locator.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import 'package:flutter/material.dart';
 
-import '../cubits/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
+import '../manger/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
+import '../manger/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import '../widgets/store_view_body.dart';
 
 class StoreView extends StatelessWidget {
@@ -25,6 +26,9 @@ class StoreView extends StatelessWidget {
             BlocProvider(
               create: (context) =>
                   injector<GetAllProductsCubitCubit>()..getAllProducts(),
+            ),
+            BlocProvider(
+              create: (context) => injector<SearchStoreBloc>(),
             ),
           ],
           child: const StoreViewBody(),

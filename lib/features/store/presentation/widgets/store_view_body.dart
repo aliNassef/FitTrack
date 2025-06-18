@@ -1,8 +1,13 @@
+import 'package:fit_track_app/features/store/presentation/widgets/product_card_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
 import '../../../../core/widgets/custom_icon_button.dart';
 import '../../../meal_planner/presentation/widgets/custom_search_bar.dart';
+import '../manger/search_bloc/search_store_bloc.dart';
 import 'category_items_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,24 +51,90 @@ class StoreViewBody extends StatelessWidget {
                 ),
               ),
               const VerticalSpace(24),
-              const CustomSearchBar(),
+              CustomSearchBar(
+                onChanged: (value) {
+                  context.read<SearchStoreBloc>().add(
+                        OnSearchStoreEvent(searchQuery: value),
+                      );
+                },
+                hintText: 'Search equipment',
+              ),
               const VerticalSpace(30),
-              Text(
-                'Category',
-                style: AppStyles.semiBold16,
+              BlocBuilder<SearchStoreBloc, SearchStoreState>(
+                builder: (context, state) {
+                  if (state is SearchStoreLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  if (state is SearchStoreLoaded) {
+                    if (state.products.isEmpty) {
+                      return const Center(
+                        child: Text('No products found'),
+                      );
+                    }
+                    return GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 6.w,
+                        mainAxisSpacing: 12.h,
+                        childAspectRatio: 0.7,
+                      ),
+                      itemCount: state.products.length,
+                      itemBuilder: (context, index) {
+                        return ProductCard(
+                          name: state.products[index].name,
+                          price: '${state.products[index].price.toString()}\$',
+                          image: state.products[index].image,
+                          backgroundColor: const Color(0xFFCCF7F2),
+                        );
+                      },
+                    );
+                  }
+                  if (state is SearchStoreError) {
+                    return CustomFailureWidget(errMessage: state.errMessage);
+                  }
+                  return const CategorySection();
+                },
               ),
-              const VerticalSpace(16),
-              const CategoryItemsBlocBuilder(),
-              const VerticalSpace(16),
-              Text(
-                'Strength Training & Weightlifting',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(24),
             ],
           ),
         ),
-        const ProductItemsBlocBuilder(),
+        BlocBuilder<SearchStoreBloc, SearchStoreState>(
+          builder: (context, state) {
+            if (state is SearchStoreInitial) {
+              return const ProductItemsBlocBuilder();
+            }
+            return const SliverToBoxAdapter(child: SizedBox.shrink());
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class CategorySection extends StatelessWidget {
+  const CategorySection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Category',
+          style: AppStyles.semiBold16,
+        ),
+        const VerticalSpace(16),
+        const CategoryItemsBlocBuilder(),
+        const VerticalSpace(16),
+        Text(
+          'Strength Training & Weightlifting',
+          style: AppStyles.semiBold16,
+        ),
+        const VerticalSpace(24),
       ],
     );
   }

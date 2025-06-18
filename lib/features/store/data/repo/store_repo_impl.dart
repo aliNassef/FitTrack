@@ -34,4 +34,17 @@ class StoreRepoImpl implements StoreRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, List<ProductModel>>> searchOnProducts(
+      String query) async {
+    try {
+      final products = await remoteDataSource.searchOnProducts(query);
+      return Right(products);
+    } on ServerException catch (e) {
+      return Left(
+        Failure(errMessage: e.errorModel.errorMessage),
+      );
+    }
+  }
 }

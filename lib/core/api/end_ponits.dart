@@ -20,6 +20,7 @@ class EndPoints {
   static const String uploadImageProgress = 'compare/gallery/upload';
   static const String compareProgress = 'compare/gallerycompare';
   static const String getLastCompare = 'compare/compareresult';
+  static const String searchOnProducts = 'product/search';
 }
 
 class ApiKey {}

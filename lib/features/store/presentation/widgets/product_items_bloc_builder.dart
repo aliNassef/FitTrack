@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fit_track_app/features/store/presentation/cubits/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/widgets/custom_failure_widget.dart';
+import '../manger/get_all_product_cubit/get_all_products_cubit_cubit.dart';
 import 'product_card_item.dart';
 
 class ProductItemsBlocBuilder extends StatelessWidget {

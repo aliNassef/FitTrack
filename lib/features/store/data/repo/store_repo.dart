@@ -7,4 +7,5 @@ import '../model/product_model.dart';
 abstract class StoreRepo {
   Future<Either<Failure, List<CategoryModel>>> getCategories();
   Future<Either<Failure, List<ProductModel>>> getProducts();
+  Future<Either<Failure, List<ProductModel>>> searchOnProducts(String query);
 }

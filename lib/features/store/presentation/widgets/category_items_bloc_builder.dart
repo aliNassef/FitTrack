@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/widgets/custom_failure_widget.dart';
-import '../cubits/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
+ import '../manger/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
 import 'category_card_item.dart';
 
 class CategoryItemsBlocBuilder extends StatelessWidget {
