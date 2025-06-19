@@ -16,10 +16,12 @@ class EquipmentListItems extends StatelessWidget {
     return SizedBox(
       height: 180.h,
       child: ListView.separated(
-        itemCount: 5,
+        itemCount: equipments.length,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => const HorizontalSpace(15),
-        itemBuilder: (context, index) => const EquipmentItem(),
+        itemBuilder: (context, index) => EquipmentItem(
+          equipment: equipments[index],
+        ),
       ),
     );
   }

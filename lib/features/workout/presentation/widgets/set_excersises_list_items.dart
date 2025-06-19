@@ -3,11 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../data/model/excersise_model.dart';
 import 'set_excersise_item_list_tile.dart';
 
 class SetExcersisesListItems extends StatelessWidget {
-  const SetExcersisesListItems({super.key});
-
+  const SetExcersisesListItems({super.key, required this.exercises});
+  final List<ExerciseModel> exercises;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,10 +21,12 @@ class SetExcersisesListItems extends StatelessWidget {
           style: AppStyles.medium12,
         ),
         ...List.generate(
-          10,
+          exercises.length,
           (index) => Padding(
             padding: EdgeInsets.only(bottom: 15.h),
-            child: const SetExcersiseItemListTile(),
+            child: SetExcersiseItemListTile(
+              exercise: exercises[index],
+            ),
           ),
         ),
       ],

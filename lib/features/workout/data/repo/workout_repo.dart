@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:fit_track_app/features/workout/data/model/equipment_model.dart';
 import 'package:fit_track_app/features/workout/data/model/excersise_details_model.dart';
 
 import '../../../../core/errors/failure.dart';
@@ -9,4 +10,5 @@ abstract class WorkoutRepo {
   Future<Either<Failure, List<WorkoutModel>>> getWorkouts();
   Future<Either<Failure, List<ExerciseModel>>> getExercises(String workoutId);
   Future<Either<Failure, ExerciseDetailsModel>> getExerciseDetails(String exerciseId);
+  Future<Either<Failure, List<EquipmentModel>>> getEquipment(String equipmentId);
 }

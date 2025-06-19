@@ -21,6 +21,7 @@ class EndPoints {
   static const String compareProgress = 'compare/gallerycompare';
   static const String getLastCompare = 'compare/compareresult';
   static const String searchOnProducts = 'product/search';
+  static const String getAllEquipmentById = 'exercise/';
 }
 
 class ApiKey {}

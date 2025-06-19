@@ -11,6 +11,7 @@ import 'package:fit_track_app/features/progress/data/repo/progress_repo_impl.dar
 import 'package:fit_track_app/features/progress/presentation/cubits/progress_cubit/progress_cubit.dart';
 import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
 import 'package:fit_track_app/features/store/presentation/manger/search_bloc/search_store_bloc.dart';
+import 'package:fit_track_app/features/workout/presentation/cubits/get_equipment_by_id_cubit/get_equipment_by_id_cubit.dart';
 import '../../features/activity/presentation/cubits/cubit/activity_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/meal_planner/data/repo/meal_repo_impl.dart';
@@ -107,6 +108,11 @@ void _setupWorkoutFeature() {
   injector.registerFactory(
     () => GetAllWorkoutsCubit(
       workoutRepo: injector<WorkoutRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => GetEquipmentByIdCubit(
+      repo: injector<WorkoutRepo>(),
     ),
   );
   injector.registerFactory(
