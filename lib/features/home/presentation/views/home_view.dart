@@ -1,3 +1,5 @@
+import 'package:fit_track_app/features/profile/presentation/cubit/get_profile_cubit.dart';
+
 import '../../../../core/di/service_locator.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import '../cubit/home_cubit/home_cubit.dart';
@@ -14,8 +16,15 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => injector<HomeCubit>(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => injector<HomeCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => injector<GetProfileCubit>()..getProfile(),
+          ),
+        ],
         child: SafeArea(
           bottom: false,
           child: const HomeViewBody().withHorizontalPadding(30),

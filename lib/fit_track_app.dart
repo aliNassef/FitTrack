@@ -1,4 +1,4 @@
-import 'package:device_preview_plus/device_preview_plus.dart';
+ import 'package:device_preview/device_preview.dart';
 import 'package:fit_track_app/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

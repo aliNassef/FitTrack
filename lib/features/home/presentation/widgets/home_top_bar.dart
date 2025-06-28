@@ -1,3 +1,5 @@
+import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
+import 'package:fit_track_app/features/profile/presentation/cubit/get_profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,9 +41,33 @@ class _HomeTopBarState extends State<HomeTopBar> {
                 color: const Color(0xffA5A3B0),
               ),
             ),
-            Text(
-              'Masi Ramezanzade',
-              style: AppStyles.bold20,
+            BlocBuilder<GetProfileCubit, GetProfileState>(
+              buildWhen: (previous, current) {
+                return current is GetProfileLoaded ||
+                    current is GetProfileFailure ||
+                    current is GetProfileLoading;
+              },
+              builder: (context, state) {
+                if (state is GetProfileLoaded) {
+                  return Text(
+                    state.user.name,
+                    style: AppStyles.bold20,
+                  );
+                }
+                if (state is GetProfileFailure) {
+                  return CustomFailureWidget(errMessage: state.errorMessage);
+                }
+                if (state is GetProfileLoading) {
+                  return Skeletonizer(
+                    enabled: true,
+                    child: Text(
+                      'Loading...',
+                      style: AppStyles.bold20,
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+              },
             ),
           ],
         ),
@@ -80,7 +106,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
                 ),
               );
             }
-            return const SizedBox();
+            return const SizedBox.shrink();
           },
         ),
       ],
