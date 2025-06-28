@@ -6,9 +6,9 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/utils/app_images.dart';
 import '../../../core/utils/app_shadows.dart';
-import '../../activity/presentation/views/activity_view.dart';
 import '../../home/presentation/views/home_view.dart';
 import '../../profile/presentation/views/profile_view.dart';
+import '../../progress/presentation/views/progress_photo_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -65,9 +65,7 @@ class _LayoutViewState extends State<LayoutView> {
   _buildScreens() {
     return [
       const HomeView(),
-      ActivityView(
-        controller: _controller,
-      ),
+      const ProgressPhotoView(),
       ProfileView(
         controller: _controller,
       ),
