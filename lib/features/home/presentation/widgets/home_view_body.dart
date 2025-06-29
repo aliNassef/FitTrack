@@ -1,9 +1,9 @@
+import 'package:fit_track_app/features/home/presentation/widgets/image_planner.dart';
 import '../../data/models/home_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'home_banner.dart';
-import 'home_chart.dart';
 import 'home_grid_item.dart';
 import 'home_top_bar.dart';
 
@@ -30,11 +30,12 @@ class HomeViewBody extends StatelessWidget {
               const HomeBanner(),
               const VerticalSpace(30),
               Text(
-                'Activity Status',
+                'Welcome to FitTrack',
                 style: AppStyles.semiBold16,
               ),
               const VerticalSpace(15),
-              const HomeChart(),
+              const ImagePlanner(),
+              // const HomeChart(),
               const VerticalSpace(16),
             ],
           ),

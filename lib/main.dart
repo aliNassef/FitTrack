@@ -12,5 +12,5 @@ void main() async {
       enabled: !kReleaseMode,
       builder: (context) => const FitTrackApp(),
     ),
-  );
+);
 }

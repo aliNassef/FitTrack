@@ -1,5 +1,5 @@
 class EndPoints {
-  static const String baseUrl = '';
+  static const String baseUrl = 'https://fitness-app-main.up.railway.app/api/';
   static const String register = 'auth/register';
   static const String login = 'auth/login';
   static const String getNotifications = 'notifications';
