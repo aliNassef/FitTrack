@@ -1,3 +1,6 @@
+import 'package:fit_track_app/features/store/presentation/manger/payment_cubit/payment_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/helpers/default_app_button.dart';
@@ -10,8 +13,8 @@ import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_icon_button.dart';
 
 class CheckoutViewBody extends StatelessWidget {
-  const CheckoutViewBody({super.key});
-
+  const CheckoutViewBody({super.key, required this.productDetails});
+  final Map<String, dynamic> productDetails;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,15 +40,15 @@ class CheckoutViewBody extends StatelessWidget {
         ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Image.asset(AppImages.meal),
-          title: Text('Dumbbells', style: AppStyles.medium14),
+          title: Text(productDetails['name'], style: AppStyles.medium14),
           subtitle: Text(
-            '200\$',
+            '${productDetails['price']}\$',
             style: AppStyles.medium18.copyWith(
               color: const Color(0xff0A0D13),
             ),
           ),
           trailing: Text(
-            'Qty: 2',
+            'Qty: 1',
             style: AppStyles.medium14.copyWith(
               color: const Color(0xffAcAcAc),
             ),
@@ -62,7 +65,7 @@ class CheckoutViewBody extends StatelessWidget {
               ),
             ),
             Text(
-              '200\$',
+              '${productDetails['price']}\$',
               style: AppStyles.medium16.copyWith(
                 color: const Color(0xff0A0D13),
               ),
@@ -98,20 +101,27 @@ class CheckoutViewBody extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
           title: Text('Total', style: AppStyles.medium14),
           subtitle: Text(
-            'Including \$2.24 in taxes',
+            'Including \$2 in taxes',
             style: AppStyles.regular14.copyWith(
               color: const Color(0xffAcAcAc),
             ),
           ),
           trailing: Text(
-            '212.24\$',
+            '${(double.parse(productDetails['price']) + 12).toInt()}\$',
             style: AppStyles.medium16.copyWith(
               color: const Color(0xff0A0D13),
             ),
           ),
         ),
         VerticalSpace(context.height * .44),
-        const DefaultAppButton(text: 'Buy')
+        DefaultAppButton(
+          text: 'Buy',
+          onPressed: () {
+            context.read<PaymentCubit>().createPaymentIntent(
+                  (double.parse(productDetails['price']) + 12).toInt(),
+                );
+          },
+        ),
       ],
     );
   }

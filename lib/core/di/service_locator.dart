@@ -37,11 +37,13 @@ import '../../features/store/data/datasource/store_remote_datasource.dart';
 import '../../features/store/data/repo/store_repo_impl.dart';
 import '../../features/store/presentation/manger/get_all_categories_cubit/cubit/get_all_categories_cubit.dart';
 import '../../features/store/presentation/manger/get_all_product_cubit/get_all_products_cubit_cubit.dart';
+import '../../features/store/presentation/manger/payment_cubit/payment_cubit.dart';
 import '../../features/workout/data/datasource/workout_remote_datasource.dart';
 import '../../features/workout/data/repo/workout_repo.dart';
 import '../../features/workout/data/repo/workout_repo_impl.dart';
 import '../../features/workout/presentation/cubits/get_all_workout_cubit/get_all_workouts_cubit.dart';
 import '../../features/workout/presentation/cubits/get_excercise_cubit/get_excercise_cubit.dart';
+import '../../features/workout/presentation/cubits/get_excercise_details_cubit/get_excercise_details_cubit.dart';
 import '../api/api_consumer.dart';
 import '../api/dio_consumer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -120,6 +122,11 @@ void _setupWorkoutFeature() {
       injector<WorkoutRepo>(),
     ),
   );
+  injector.registerFactory(
+    () => GetExcerciseDetailsCubit(
+      injector<WorkoutRepo>(),
+    ),
+  );
   injector.registerLazySingleton<WorkoutRepo>(
     () => WorkoutRepoImpl(
       remoteDatasource: injector<WorkoutRemoteDatasource>(),
@@ -158,6 +165,11 @@ void _setupActivityFeature() {
 void _setupStoreFeature() {
   injector.registerFactory(
     () => GetAllCategoriesCubit(
+      injector<StoreRepo>(),
+    ),
+  );
+  injector.registerFactory(
+    () => PaymentCubit(
       injector<StoreRepo>(),
     ),
   );

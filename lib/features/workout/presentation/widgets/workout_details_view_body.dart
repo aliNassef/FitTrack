@@ -1,3 +1,4 @@
+import 'package:fit_track_app/core/widgets/custom_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
@@ -9,6 +10,7 @@ import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../data/model/workout_model.dart';
 import '../cubits/get_excercise_cubit/get_excercise_cubit.dart';
 
 import 'workout_details_content.dart';
@@ -16,8 +18,9 @@ import 'workout_details_content.dart';
 class WorkoutDetailsViewBody extends StatelessWidget {
   const WorkoutDetailsViewBody({
     super.key,
+    required this.workout,
   });
-
+  final WorkoutModel workout;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetExcerciseCubit, GetExcerciseState>(
@@ -68,9 +71,9 @@ class WorkoutDetailsViewBody extends StatelessWidget {
                               ),
                               shape: BoxShape.circle,
                             ),
-                            child: Image.asset(
-                              AppImages.character,
-                              fit: BoxFit.fill,
+                            child: CustomNetworkImage(
+                              radius: 100,
+                              img: workout.image,
                               height: context.height * 0.3,
                             ),
                           ),
@@ -80,6 +83,7 @@ class WorkoutDetailsViewBody extends StatelessWidget {
                     ),
                     WorkoutDetailsContent(
                       exercises: state.exercises,
+                      workout: workout,
                     ),
                   ],
                 ),

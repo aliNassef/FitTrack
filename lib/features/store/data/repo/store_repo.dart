@@ -8,4 +8,5 @@ abstract class StoreRepo {
   Future<Either<Failure, List<CategoryModel>>> getCategories();
   Future<Either<Failure, List<ProductModel>>> getProducts();
   Future<Either<Failure, List<ProductModel>>> searchOnProducts(String query);
+  Future<Either<Failure, String>> createPaymentIntent(int amount);
 }

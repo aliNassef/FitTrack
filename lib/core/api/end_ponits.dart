@@ -22,6 +22,8 @@ class EndPoints {
   static const String getLastCompare = 'compare/compareresult';
   static const String searchOnProducts = 'product/search';
   static const String getAllEquipmentById = 'exercise/';
+  static const String createPaymentIntent = 'payment/create-payment-intent';
+  static const String confirmPayment = 'payment/confirm-payment';
 }
 
 class ApiKey {}

@@ -10,7 +10,6 @@ import 'store_repo.dart';
 
 class StoreRepoImpl implements StoreRepo {
   final StoreRemoteDataSource remoteDataSource;
-
   StoreRepoImpl({required this.remoteDataSource});
 
   @override
@@ -41,6 +40,18 @@ class StoreRepoImpl implements StoreRepo {
     try {
       final products = await remoteDataSource.searchOnProducts(query);
       return Right(products);
+    } on ServerException catch (e) {
+      return Left(
+        Failure(errMessage: e.errorModel.errorMessage),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> createPaymentIntent(int amount) async {
+    try {
+      final clientSecret = await remoteDataSource.createPaymentIntent(amount);
+      return Right(clientSecret);
     } on ServerException catch (e) {
       return Left(
         Failure(errMessage: e.errorModel.errorMessage),

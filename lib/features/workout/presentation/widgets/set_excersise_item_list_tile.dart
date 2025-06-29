@@ -19,7 +19,9 @@ class SetExcersiseItemListTile extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const WorkoutExerciseView();
+              return WorkoutExerciseView(
+                id: exercise.id,
+              );
             },
           ),
         );

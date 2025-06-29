@@ -1,4 +1,3 @@
-
 import 'package:fit_track_app/features/workout/presentation/widgets/equipment_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,7 @@ import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../../../../core/widgets/custom_head_title_and_subtitle_button.dart';
+import '../../data/model/workout_model.dart';
 import '../cubits/get_equipment_by_id_cubit/get_equipment_by_id_cubit.dart';
 import 'fullbody_listtile_with_fav_button.dart';
 import 'set_excersises_list_items.dart';
@@ -20,8 +20,10 @@ class WorkoutDetailsContent extends StatelessWidget {
   const WorkoutDetailsContent({
     super.key,
     required this.exercises,
+    required this.workout,
   });
   final List<ExerciseModel> exercises;
+  final WorkoutModel workout;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -42,12 +44,15 @@ class WorkoutDetailsContent extends StatelessWidget {
               child: SwapScrollDvider(),
             ),
             const VerticalSpace(30),
-            const FullBodyListTileWithFavButton(),
-            const WorkoutInfoDisplay(
+            FullBodyListTileWithFavButton(
+              workout: workout,
+            ),
+            WorkoutInfoDisplay(
               image: AppIcons.schedualeIcon,
               title: 'Schedule Workout',
-              date: '5/27, 09:00 AM',
-              backgroundColor: Color(0xffccfeeb),
+              date:
+                  '${workout.createdAt.day}/${workout.createdAt.month}/${workout.createdAt.year}',
+              backgroundColor: const Color(0xffccfeeb),
             ),
             const VerticalSpace(15),
             const WorkoutInfoDisplay(

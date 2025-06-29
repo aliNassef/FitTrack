@@ -1,4 +1,5 @@
 import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/meal_item_model.dart';
+import 'package:fit_track_app/features/workout/data/model/workout_model.dart';
 
 import '../../features/auth/data/model/signup_input_model.dart';
 import 'package:flutter/material.dart';
@@ -66,13 +67,16 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const WorkoutView(),
       );
     case WorkoutDetailsView.routeName:
-      var id = settings.arguments as String;
+      var workout = settings.arguments as WorkoutModel;
       return MaterialPageRoute(
-        builder: (context) => WorkoutDetailsView(id: id),
+        builder: (context) => WorkoutDetailsView(workout: workout),
       );
     case WorkoutExerciseView.routeName:
+      final id = settings.arguments as String;
       return MaterialPageRoute(
-        builder: (context) => const WorkoutExerciseView(),
+        builder: (context) => WorkoutExerciseView(
+          id: id,
+        ),
       );
     case MealPlannerView.routeName:
       return MaterialPageRoute(
@@ -101,8 +105,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const StatisticsView(),
       );
     case CheckoutView.routeName:
+      var productDetails = settings.arguments as Map<String, dynamic>?;
       return MaterialPageRoute(
-        builder: (context) => const CheckoutView(),
+        builder: (context) => CheckoutView(
+          productDetails: productDetails,
+        ),
       );
     case StoreView.routeName:
       return MaterialPageRoute(

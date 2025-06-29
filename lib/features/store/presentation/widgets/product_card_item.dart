@@ -72,6 +72,11 @@ class ProductCard extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context, rootNavigator: true).pushNamed(
                     CheckoutView.routeName,
+                    arguments: {
+                      'name': name,
+                      'price': price.replaceAll('\$', ''),
+                      'image': image,
+                    },
                   );
                 },
                 child: Container(
