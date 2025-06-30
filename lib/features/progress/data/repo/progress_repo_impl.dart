@@ -1,13 +1,14 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/core/errors/exceptions.dart';
-import 'package:fit_track_app/core/errors/failure.dart';
-import 'package:fit_track_app/features/progress/data/datasource/progress_remote_datasource.dart';
-import 'package:fit_track_app/features/progress/data/model/gallrey_model.dart';
-import 'package:fit_track_app/features/progress/data/model/last_compare_model.dart';
-import 'package:fit_track_app/features/progress/data/model/progress_comparison_model.dart';
-import 'package:fit_track_app/features/progress/data/model/upload_image_input_model.dart';
-import 'package:fit_track_app/features/progress/data/model/upload_image_model.dart';
-import 'package:fit_track_app/features/progress/data/repo/progress_repo.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../datasource/progress_remote_datasource.dart';
+import '../model/last_compare_model.dart';
+import '../model/progress_comparison_model.dart';
+import '../model/upload_image_input_model.dart';
+import '../model/upload_image_model.dart';
+import 'progress_repo.dart';
+
+import '../model/progress_photo_model.dart';
 
 class ProgressRepoImpl extends ProgressRepo {
   final ProgressRemoteDatasource progressRemoteDatasource;
@@ -15,7 +16,7 @@ class ProgressRepoImpl extends ProgressRepo {
   ProgressRepoImpl({required this.progressRemoteDatasource});
 
   @override
-  Future<Either<Failure, ProgressModel>> getProgress() async {
+  Future<Either<Failure, List<ProgressPhotoModel>>> getProgress() async {
     try {
       final progress = await progressRemoteDatasource.getProgress();
       return right(progress);

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/auth/presentation/views/login_view.dart';
+import 'login_view.dart';
 
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';

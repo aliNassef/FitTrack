@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/activity/data/repo/activity_repo.dart';
+import 'activity_repo.dart';
 
 import '../../../../core/errors/exceptions.dart';
 import '../datasource/activity_remote_datasource.dart';

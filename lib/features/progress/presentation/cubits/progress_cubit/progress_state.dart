@@ -8,7 +8,7 @@ final class ProgressInitial extends ProgressState {}
 final class ProgressLoading extends ProgressState {}
 
 final class ProgressLoaded extends ProgressState {
-  final ProgressModel progressModel;
+  final List<ProgressPhotoModel> progressModel;
 
   ProgressLoaded({required this.progressModel});
 }

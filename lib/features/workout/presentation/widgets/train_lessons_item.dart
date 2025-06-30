@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/workout/data/model/workout_model.dart';
+import '../../data/model/workout_model.dart';
 
 import '../../../../core/extensions/padding_extension.dart';
 import '../view/workout_details_view.dart';

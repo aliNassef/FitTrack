@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/di/service_locator.dart';
-import 'package:fit_track_app/features/meal_planner/presentation/cubits/get_category_cubit/get_category_cubit.dart';
+import '../../../../core/di/service_locator.dart';
+import '../cubits/get_category_cubit/get_category_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import '../widgets/category_meal_view_body.dart';

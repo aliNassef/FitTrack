@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/workout/data/repo/workout_repo.dart';
+import '../../../data/repo/workout_repo.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/model/workout_model.dart';

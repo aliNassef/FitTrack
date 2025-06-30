@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/errors/exceptions.dart';
-import 'package:fit_track_app/features/activity/data/model/activity_tracker_model.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../model/activity_tracker_model.dart';
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/errors/error_model.dart';
 import '../../../../core/api/end_ponits.dart';

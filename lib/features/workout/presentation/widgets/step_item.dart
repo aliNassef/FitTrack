@@ -25,6 +25,7 @@ class StepItem extends StatelessWidget {
           shaderCallback: (bounds) => const LinearGradient(
             colors: true
                 ? AppGradients.pinkGradient
+                // ignore: dead_code
                 : [
                     Color(0xffA5A3B0),
                     Color(0xffA5A3B0),
@@ -53,6 +54,7 @@ class StepItem extends StatelessWidget {
                 gradient: const LinearGradient(
                   colors: true
                       ? AppGradients.pinkGradient
+                      // ignore: dead_code
                       : [
                           Color(0xffA5A3B0),
                           Color(0xffA5A3B0),
@@ -81,6 +83,7 @@ class StepItem extends StatelessWidget {
             ),
             if (!isLast)
               DottedBorder(
+                // ignore: dead_code
                 color: true ? Colors.purple : const Color(0xffA5A3B0),
                 strokeWidth: 2,
                 dashPattern: const [4, 4],

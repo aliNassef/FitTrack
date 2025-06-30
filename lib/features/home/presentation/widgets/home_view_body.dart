@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/home/presentation/widgets/image_planner.dart';
+import 'image_planner.dart';
 import '../../data/models/home_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_spacer.dart';

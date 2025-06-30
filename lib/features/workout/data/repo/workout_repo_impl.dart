@@ -1,5 +1,5 @@
-import 'package:fit_track_app/features/workout/data/model/excersise_model.dart';
-import 'package:fit_track_app/features/workout/data/repo/workout_repo.dart';
+import '../model/excersise_model.dart';
+import 'workout_repo.dart';
 
 import '../datasource/workout_remote_datasource.dart';
 import '../model/equipment_model.dart';

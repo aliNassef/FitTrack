@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
-import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../cubits/get_activity_cubit/get_activity_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

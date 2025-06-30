@@ -1,9 +1,10 @@
-import 'package:fit_track_app/core/helpers/custom_text_form_field.dart';
-import 'package:fit_track_app/core/helpers/default_app_button.dart';
-import 'package:fit_track_app/core/helpers/show_loading_box.dart';
-import 'package:fit_track_app/core/helpers/toast_dialog.dart';
-import 'package:fit_track_app/core/utils/app_styles.dart';
-import 'package:fit_track_app/features/progress/data/model/upload_image_input_model.dart';
+import '../../../../core/helpers/custom_text_form_field.dart';
+import '../../../../core/helpers/default_app_button.dart';
+import '../../../../core/helpers/show_loading_box.dart';
+import '../../../../core/helpers/toast_dialog.dart';
+import '../../../../core/helpers/upload_image_to_api.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../data/model/upload_image_input_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +27,23 @@ class _UploadPhotoToComparisonButtonState
   late TextEditingController weightController;
   late TextEditingController facingController;
   late TextEditingController dateController;
+
+  @override
+  void initState() {
+    super.initState();
+    weightController = TextEditingController();
+    facingController = TextEditingController();
+    dateController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    weightController.dispose();
+    facingController.dispose();
+    dateController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<ProgressCubit, ProgressState>(
@@ -35,9 +53,18 @@ class _UploadPhotoToComparisonButtonState
           current is UploadImageFailure,
       listener: (context, state) {
         if (state is UploadImageLoaded) {
+          weightController.clear();
+          facingController.clear();
+          dateController.clear();
+          Navigator.of(context).pop();
+          context.read<ProgressCubit>().getProgress();
           showToast(text: 'Image uploaded successfully');
         }
         if (state is UploadImageFailure) {
+          weightController.clear();
+          facingController.clear();
+          dateController.clear();
+          Navigator.of(context).pop();
           showToast(text: state.errMessage);
         }
         if (state is UploadImageLoading) {
@@ -60,6 +87,8 @@ class _UploadPhotoToComparisonButtonState
                   source: ImageSource.gallery,
                 );
                 if (imagePicker == null) return;
+
+                final cubit = context.read<ProgressCubit>();
                 showDialog(
                   context: context,
                   builder: (context) {
@@ -106,11 +135,13 @@ class _UploadPhotoToComparisonButtonState
                               weight: double.parse(weightController.text),
                               facing: facingController.text,
                               date: dateController.text.trim(),
-                              image: imagePicker,
+                              image: await uploadImageToAPI(
+                                imagePicker,
+                              ),
                             );
-                            context.read<ProgressCubit>().uploadImageWithData(
-                                  uploadImageInputModel,
-                                );
+                            cubit.uploadImageWithData(
+                              uploadImageInputModel,
+                            );
                           },
                           child: const Text('Confirm'),
                         ),

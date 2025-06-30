@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
-import 'package:fit_track_app/features/meal_planner/presentation/cubits/get_category_cubit/get_category_cubit.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../cubits/get_category_cubit/get_category_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/app_spacer.dart';

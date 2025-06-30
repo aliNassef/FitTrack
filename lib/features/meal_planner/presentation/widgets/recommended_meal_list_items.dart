@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/widgets/custom_network_image.dart';
-import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/meal_item_model.dart';
+import '../../../../core/widgets/custom_network_image.dart';
+import '../../data/model/meal_category_model/meal_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

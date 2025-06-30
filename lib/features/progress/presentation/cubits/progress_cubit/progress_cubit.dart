@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/progress/data/model/gallrey_model.dart';
-import 'package:fit_track_app/features/progress/data/repo/progress_repo.dart';
+import '../../../data/repo/progress_repo.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/model/last_compare_model.dart';
 import '../../../data/model/progress_comparison_model.dart';
+import '../../../data/model/progress_photo_model.dart';
 import '../../../data/model/upload_image_input_model.dart';
 import '../../../data/model/upload_image_model.dart';
 
@@ -27,9 +27,11 @@ class ProgressCubit extends Cubit<ProgressState> {
     );
   }
 
-  void getProgressComparison({required String beforePhotoId, required String afterPhotoId}) async {
+  void getProgressComparison(
+      {required String beforePhotoId, required String afterPhotoId}) async {
     emit(ProgressLoading());
-    final progressComparisonOrfailure = await progressRepo.getProgressComparison(
+    final progressComparisonOrfailure =
+        await progressRepo.getProgressComparison(
       beforePhotoId: beforePhotoId,
       afterPhotoId: afterPhotoId,
     );
@@ -58,7 +60,8 @@ class ProgressCubit extends Cubit<ProgressState> {
 
   void uploadImageWithData(UploadImageInputModel imageModel) async {
     emit(UploadImageLoading());
-    final uploadImageOrFailure = await progressRepo.uploadImageWithData(imageModel);
+    final uploadImageOrFailure =
+        await progressRepo.uploadImageWithData(imageModel);
     uploadImageOrFailure.fold(
       (failure) => emit(
         UploadImageFailure(errMessage: failure.errMessage),

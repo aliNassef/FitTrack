@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/widgets/custom_network_image.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/widgets/custom_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ImagePlanner extends StatefulWidget {

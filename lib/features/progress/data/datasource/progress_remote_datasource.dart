@@ -1,18 +1,18 @@
-import 'package:fit_track_app/core/api/api_consumer.dart';
-import 'package:fit_track_app/core/api/end_ponits.dart';
-import 'package:fit_track_app/features/progress/data/model/gallrey_model.dart';
-import 'package:fit_track_app/features/progress/data/model/progress_comparison_model.dart';
-import 'package:fit_track_app/features/progress/data/model/upload_image_input_model.dart';
+import '../../../../core/api/api_consumer.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../model/progress_comparison_model.dart';
+import '../model/upload_image_input_model.dart';
 
 import '../../../../core/errors/error_model.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../model/last_compare_model.dart';
+import '../model/progress_photo_model.dart';
 import '../model/upload_image_model.dart';
 
 abstract class ProgressRemoteDatasource {
   Future<UploadImageModel> uploadImageWithData(
       UploadImageInputModel imageModel);
-  Future<ProgressModel> getProgress();
+  Future<List<ProgressPhotoModel>> getProgress();
   Future<LastCompareModel> getLastCompare();
   Future<ProgressComparisonModel> getProgressComparison(
       {required String beforePhotoId, required String afterPhotoId});
@@ -24,11 +24,13 @@ class ProgressRemoteDatasourceImpl extends ProgressRemoteDatasource {
   ProgressRemoteDatasourceImpl({required this.api});
 
   @override
-  Future<ProgressModel> getProgress() async {
+  Future<List<ProgressPhotoModel>> getProgress() async {
     final response = await api.get(EndPoints.getProgress);
 
     if (response.statusCode == 200) {
-      return ProgressModel.fromJson(response.data);
+      return (response.data['data'] as List)
+          .map((e) => ProgressPhotoModel.fromJson(e))
+          .toList();
     } else {
       throw ServerException(ErrorModel.fromJson(response.data));
     }

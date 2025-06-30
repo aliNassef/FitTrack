@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/padding_extension.dart';
 import '../../../../core/helpers/app_spacer.dart';

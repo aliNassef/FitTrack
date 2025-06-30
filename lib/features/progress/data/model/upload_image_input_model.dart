@@ -1,7 +1,7 @@
-import 'package:image_picker/image_picker.dart';
+import 'package:dio/dio.dart';
 
 class UploadImageInputModel {
-  final XFile image;
+  final MultipartFile image;
   final String date;
   final double weight;
   final String facing;
@@ -14,7 +14,7 @@ class UploadImageInputModel {
   });
   Map<String, dynamic> toJson() {
     return {
-      'image': image.path,
+      'image': image,
       'date': date,
       'weight': weight,
       'facing': facing,

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/store/presentation/manger/search_bloc/search_store_bloc.dart';
+import '../manger/search_bloc/search_store_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/service_locator.dart';

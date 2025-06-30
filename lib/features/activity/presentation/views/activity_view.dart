@@ -1,5 +1,5 @@
-import 'package:fit_track_app/core/di/service_locator.dart';
-import 'package:fit_track_app/features/activity/presentation/cubits/cubit/activity_cubit.dart';
+import '../../../../core/di/service_locator.dart';
+import '../cubits/cubit/activity_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/padding_extension.dart';

@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/store/presentation/manger/payment_cubit/payment_cubit.dart';
+import '../manger/payment_cubit/payment_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/mediaquery_size.dart';

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/features/workout/data/model/equipment_model.dart';
-import 'package:fit_track_app/features/workout/data/model/excersise_details_model.dart';
+import '../model/equipment_model.dart';
+import '../model/excersise_details_model.dart';
 
 import '../../../../core/errors/failure.dart';
 import '../model/excersise_model.dart';

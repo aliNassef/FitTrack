@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/store/presentation/widgets/product_card_item.dart';
+import 'product_card_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/app_spacer.dart';

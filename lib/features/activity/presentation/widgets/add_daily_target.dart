@@ -1,7 +1,7 @@
-import 'package:fit_track_app/core/extensions/padding_extension.dart';
-import 'package:fit_track_app/core/helpers/show_error_message.dart';
-import 'package:fit_track_app/core/helpers/show_loading_box.dart';
-import 'package:fit_track_app/features/activity/presentation/cubits/get_activity_cubit/get_activity_cubit.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/helpers/show_error_message.dart';
+import '../../../../core/helpers/show_loading_box.dart';
+import '../cubits/get_activity_cubit/get_activity_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

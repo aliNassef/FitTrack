@@ -1,4 +1,4 @@
-import 'package:fit_track_app/core/widgets/custom_network_image.dart';
+import '../../../../core/widgets/custom_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';

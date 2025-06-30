@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/meal_planner/data/model/meal_category_model/meal_nutrition_model.dart';
+import '../../data/model/meal_category_model/meal_nutrition_model.dart';
 
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/extensions/padding_extension.dart';
@@ -13,7 +13,6 @@ import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_head_title_and_subtitle_button.dart';
-import '../../../workout/presentation/widgets/step_item.dart';
 import '../../../workout/presentation/widgets/swap_scroll_dvider.dart';
 import '../../data/model/meal_category_model/meal_item_model.dart';
 import '../widgets/ingredients_list_items.dart';

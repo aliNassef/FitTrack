@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/workout/data/model/excersise_details_model.dart';
-import 'package:fit_track_app/features/workout/data/repo/workout_repo.dart';
+import '../../../data/model/excersise_details_model.dart';
+import '../../../data/repo/workout_repo.dart';
  import 'package:meta/meta.dart';
 
 part 'get_excercise_details_state.dart';

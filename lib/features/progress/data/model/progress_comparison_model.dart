@@ -1,5 +1,5 @@
 
-import 'package:fit_track_app/features/progress/data/model/progress_photo_model.dart';
+import 'progress_photo_model.dart';
 
 class ProgressComparisonModel {
   final ProgressPhotoModel beforePhoto;

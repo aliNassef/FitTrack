@@ -22,7 +22,7 @@ class ProgressPhotoModel {
       date: json['date'],
       weight: json['weight'],
       facing: json['facing'],
-      id: json['_id'],
+      id: json['id'],
     );
   }
 }

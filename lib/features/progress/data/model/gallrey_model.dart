@@ -1,6 +1,6 @@
 class ProgressModel {
   final bool success;
-  final Data data;
+  final List<Data> data;
 
   ProgressModel({
     required this.success,
@@ -11,16 +11,10 @@ class ProgressModel {
   factory ProgressModel.fromJson(Map<String, dynamic> json) {
     return ProgressModel(
       success: json['success'] as bool,
-      data: Data.fromJson(json['data'] as Map<String, dynamic>),
+      data: (json['data'] as List<dynamic>)
+          .map((item) => Data.fromJson(item as Map<String, dynamic>))
+          .toList(),
     );
-  }
-
-  // Serialize ProgressResponse to JSON
-  Map<String, dynamic> toJson() {
-    return {
-      'success': success,
-      'data': data.toJson(),
-    };
   }
 }
 
@@ -42,8 +36,10 @@ class Data {
   // Deserialize JSON to Data
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
-      beforePhoto: BeforePhoto.fromJson(json['beforePhoto'] as Map<String, dynamic>),
-      afterPhoto: AfterPhoto.fromJson(json['afterPhoto'] as Map<String, dynamic>),
+      beforePhoto:
+          BeforePhoto.fromJson(json['beforePhoto'] as Map<String, dynamic>),
+      afterPhoto:
+          AfterPhoto.fromJson(json['afterPhoto'] as Map<String, dynamic>),
       progressPercentage: (json['progressPercentage'] as num).toDouble(),
       weightDifference: (json['weightDifference'] as num).toDouble(),
       dateDifference: json['dateDifference'] as int,

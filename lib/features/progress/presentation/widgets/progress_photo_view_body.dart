@@ -1,8 +1,9 @@
-import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/helpers/app_spacer.dart';
-import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
-import 'package:fit_track_app/features/progress/presentation/cubits/progress_cubit/progress_cubit.dart';
-import 'package:fit_track_app/features/progress/presentation/widgets/upload_photo_to_comparison.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../cubits/progress_cubit/progress_cubit.dart';
+import 'upload_photo_to_comparison.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,10 +65,9 @@ class ProgressPhotoViewBody extends StatelessWidget {
             }
             if (state is ProgressLoaded) {
               return Text(
-                DateTime.parse(
-                        state.progressModel.data.beforePhoto.date.toString())
-                    .month
-                    .toString(),
+                DateFormat('MMMM').format(
+                  DateTime.parse(state.progressModel[0].uploadDate.toString()),
+                ),
                 style: AppStyles.regular12.copyWith(
                   color: AppColors.greyLighterColor,
                 ),
@@ -123,8 +123,8 @@ class ProgressPhotoViewBody extends StatelessWidget {
                       height: 120.h,
                       width: 100.w,
                       decoration: BoxDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/dummy_gym.png'),
+                        image: DecorationImage(
+                          image: NetworkImage(state.progressModel[index].url),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(14),
@@ -134,7 +134,7 @@ class ProgressPhotoViewBody extends StatelessWidget {
                   separatorBuilder: (context, index) {
                     return const HorizontalSpace(10);
                   },
-                  itemCount: 5,
+                  itemCount: state.progressModel.length,
                 );
               }
               if (state is ProgressFailure) {

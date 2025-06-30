@@ -1,4 +1,4 @@
-import 'package:fit_track_app/features/profile/presentation/cubit/get_profile_cubit.dart';
+import '../../../profile/presentation/cubit/get_profile_cubit.dart';
 
 import '../../../../core/di/service_locator.dart';
 import '../../../../core/extensions/padding_extension.dart';

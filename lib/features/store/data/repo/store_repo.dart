@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:fit_track_app/core/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 
 import '../model/category_model.dart';
 import '../model/product_model.dart';

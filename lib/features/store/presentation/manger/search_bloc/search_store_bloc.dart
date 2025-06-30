@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:fit_track_app/features/store/data/model/product_model.dart';
-import 'package:fit_track_app/features/store/data/repo/store_repo.dart';
+import '../../../data/model/product_model.dart';
+import '../../../data/repo/store_repo.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 

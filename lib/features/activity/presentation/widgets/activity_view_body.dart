@@ -1,7 +1,7 @@
 
-import 'package:fit_track_app/core/widgets/title_and_seemore.dart';
-import 'package:fit_track_app/features/activity/presentation/widgets/bar_progress_chart.dart';
-import 'package:fit_track_app/features/activity/presentation/widgets/latest_activity_item.dart';
+import '../../../../core/widgets/title_and_seemore.dart';
+import 'bar_progress_chart.dart';
+import 'latest_activity_item.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
