@@ -25,6 +25,7 @@ class HomeView extends StatelessWidget {
             create: (context) => injector<GetProfileCubit>()..getProfile(),
           ),
         ],
+        
         child: SafeArea(
           bottom: false,
           child: const HomeViewBody().withHorizontalPadding(30),
