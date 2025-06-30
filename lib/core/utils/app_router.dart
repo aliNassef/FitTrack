@@ -1,4 +1,6 @@
 import '../../features/meal_planner/data/model/meal_category_model/meal_item_model.dart';
+import '../../features/progress/data/model/progress_comparison_model.dart';
+import '../../features/progress/presentation/views/compare_result_view.dart';
 import '../../features/workout/data/model/workout_model.dart';
 
 import '../../features/auth/data/model/signup_input_model.dart';
@@ -80,6 +82,14 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case MealPlannerView.routeName:
       return MaterialPageRoute(
         builder: (context) => const MealPlannerView(),
+      );
+    case CompareResultView.routeName:
+      final progressComparisonModel =
+          settings.arguments as ProgressComparisonModel;
+      return MaterialPageRoute(
+        builder: (context) => CompareResultView(
+          comparisonModel: progressComparisonModel,
+        ),
       );
     case CategoryMealView.routeName:
       var id = settings.arguments as String;

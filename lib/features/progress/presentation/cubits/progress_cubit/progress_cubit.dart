@@ -29,7 +29,7 @@ class ProgressCubit extends Cubit<ProgressState> {
 
   void getProgressComparison(
       {required String beforePhotoId, required String afterPhotoId}) async {
-    emit(ProgressLoading());
+    emit(ProgressComparisonLoading());
     final progressComparisonOrfailure =
         await progressRepo.getProgressComparison(
       beforePhotoId: beforePhotoId,

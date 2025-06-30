@@ -28,11 +28,6 @@ class GoalProgressBar extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: AppStyles.regular14,
-        ),
-        const VerticalSpace(10),
         Row(
           spacing: 5.w,
           children: [
@@ -46,7 +41,7 @@ class GoalProgressBar extends StatelessWidget {
               child: LinearProgressIndicator(
                 borderRadius: BorderRadius.circular(99),
                 value: progressPercentage / 100,
-                minHeight: 10,
+                minHeight: 20,
                 backgroundColor: backgroundColor,
                 color: progressColor,
               ),

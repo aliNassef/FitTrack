@@ -62,7 +62,7 @@ class ProgressRemoteDatasourceImpl extends ProgressRemoteDatasource {
       },
     );
     if (response.statusCode == 200) {
-      return ProgressComparisonModel.fromJson(response.data);
+      return ProgressComparisonModel.fromJson(response.data['data']);
     } else {
       throw ServerException(ErrorModel.fromJson(response.data));
     }

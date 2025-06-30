@@ -4,7 +4,7 @@ import 'progress_photo_model.dart';
 class ProgressComparisonModel {
   final ProgressPhotoModel beforePhoto;
   final ProgressPhotoModel afterPhoto;
-  final int progressPercentage;
+  final num? progressPercentage;
   final int weightDifference;
   final int dateDifference;
 

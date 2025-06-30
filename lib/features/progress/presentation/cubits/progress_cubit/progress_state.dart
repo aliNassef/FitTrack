@@ -19,6 +19,8 @@ final class ProgressFailure extends ProgressState {
   ProgressFailure({required this.errMessage});
 }
 
+final class ProgressComparisonLoading extends ProgressState {}
+
 final class ProgressComparisonLoaded extends ProgressState {
   final ProgressComparisonModel progressComparisonModel;
 

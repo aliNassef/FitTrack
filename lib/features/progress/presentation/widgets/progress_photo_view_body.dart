@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fit_track_app/core/helpers/toast_dialog.dart';
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/helpers/app_spacer.dart';
+import '../../../../core/helpers/show_loading_box.dart';
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../cubits/progress_cubit/progress_cubit.dart';
+import '../views/compare_result_view.dart';
 import 'upload_photo_to_comparison.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,9 +18,17 @@ import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/title_and_seemore.dart';
 
-class ProgressPhotoViewBody extends StatelessWidget {
+class ProgressPhotoViewBody extends StatefulWidget {
   const ProgressPhotoViewBody({super.key, required this.controller});
   final PersistentTabController controller;
+
+  @override
+  State<ProgressPhotoViewBody> createState() => _ProgressPhotoViewBodyState();
+}
+
+class _ProgressPhotoViewBodyState extends State<ProgressPhotoViewBody> {
+  final Set<int> selectedIndices = {};
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +37,7 @@ class ProgressPhotoViewBody extends StatelessWidget {
         CustomAppBar(
           title: 'Progress Photo',
           onBackButtonPressed: () {
-            controller.jumpToTab(0);
+            widget.controller.jumpToTab(0);
           },
         ),
         SizedBox(
@@ -119,15 +130,37 @@ class ProgressPhotoViewBody extends StatelessWidget {
                 return ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Container(
-                      height: 120.h,
-                      width: 100.w,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(state.progressModel[index].url),
-                          fit: BoxFit.cover,
+                    final isSelected = selectedIndices.contains(index);
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (isSelected) {
+                            selectedIndices.remove(index);
+                          } else if (selectedIndices.length < 2) {
+                            selectedIndices.add(index);
+                          }
+                        });
+                      },
+                      child: Container(
+                        height: 120.h,
+                        width: 100.w,
+                        decoration: BoxDecoration(
+                          border: isSelected
+                              ? Border.all(
+                                  color: AppColors.secondaryColor,
+                                  width: 4,
+                                )
+                              : null,
+                          image: DecorationImage(
+                            image: NetworkImage(state.progressModel[index].url),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(14),
                         ),
-                        borderRadius: BorderRadius.circular(14),
+                        child: isSelected
+                            ? const Icon(Icons.check_circle,
+                                color: Colors.white)
+                            : null,
                       ),
                     );
                   },
@@ -147,7 +180,40 @@ class ProgressPhotoViewBody extends StatelessWidget {
           ),
         ),
         VerticalSpace(context.height * .1),
-        const DefaultAppButton(text: 'Compare'),
+        BlocListener<ProgressCubit, ProgressState>(
+          listenWhen: (previous, current) =>
+              current is ProgressComparisonLoading ||
+              current is ProgressComparisonLoaded ||
+              current is ProgressComparisonFailure,
+          listener: (context, state) {
+            if (state is ProgressComparisonLoading) {
+              showLoadingBox(context);
+            } else if (state is ProgressComparisonLoaded) {
+              Navigator.of(context, rootNavigator: true).pushNamed(
+                CompareResultView.routeName,
+                arguments: state.progressComparisonModel,
+              );
+            } else if (state is ProgressComparisonFailure) {
+              showToast(text: state.errMessage);
+            }
+          },
+          child: DefaultAppButton(
+            text: 'Compare',
+            onPressed: selectedIndices.length == 2
+                ? () {
+                    final indices = selectedIndices.toList();
+                    final state =
+                        context.read<ProgressCubit>().state as ProgressLoaded;
+                    final photo1 = state.progressModel[indices[0]];
+                    final photo2 = state.progressModel[indices[1]];
+                    context.read<ProgressCubit>().getProgressComparison(
+                          beforePhotoId: photo1.id,
+                          afterPhotoId: photo2.id,
+                        );
+                  }
+                : null,
+          ),
+        ),
       ],
     );
   }

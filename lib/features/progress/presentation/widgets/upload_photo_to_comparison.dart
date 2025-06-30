@@ -53,10 +53,12 @@ class _UploadPhotoToComparisonButtonState
           current is UploadImageFailure,
       listener: (context, state) {
         if (state is UploadImageLoaded) {
+          Navigator.of(context, rootNavigator: true)
+              .pop(); // Close loading dialog
+
           weightController.clear();
           facingController.clear();
           dateController.clear();
-          Navigator.of(context).pop();
           context.read<ProgressCubit>().getProgress();
           showToast(text: 'Image uploaded successfully');
         }
@@ -64,7 +66,9 @@ class _UploadPhotoToComparisonButtonState
           weightController.clear();
           facingController.clear();
           dateController.clear();
-          Navigator.of(context).pop();
+          Navigator.of(context, rootNavigator: true)
+              .pop(); // Close loading dialog
+
           showToast(text: state.errMessage);
         }
         if (state is UploadImageLoading) {
