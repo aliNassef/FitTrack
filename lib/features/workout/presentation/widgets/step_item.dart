@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_gradients.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/model/step_model.dart';
+import '../../data/model/step_model.dart';
 
 class StepItem extends StatelessWidget {
   final StepModel stepModel;
@@ -22,12 +22,12 @@ class StepItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ShaderMask(
-          shaderCallback: (bounds) => LinearGradient(
-            colors: stepModel.isActive
+          shaderCallback: (bounds) => const LinearGradient(
+            colors: true
                 ? AppGradients.pinkGradient
                 : [
-                    const Color(0xffA5A3B0),
-                    const Color(0xffA5A3B0),
+                    Color(0xffA5A3B0),
+                    Color(0xffA5A3B0),
                   ],
           ).createShader(bounds),
           child: SizedBox(
@@ -50,12 +50,12 @@ class StepItem extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: stepModel.isActive
+                gradient: const LinearGradient(
+                  colors: true
                       ? AppGradients.pinkGradient
                       : [
-                          const Color(0xffA5A3B0),
-                          const Color(0xffA5A3B0),
+                          Color(0xffA5A3B0),
+                          Color(0xffA5A3B0),
                         ],
                 ),
                 color: Colors.white,
@@ -81,9 +81,7 @@ class StepItem extends StatelessWidget {
             ),
             if (!isLast)
               DottedBorder(
-                color: stepModel.isActive
-                    ? Colors.purple
-                    : const Color(0xffA5A3B0),
+                color: true ? Colors.purple : const Color(0xffA5A3B0),
                 strokeWidth: 2,
                 dashPattern: const [4, 4],
                 customPath: (size) {
@@ -97,7 +95,7 @@ class StepItem extends StatelessWidget {
                 ),
               ),
           ],
-        ), 
+        ),
         const HorizontalSpace(15),
         Expanded(
           child: Column(
@@ -112,7 +110,7 @@ class StepItem extends StatelessWidget {
               ),
               const VerticalSpace(8),
               Text(
-                stepModel.description,
+                stepModel.instruction,
                 style: const TextStyle(
                   fontSize: 14,
                   color: Colors.black54,

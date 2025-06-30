@@ -5,6 +5,8 @@ import 'package:meta/meta.dart';
 
 import '../../../data/model/last_compare_model.dart';
 import '../../../data/model/progress_comparison_model.dart';
+import '../../../data/model/upload_image_input_model.dart';
+import '../../../data/model/upload_image_model.dart';
 
 part 'progress_state.dart';
 
@@ -50,6 +52,19 @@ class ProgressCubit extends Cubit<ProgressState> {
       ),
       (lastCompare) => emit(
         LastCompareLoaded(lastCompareModel: lastCompare),
+      ),
+    );
+  }
+
+  void uploadImageWithData(UploadImageInputModel imageModel) async {
+    emit(UploadImageLoading());
+    final uploadImageOrFailure = await progressRepo.uploadImageWithData(imageModel);
+    uploadImageOrFailure.fold(
+      (failure) => emit(
+        UploadImageFailure(errMessage: failure.errMessage),
+      ),
+      (uploadImage) => emit(
+        UploadImageLoaded(uploadImageModel: uploadImage),
       ),
     );
   }

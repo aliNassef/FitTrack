@@ -164,13 +164,13 @@ class MealDetailsViewBody extends StatelessWidget {
             subtitle: '${meal.steps.length} Steps',
           ),
           const VerticalSpace(15),
-          ...List.generate(
-            meal.steps.length,
-            (index) => StepItem(
-              isLast: index == meal.steps.length - 1,
-              stepModel: meal.steps[index],
-            ),
-          ),
+          // ...List.generate(
+          //   meal.steps.length,
+          //   (index) => StepItem(
+          //     isLast: index == meal.steps.length - 1,
+          //     stepModel: meal.steps[index],
+          //   ),
+          // ),
           const VerticalSpace(100),
         ],
       ),

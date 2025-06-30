@@ -2,11 +2,12 @@ import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
 import 'package:fit_track_app/core/helpers/app_spacer.dart';
 import 'package:fit_track_app/core/widgets/custom_failure_widget.dart';
 import 'package:fit_track_app/features/progress/presentation/cubits/progress_cubit/progress_cubit.dart';
+import 'package:fit_track_app/features/progress/presentation/widgets/upload_photo_to_comparison.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -14,15 +15,18 @@ import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/title_and_seemore.dart';
 
 class ProgressPhotoViewBody extends StatelessWidget {
-  const ProgressPhotoViewBody({super.key});
-
+  const ProgressPhotoViewBody({super.key, required this.controller});
+  final PersistentTabController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomAppBar(
+        CustomAppBar(
           title: 'Progress Photo',
+          onBackButtonPressed: () {
+            controller.jumpToTab(0);
+          },
         ),
         SizedBox(
           height: context.height * .1,
@@ -33,22 +37,7 @@ class ProgressPhotoViewBody extends StatelessWidget {
             color: const Color(0xfff6e2fa),
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Upload your Photo',
-                style: AppStyles.medium14,
-              ),
-              SizedBox(
-                height: 40.h,
-                width: 100.w,
-                child: const DefaultAppButton(
-                  text: 'Upload',
-                ),
-              )
-            ],
-          ),
+          child: const UploadPhotoToComparisonButton(),
         ),
         SizedBox(
           height: context.height * .1,

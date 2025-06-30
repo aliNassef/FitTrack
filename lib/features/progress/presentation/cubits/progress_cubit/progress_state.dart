@@ -44,3 +44,15 @@ final class LastCompareFailure extends ProgressState {
 
   LastCompareFailure({required this.errMessage});
 }
+
+final class UploadImageLoading extends ProgressState {}
+
+final class UploadImageLoaded extends ProgressState {
+  final UploadImageModel uploadImageModel;
+  UploadImageLoaded({required this.uploadImageModel});
+}
+
+final class UploadImageFailure extends ProgressState {
+  final String errMessage;
+  UploadImageFailure({required this.errMessage});
+}

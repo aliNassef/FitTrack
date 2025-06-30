@@ -14,7 +14,8 @@ class WorkoutExerciseView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: BlocProvider(
-          create: (context) => injector<GetExcerciseDetailsCubit>()..getExerciseDetails(id),
+          create: (context) =>
+              injector<GetExcerciseDetailsCubit>()..getExerciseDetails(id),
           child: const WorkoutExerciseViewBody(),
         ),
       ),

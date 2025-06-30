@@ -5,6 +5,8 @@ import 'package:fit_track_app/features/progress/data/datasource/progress_remote_
 import 'package:fit_track_app/features/progress/data/model/gallrey_model.dart';
 import 'package:fit_track_app/features/progress/data/model/last_compare_model.dart';
 import 'package:fit_track_app/features/progress/data/model/progress_comparison_model.dart';
+import 'package:fit_track_app/features/progress/data/model/upload_image_input_model.dart';
+import 'package:fit_track_app/features/progress/data/model/upload_image_model.dart';
 import 'package:fit_track_app/features/progress/data/repo/progress_repo.dart';
 
 class ProgressRepoImpl extends ProgressRepo {
@@ -23,7 +25,8 @@ class ProgressRepoImpl extends ProgressRepo {
   }
 
   @override
-  Future<Either<Failure, ProgressComparisonModel>> getProgressComparison({required String beforePhotoId, required String afterPhotoId}) async {
+  Future<Either<Failure, ProgressComparisonModel>> getProgressComparison(
+      {required String beforePhotoId, required String afterPhotoId}) async {
     try {
       final progressComparison =
           await progressRemoteDatasource.getProgressComparison(
@@ -44,5 +47,17 @@ class ProgressRepoImpl extends ProgressRepo {
     } on ServerException catch (e) {
       return left(Failure(errMessage: e.errorModel.errorMessage));
     }
-  } 
+  }
+
+  @override
+  Future<Either<Failure, UploadImageModel>> uploadImageWithData(
+      UploadImageInputModel imageModel) async {
+    try {
+      final uploadImage =
+          await progressRemoteDatasource.uploadImageWithData(imageModel);
+      return right(uploadImage);
+    } on ServerException catch (e) {
+      return left(Failure(errMessage: e.errorModel.errorMessage));
+    }
+  }
 }

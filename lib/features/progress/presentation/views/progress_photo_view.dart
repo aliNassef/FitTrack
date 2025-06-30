@@ -3,12 +3,13 @@ import 'package:fit_track_app/core/extensions/padding_extension.dart';
 import 'package:fit_track_app/features/progress/presentation/cubits/progress_cubit/progress_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../widgets/progress_photo_view_body.dart';
 
 class ProgressPhotoView extends StatelessWidget {
-  const ProgressPhotoView({super.key});
-
+  const ProgressPhotoView({super.key, required this.controller});
+  final PersistentTabController controller;
   static const String routeName = 'progress_photo_view';
 
   @override
@@ -17,7 +18,9 @@ class ProgressPhotoView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => injector<ProgressCubit>()..getProgress(),
         child: SafeArea(
-          child: const ProgressPhotoViewBody().withHorizontalPadding(30),
+          child: ProgressPhotoViewBody(
+            controller: controller,
+          ).withHorizontalPadding(30),
         ),
       ),
     );

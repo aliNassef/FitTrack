@@ -65,7 +65,9 @@ class _LayoutViewState extends State<LayoutView> {
   _buildScreens() {
     return [
       const HomeView(),
-      const ProgressPhotoView(),
+      ProgressPhotoView(
+        controller: _controller,
+      ),
       ProfileView(
         controller: _controller,
       ),

@@ -3,12 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/app_spacer.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart'; 
+import '../../../../core/utils/app_styles.dart';
+import '../../data/model/custom_repitition_model.dart';
+
 class CustomListWheel extends StatefulWidget {
   const CustomListWheel({
     super.key,
+    required this.customRepetitions,
   });
-
+  final List<CustomRepetitionModel> customRepetitions;
   @override
   State<CustomListWheel> createState() => _CustomListWheelState();
 }
@@ -24,7 +27,7 @@ class _CustomListWheelState extends State<CustomListWheel> {
         diameterRatio: 1.5,
         physics: const FixedExtentScrollPhysics(),
         children: List.generate(
-          3,
+          widget.customRepetitions.length,
           (index) => Container(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             decoration: BoxDecoration(
@@ -53,7 +56,7 @@ class _CustomListWheelState extends State<CustomListWheel> {
                     ),
                     const HorizontalSpace(10),
                     Text(
-                      '450 Calories Burn',
+                      '${widget.customRepetitions[index].caloriesBurned} Calories Burn',
                       style: AppStyles.regular10.copyWith(
                         color: index == indexSelected
                             ? AppColors.greyLighterColor
@@ -63,7 +66,7 @@ class _CustomListWheelState extends State<CustomListWheel> {
                   ],
                 ),
                 Text(
-                  '30',
+                  '${widget.customRepetitions[index].repetitions}',
                   style: AppStyles.medium24.copyWith(
                     color: index == indexSelected
                         ? const Color(0xffA5A3B0)

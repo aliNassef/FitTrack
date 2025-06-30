@@ -17,7 +17,6 @@ import '../../features/meal_planner/presentation/view/meal_scheduale_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/welcome_view.dart';
 import '../../features/profile/presentation/views/statistics_view.dart';
-import '../../features/progress/presentation/views/progress_photo_view.dart';
 import '../../features/store/presentation/views/checkout_view.dart';
 import '../../features/store/presentation/views/store_view.dart';
 import '../../features/workout/presentation/view/workout_details_view.dart';
@@ -115,10 +114,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const StoreView(),
       );
-    case ProgressPhotoView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const ProgressPhotoView(),
-      );
+
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }
