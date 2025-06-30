@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
     HomeModel(title: 'Equipment You Need', subTitle: 'Store'),
     HomeModel(title: 'Nutrition', subTitle: ' Meal planner'),
     HomeModel(title: 'Let’s Keep Your Goal!', subTitle: ' Work out'),
-    HomeModel(title: 'Calories', subTitle: ' 760 kCal'),
+    // HomeModel(title: 'Calories', subTitle: ' 760 kCal'),
   ];
   @override
   Widget build(BuildContext context) {
