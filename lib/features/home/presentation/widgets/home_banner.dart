@@ -82,6 +82,9 @@ class _HomeBannerState extends State<HomeBanner> {
                 CircleAvatar(
                   radius: 44.r,
                   backgroundColor: Colors.white,
+                  backgroundImage: const AssetImage(
+                    AppImages.logo,
+                  ),
                 ),
               ],
             ),
@@ -131,6 +134,9 @@ class _HomeBannerState extends State<HomeBanner> {
                   const Spacer(),
                   CircleAvatar(
                     radius: 44.r,
+                    backgroundImage: const AssetImage(
+                      AppImages.character,
+                    ),
                     backgroundColor: Colors.white,
                   ),
                 ],
