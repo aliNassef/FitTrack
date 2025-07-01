@@ -1,5 +1,7 @@
-import '../manger/payment_cubit/payment_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:developer';
+
+import 'package:fit_track_app/core/helpers/toast_dialog.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 
 import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/helpers/app_spacer.dart';
@@ -39,7 +41,12 @@ class CheckoutViewBody extends StatelessWidget {
         const VerticalSpace(40),
         ListTile(
           contentPadding: EdgeInsets.zero,
-          leading: Image.asset(AppImages.meal),
+          leading: Image.network(
+            productDetails['image'],
+            width: 50.w,
+            height: 50.h,
+            fit: BoxFit.cover,
+          ),
           title: Text(productDetails['name'], style: AppStyles.medium14),
           subtitle: Text(
             '${productDetails['price']}\$',
@@ -117,11 +124,58 @@ class CheckoutViewBody extends StatelessWidget {
         DefaultAppButton(
           text: 'Buy',
           onPressed: () {
-            context.read<PaymentCubit>().createPaymentIntent(
-                  (double.parse(productDetails['price']) + 12).toInt(),
-                );
+            final price =
+                (double.parse(productDetails['price']) + 12).toInt().toString();
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => PaypalCheckoutView(
+                sandboxMode: true,
+                clientId:
+                    "AXytxpG-t3LmuSA6a7UgxVDUDFXLtzV99PQk6oDHJwFGbX1SaUkQzBRBdOgYqbYDUsYumW-2w7wZD0cm",
+                secretKey:
+                    "EJqW69D4XuGqmLDJsXgznJ-ZvYaf3jFUjtFBoafOKLfBpt2zivGR3JO58aGfjXBheKRbOyDFArzDhqE-",
+                transactions: [
+                  {
+                    "amount": {
+                      "total": price,
+                      "currency": "USD",
+                      "details": {
+                        "subtotal": price,
+                        "shipping": '0',
+                        "shipping_discount": 0
+                      }
+                    },
+                    "description": "The payment transaction description.",
+                    "item_list": {
+                      "items": [
+                        {
+                          "name": "dummble",
+                          "quantity": 1,
+                          "price": price,
+                          "currency": "USD"
+                        },
+                      ],
+                    }
+                  }
+                ],
+                note: "Contact us for any questions on your order.",
+                onSuccess: (Map params) async {
+                  Navigator.pop(context);
+                  showToast(text: 'Payment successful');
+                  print("onSuccess: $params");
+                },
+                onError: (error) {
+                  showToast(text: error.toString());
+                  log('onError: $error');
+                  Navigator.pop(context);
+                },
+                onCancel: () {
+                  print('cancelled:');
+                },
+              ),
+            ));
           },
         ),
+        const VerticalSpace(40),
       ],
     );
   }

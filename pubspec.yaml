@@ -23,6 +23,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  flutter_paypal_payment: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.17
   flutter_svg_provider: ^1.0.7
