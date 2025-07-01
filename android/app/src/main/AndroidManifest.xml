@@ -42,7 +42,6 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
-</queries>
     <!-- Permissions for image/video picking, camera, and storage access -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
