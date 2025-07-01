@@ -111,6 +111,9 @@ class StoreViewBody extends StatelessWidget {
             return const SliverToBoxAdapter(child: SizedBox.shrink());
           },
         ),
+        const SliverToBoxAdapter(
+          child: VerticalSpace(100),
+        )
       ],
     );
   }

@@ -28,56 +28,59 @@ class CategoryMealViewBody extends StatelessWidget {
           current is GetCategoryLoading,
       builder: (context, state) {
         if (state is GetCategorySuccess) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomAppBar(
-                title: state.categories.name,
-                onBackButtonPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const VerticalSpace(34),
-              const CustomSearchBar(),
-              const VerticalSpace(30),
-              Text(
-                'Category',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              CategoryListItems(
-                subcategoryMealModel: state.categories.subcategories,
-              ),
-              const VerticalSpace(30),
-              Text(
-                'Recommendation for Diet',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              RecommendedMealListItems(
-                meals: getPopularMeal(state.categories.subcategories),
-              ),
-              const VerticalSpace(30),
-              Text(
-                'Popular',
-                style: AppStyles.semiBold16,
-              ),
-              const VerticalSpace(15),
-              Expanded(
-                child: ListView.separated(
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(
+                  title: state.categories.name,
+                  onBackButtonPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                const VerticalSpace(34),
+                const CustomSearchBar(),
+                const VerticalSpace(30),
+                Text(
+                  'Category',
+                  style: AppStyles.semiBold16,
+                ),
+                const VerticalSpace(15),
+                CategoryListItems(
+                  subcategoryMealModel: state.categories.subcategories,
+                ),
+                const VerticalSpace(30),
+                Text(
+                  'Recommendation for Diet',
+                  style: AppStyles.semiBold16,
+                ),
+                const VerticalSpace(15),
+                RecommendedMealListItems(
+                  meals: getPopularMeal(state.categories.subcategories),
+                ),
+                const VerticalSpace(30),
+                Text(
+                  'Popular',
+                  style: AppStyles.semiBold16,
+                ),
+                const VerticalSpace(15),
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (_, index) {
                     return PopularMealItem(
                       meal:
                           getPopularMeal(state.categories.subcategories)[index],
                       onTap: () {
-                       Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MealDetailsView(
-                          meal: state.categories.subcategories[index].meals[index],
-                        ),
-                      ),
-                    );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MealDetailsView(
+                              meal: state
+                                  .categories.subcategories[index].meals[index],
+                            ),
+                          ),
+                        );
                       },
                     );
                   },
@@ -87,8 +90,8 @@ class CategoryMealViewBody extends StatelessWidget {
                   itemCount:
                       getPopularMeal(state.categories.subcategories).length,
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         }
 
