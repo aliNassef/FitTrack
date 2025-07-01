@@ -1,3 +1,5 @@
+import 'package:fit_track_app/features/store/presentation/widgets/category_section.dart';
+
 import 'product_card_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +10,6 @@ import '../../../../core/widgets/custom_failure_widget.dart';
 import '../../../../core/widgets/custom_icon_button.dart';
 import '../../../meal_planner/presentation/widgets/custom_search_bar.dart';
 import '../manger/search_bloc/search_store_bloc.dart';
-import 'category_items_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -110,31 +111,6 @@ class StoreViewBody extends StatelessWidget {
             return const SliverToBoxAdapter(child: SizedBox.shrink());
           },
         ),
-      ],
-    );
-  }
-}
-
-class CategorySection extends StatelessWidget {
-  const CategorySection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Category',
-          style: AppStyles.semiBold16,
-        ),
-        const VerticalSpace(16),
-        const CategoryItemsBlocBuilder(),
-        const VerticalSpace(16),
-        Text(
-          'Strength Training & Weightlifting',
-          style: AppStyles.semiBold16,
-        ),
-        const VerticalSpace(24),
       ],
     );
   }

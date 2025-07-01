@@ -57,11 +57,14 @@ class ProductItemsBlocBuilder extends StatelessWidget {
               childAspectRatio: 0.7,
             ),
             itemBuilder: (_, index) {
-              return ProductCard(
-                name: state.products[index].name,
-                price: '${state.products[index].price.toString()}\$',
-                image: state.products[index].image,
-                backgroundColor: const Color(0xFFCCF7F2),
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: ProductCard(
+                  name: state.products[index].name,
+                  price: '${state.products[index].price.toString()}\$',
+                  image: state.products[index].image,
+                  backgroundColor: const Color(0xFFCCF7F2),
+                ),
               );
             },
           );

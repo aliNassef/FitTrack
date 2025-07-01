@@ -17,6 +17,7 @@ class HomeViewBody extends StatelessWidget {
     HomeModel(title: 'Let’s Keep Your Goal!', subTitle: ' Work out'),
     // HomeModel(title: 'Calories', subTitle: ' 760 kCal'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(

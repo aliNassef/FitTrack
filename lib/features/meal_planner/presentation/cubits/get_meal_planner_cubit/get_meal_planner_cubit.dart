@@ -11,6 +11,7 @@ class GetMealPlannerCubit extends Cubit<GetMealPlannerState> {
   final MealRepo _mealRepo;
 
   void getMealPlanner() async {
+    emit(GetMealPlannerLoading());
     final mealOrfailure = await _mealRepo.getMealPlanner();
     mealOrfailure.fold(
       (failure) => emit(GetMealPlannerFailure(failure.errMessage)),

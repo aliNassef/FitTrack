@@ -108,7 +108,7 @@ class WorkoutDetailsViewBody extends StatelessWidget {
         }
 
         if (state is GetExcerciseLoading) {
-          return const CircularProgressIndicator.adaptive();
+          return const Center(child: CircularProgressIndicator.adaptive());
         }
         return const SizedBox.shrink();
       },

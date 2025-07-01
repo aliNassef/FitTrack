@@ -105,7 +105,7 @@ class MealPlannerViewBody extends StatelessWidget {
         }
 
         if (state is GetMealPlannerLoading) {
-          return const CircularProgressIndicator.adaptive();
+          return const Center(child: CircularProgressIndicator.adaptive());
         }
 
         return const SizedBox.shrink();
