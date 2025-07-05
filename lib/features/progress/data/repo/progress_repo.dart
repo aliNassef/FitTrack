@@ -17,4 +17,5 @@ abstract class ProgressRepo {
     required String afterPhotoId,
   });
   Future<Either<Failure, LastCompareModel>> getLastCompare();
+  Future<Either<Failure, String>> deletePhotoFromGallrey(String id);
 }

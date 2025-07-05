@@ -137,7 +137,7 @@ class _UploadPhotoToComparisonButtonState
                             }
                             final uploadImageInputModel = UploadImageInputModel(
                               weight: double.parse(weightController.text),
-                              facing: facingController.text,
+                              facing: facingController.text.trim(),
                               date: dateController.text.trim(),
                               image: await uploadImageToAPI(
                                 imagePicker,

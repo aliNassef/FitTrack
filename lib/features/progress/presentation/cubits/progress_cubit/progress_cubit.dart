@@ -71,4 +71,17 @@ class ProgressCubit extends Cubit<ProgressState> {
       ),
     );
   }
+
+  void deletePhotoFromGallrey(String id) async {
+    emit(DeletePhotoLoading());
+    final deletePhotoOrFailure = await progressRepo.deletePhotoFromGallrey(id);
+    deletePhotoOrFailure.fold(
+      (failure) => emit(
+        DeletePhotoFailure(errMessage: failure.errMessage),
+      ),
+      (message) => emit(
+        DeletePhotoLoaded(message: message),
+      ),
+    );
+  }
 }

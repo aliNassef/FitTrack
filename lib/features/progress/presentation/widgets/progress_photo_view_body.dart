@@ -75,6 +75,9 @@ class _ProgressPhotoViewBodyState extends State<ProgressPhotoViewBody> {
               );
             }
             if (state is ProgressLoaded) {
+              if (state.progressModel.isEmpty) {
+                return const SizedBox.shrink();
+              }
               return Text(
                 DateFormat('MMMM').format(
                   DateTime.parse(state.progressModel[0].uploadDate.toString()),
@@ -127,40 +130,97 @@ class _ProgressPhotoViewBodyState extends State<ProgressPhotoViewBody> {
                 );
               }
               if (state is ProgressLoaded) {
+                if (state.progressModel.isEmpty) {
+                  return const CustomFailureWidget(
+                    errMessage: 'start uploading photos to follow progress',
+                  );
+                }
                 return ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final isSelected = selectedIndices.contains(index);
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (isSelected) {
-                            selectedIndices.remove(index);
-                          } else if (selectedIndices.length < 2) {
-                            selectedIndices.add(index);
-                          }
-                        });
+                    return BlocListener<ProgressCubit, ProgressState>(
+                      listenWhen: (previous, current) =>
+                          current is DeletePhotoFailure ||
+                          current is DeletePhotoLoaded,
+                      listener: (context, state) {
+                        if (state is DeletePhotoFailure) {
+                          showToast(text: state.errMessage);
+                        }
+                        if (state is DeletePhotoLoaded) {
+                          showToast(text: state.message);
+                          context.read<ProgressCubit>().getProgress();
+                        }
                       },
-                      child: Container(
-                        height: 120.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          border: isSelected
-                              ? Border.all(
-                                  color: AppColors.secondaryColor,
-                                  width: 4,
-                                )
-                              : null,
-                          image: DecorationImage(
-                            image: NetworkImage(state.progressModel[index].url),
-                            fit: BoxFit.cover,
+                      child: GestureDetector(
+                        onLongPress: () {
+                          final cubit = context.read<ProgressCubit>();
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text('Delete Photo'.tr()),
+                                  content: Text(
+                                      'Are you sure you want to delete this photo?'
+                                          .tr()),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context,
+                                                rootNavigator: true)
+                                            .pop();
+                                      },
+                                      child: Text('Cancel'.tr()),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        cubit.deletePhotoFromGallrey(
+                                          state.progressModel[index].id,
+                                        );
+                                        setState(() {
+                                          selectedIndices.remove(index);
+                                        });
+                                        Navigator.of(context,
+                                                rootNavigator: true)
+                                            .pop();
+                                      },
+                                      child: Text('Delete'.tr()),
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
+                        onTap: () {
+                          setState(() {
+                            if (isSelected) {
+                              selectedIndices.remove(index);
+                            } else if (selectedIndices.length < 2) {
+                              selectedIndices.add(index);
+                            }
+                          });
+                        },
+                        child: Container(
+                          height: 120.h,
+                          width: 100.w,
+                          decoration: BoxDecoration(
+                            border: isSelected
+                                ? Border.all(
+                                    color: AppColors.secondaryColor,
+                                    width: 4,
+                                  )
+                                : null,
+                            image: DecorationImage(
+                              image:
+                                  NetworkImage(state.progressModel[index].url),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(14),
                           ),
-                          borderRadius: BorderRadius.circular(14),
+                          child: isSelected
+                              ? const Icon(Icons.check_circle,
+                                  color: Colors.white)
+                              : null,
                         ),
-                        child: isSelected
-                            ? const Icon(Icons.check_circle,
-                                color: Colors.white)
-                            : null,
                       ),
                     );
                   },

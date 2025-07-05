@@ -61,4 +61,14 @@ class ProgressRepoImpl extends ProgressRepo {
       return left(Failure(errMessage: e.errorModel.errorMessage));
     }
   }
+  
+  @override
+  Future<Either<Failure, String>> deletePhotoFromGallrey(String id) async {
+    try {
+      final message = await progressRemoteDatasource.deletePhotoFromGallrey(id);
+      return right(message);
+    } on ServerException catch (e) {
+      return left(Failure(errMessage: e.errorModel.errorMessage));
+    }
+  }
 }

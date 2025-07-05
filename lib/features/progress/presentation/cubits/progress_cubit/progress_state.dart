@@ -58,3 +58,14 @@ final class UploadImageFailure extends ProgressState {
   final String errMessage;
   UploadImageFailure({required this.errMessage});
 }
+
+
+final class DeletePhotoLoading extends ProgressState {}
+final class DeletePhotoLoaded extends ProgressState {
+  final String message;
+  DeletePhotoLoaded({required this.message});
+}
+final class DeletePhotoFailure extends ProgressState {
+  final String errMessage;
+  DeletePhotoFailure({required this.errMessage});
+}

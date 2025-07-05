@@ -14,6 +14,7 @@ abstract class ProgressRemoteDatasource {
       UploadImageInputModel imageModel);
   Future<List<ProgressPhotoModel>> getProgress();
   Future<LastCompareModel> getLastCompare();
+  Future<String> deletePhotoFromGallrey(String id);
   Future<ProgressComparisonModel> getProgressComparison(
       {required String beforePhotoId, required String afterPhotoId});
 }
@@ -73,6 +74,18 @@ class ProgressRemoteDatasourceImpl extends ProgressRemoteDatasource {
     final response = await api.get(EndPoints.getLastCompare);
     if (response.statusCode == 200) {
       return LastCompareModel.fromJson(response.data);
+    } else {
+      throw ServerException(ErrorModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<String> deletePhotoFromGallrey(String id) async {
+    final response = await api.delete(
+      EndPoints.deleteImage + id,
+    );
+    if (response.statusCode == 200) {
+      return response.data['message'] as String;
     } else {
       throw ServerException(ErrorModel.fromJson(response.data));
     }
