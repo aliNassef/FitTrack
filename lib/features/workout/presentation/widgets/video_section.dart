@@ -1,3 +1,5 @@
+import 'package:lottie/lottie.dart';
+
 import '../../../../core/extensions/mediaquery_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +60,13 @@ class _VideoSectionState extends State<VideoSection> {
               width: context.width,
               child: Chewie(controller: _chewieController),
             )
-          : const Center(child: CircularProgressIndicator()),
+          : Center(
+              child: Lottie.asset(
+                'assets/animation/loading_animation.json',
+                height: 70.h,
+                width: 70.w,
+              ),
+            ),
     );
   }
 }

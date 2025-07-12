@@ -1,3 +1,6 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../cubits/get_category_cubit/get_category_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -100,7 +103,13 @@ class CategoryMealViewBody extends StatelessWidget {
         }
 
         if (state is GetCategoryLoading) {
-          return const Center(child: CircularProgressIndicator.adaptive());
+          return Center(
+            child: Lottie.asset(
+              'assets/animation/loading_animation.json',
+              height: 70.h,
+              width: 70.w,
+            ),
+          );
         }
         return const SizedBox.shrink();
       },

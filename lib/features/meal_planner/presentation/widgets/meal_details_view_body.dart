@@ -40,7 +40,7 @@ class MealDetailsViewBody extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverPadding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 sliver: SliverAppBar(
                   automaticallyImplyLeading: false,
                   backgroundColor: Colors.transparent,
@@ -152,7 +152,7 @@ class MealDetailsViewBody extends StatelessWidget {
           ),
           const VerticalSpace(15),
           SizedBox(
-            height: 140.h,
+            height: meal.ingredients.isEmpty ? 0.h : 140.h,
             child: IngredientsListItems(
               mealIngredients: meal.ingredients,
             ),
@@ -170,7 +170,7 @@ class MealDetailsViewBody extends StatelessWidget {
           //     stepModel: meal.steps[index],
           //   ),
           // ),
-          const VerticalSpace(100),
+          const VerticalSpace(160),
         ],
       ),
     );

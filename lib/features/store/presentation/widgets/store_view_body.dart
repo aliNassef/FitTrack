@@ -1,4 +1,5 @@
 import 'package:fit_track_app/features/store/presentation/widgets/category_section.dart';
+import 'package:lottie/lottie.dart';
 
 import 'product_card_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,8 +65,12 @@ class StoreViewBody extends StatelessWidget {
               BlocBuilder<SearchStoreBloc, SearchStoreState>(
                 builder: (context, state) {
                   if (state is SearchStoreLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
+                    return Center(
+                      child: Lottie.asset(
+                        'assets/animation/loading_animation.json',
+                        height: 90.h,
+                        width: 90.w,
+                      ),
                     );
                   }
                   if (state is SearchStoreLoaded) {

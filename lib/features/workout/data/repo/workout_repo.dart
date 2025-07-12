@@ -9,6 +9,7 @@ import '../model/workout_model.dart';
 abstract class WorkoutRepo {
   Future<Either<Failure, List<WorkoutModel>>> getWorkouts();
   Future<Either<Failure, List<ExerciseModel>>> getExercises(String workoutId);
-  Future<Either<Failure, ExerciseDetailsModel>> getExerciseDetails(String exerciseId);
-  Future<Either<Failure, List<EquipmentModel>>> getEquipment(String equipmentId);
+  Future<Either<Failure, ExerciseDetailsModel>> getExerciseDetails(
+      String exerciseId);
+  // Future<Either<Failure, List<EquipmentModel>>> getEquipment(String equipmentId);
 }

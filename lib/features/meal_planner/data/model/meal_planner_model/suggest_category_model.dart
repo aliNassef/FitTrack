@@ -2,7 +2,7 @@ class SuggestedCategoryModel {
   final String name;
   final String description;
   final String image;
-  final int totalFoods;
+  final num totalFoods;
   final String id;
   final String mainCategory;
   const SuggestedCategoryModel({

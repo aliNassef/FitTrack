@@ -51,15 +51,15 @@ class WorkoutRepoImpl implements WorkoutRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, List<EquipmentModel>>> getEquipment(String equipmentId) async {
-    try {
-      final equipment = await remoteDatasource.getEquipment(equipmentId);
-      return Right(equipment);
-    } on ServerException catch (e) {
-      return Left(
-        Failure(errMessage: e.errorModel.errorMessage),
-      );
-    }
-  }
+  // @override
+  // Future<Either<Failure, List<EquipmentModel>>> getEquipment(String equipmentId) async {
+  //   try {
+  //     final equipment = await remoteDatasource.getEquipment(equipmentId);
+  //     return Right(equipment);
+  //   } on ServerException catch (e) {
+  //     return Left(
+  //       Failure(errMessage: e.errorModel.errorMessage),
+  //     );
+  //   }
+  // }
 }

@@ -1,3 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fit_track_app/features/progress/presentation/widgets/custom_drop_down_facing.dart';
+
 import '../../../../core/helpers/custom_text_form_field.dart';
 import '../../../../core/helpers/default_app_button.dart';
 import '../../../../core/helpers/show_loading_box.dart';
@@ -55,7 +58,7 @@ class _UploadPhotoToComparisonButtonState
         if (state is UploadImageLoaded) {
           Navigator.of(context, rootNavigator: true)
               .pop(); // Close loading dialog
-
+          Navigator.of(context, rootNavigator: true).pop(); //
           weightController.clear();
           facingController.clear();
           dateController.clear();
@@ -91,74 +94,79 @@ class _UploadPhotoToComparisonButtonState
                   source: ImageSource.gallery,
                 );
                 if (imagePicker == null) return;
-
-                final cubit = context.read<ProgressCubit>();
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text('Fill Form'),
-                      content: Column(
-                        spacing: 10.h,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          CustomTextFormField(
-                            hintText: 'Enter your weight',
-                            controller: weightController,
+                if (mounted) {
+                  // ignore: use_build_context_synchronously
+                  final cubit = context.read<ProgressCubit>();
+                  showDialog(
+                    // ignore: use_build_context_synchronously
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('Fill Form'),
+                        content: Column(
+                          spacing: 10.h,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CustomTextFormField(
+                              hintText: 'Enter your weight',
+                              controller: weightController,
+                            ),
+                            CustomDropDownFacing(
+                              facingController: facingController,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('Cancel'),
                           ),
-                          CustomTextFormField(
-                            hintText: 'Enter your facing',
-                            controller: facingController,
-                          ),
-                          CustomTextFormField(
-                            hintText: 'Enter your data "YYYY-MM-DD"',
-                            controller: dateController,
+                          TextButton(
+                            onPressed: () async {
+                              _confirmPhotoToUpload(cubit, imagePicker);
+                            },
+                            child: const Text('Confirm'),
                           ),
                         ],
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('Cancel'),
-                        ),
-                        TextButton(
-                          onPressed: () async {
-                            if (weightController.text.isEmpty ||
-                                facingController.text.isEmpty ||
-                                dateController.text.isEmpty) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Please fill all fields'),
-                                ),
-                              );
-                              return;
-                            }
-                            final uploadImageInputModel = UploadImageInputModel(
-                              weight: double.parse(weightController.text),
-                              facing: facingController.text.trim(),
-                              date: dateController.text.trim(),
-                              image: await uploadImageToAPI(
-                                imagePicker,
-                              ),
-                            );
-                            cubit.uploadImageWithData(
-                              uploadImageInputModel,
-                            );
-                          },
-                          child: const Text('Confirm'),
-                        ),
-                      ],
-                    );
-                  },
-                );
+                      );
+                    },
+                  );
+                }
               },
               text: 'Upload',
             ),
           )
         ],
       ),
+    );
+  }
+
+  void _confirmPhotoToUpload(cubit, imagePicker) async {
+    dateController.text = DateFormat('yyyy-MM-dd').format(
+      DateTime.now(),
+    );
+    if (weightController.text.isEmpty ||
+        facingController.text.isEmpty ||
+        dateController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please fill all fields'),
+        ),
+      );
+      return;
+    }
+    final uploadImageInputModel = UploadImageInputModel(
+      weight: double.parse(weightController.text),
+      facing: facingController.text.trim(),
+      date: dateController.text.trim(),
+      image: await uploadImageToAPI(
+        imagePicker,
+      ),
+    );
+    cubit.uploadImageWithData(
+      uploadImageInputModel,
     );
   }
 }

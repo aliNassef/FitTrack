@@ -240,41 +240,57 @@ class _ProgressPhotoViewBodyState extends State<ProgressPhotoViewBody> {
           ),
         ),
         VerticalSpace(context.height * .1),
-        BlocListener<ProgressCubit, ProgressState>(
-          listenWhen: (previous, current) =>
-              current is ProgressComparisonLoading ||
-              current is ProgressComparisonLoaded ||
-              current is ProgressComparisonFailure,
-          listener: (context, state) {
-            if (state is ProgressComparisonLoading) {
-              showLoadingBox(context);
-            } else if (state is ProgressComparisonLoaded) {
-              Navigator.of(context, rootNavigator: true).pushNamed(
-                CompareResultView.routeName,
-                arguments: state.progressComparisonModel,
-              );
-            } else if (state is ProgressComparisonFailure) {
-              showToast(text: state.errMessage);
-            }
-          },
-          child: DefaultAppButton(
-            text: 'Compare',
-            onPressed: selectedIndices.length == 2
-                ? () {
-                    final indices = selectedIndices.toList();
-                    final state =
-                        context.read<ProgressCubit>().state as ProgressLoaded;
-                    final photo1 = state.progressModel[indices[0]];
-                    final photo2 = state.progressModel[indices[1]];
-                    context.read<ProgressCubit>().getProgressComparison(
-                          beforePhotoId: photo1.id,
-                          afterPhotoId: photo2.id,
-                        );
-                  }
-                : null,
-          ),
-        ),
+        CompareButton(selectedIndices: selectedIndices),
       ],
+    );
+  }
+}
+
+class CompareButton extends StatelessWidget {
+  const CompareButton({
+    super.key,
+    required this.selectedIndices,
+  });
+
+  final Set<int> selectedIndices;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<ProgressCubit, ProgressState>(
+      listenWhen: (previous, current) =>
+          current is ProgressComparisonLoading ||
+          current is ProgressComparisonLoaded ||
+          current is ProgressComparisonFailure,
+      listener: (context, state) {
+        if (state is ProgressComparisonLoading) {
+          showLoadingBox(context);
+        } else if (state is ProgressComparisonLoaded) {
+          Navigator.of(context, rootNavigator: true).pop();
+          Navigator.of(context, rootNavigator: true).pushNamed(
+            CompareResultView.routeName,
+            arguments: state.progressComparisonModel,
+          );
+        } else if (state is ProgressComparisonFailure) {
+          Navigator.of(context, rootNavigator: true).pop();
+          showToast(text: state.errMessage);
+        }
+      },
+      child: DefaultAppButton(
+        text: 'Compare',
+        onPressed: selectedIndices.length == 2
+            ? () {
+                final indices = selectedIndices.toList();
+                final state =
+                    context.read<ProgressCubit>().state as ProgressLoaded;
+                final photo1 = state.progressModel[indices[0]];
+                final photo2 = state.progressModel[indices[1]];
+                context.read<ProgressCubit>().getProgressComparison(
+                      beforePhotoId: photo1.id,
+                      afterPhotoId: photo2.id,
+                    );
+              }
+            : null,
+      ),
     );
   }
 }

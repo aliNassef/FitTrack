@@ -1,3 +1,7 @@
+import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
+import 'package:fit_track_app/core/helpers/show_loading_box.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../cubits/get_meal_planner_cubit/get_meal_planner_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -105,7 +109,20 @@ class MealPlannerViewBody extends StatelessWidget {
         }
 
         if (state is GetMealPlannerLoading) {
-          return const Center(child: CircularProgressIndicator.adaptive());
+          return Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              VerticalSpace(context.height * 0.5),
+              Center(
+                child: Lottie.asset(
+                  'assets/animation/loading_animation.json',
+                  height: 70.h,
+                  width: 70.w,
+                ),
+              ),
+            ],
+          );
         }
 
         return const SizedBox.shrink();

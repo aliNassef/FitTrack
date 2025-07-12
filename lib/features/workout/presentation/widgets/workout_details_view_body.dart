@@ -1,3 +1,5 @@
+import 'package:lottie/lottie.dart';
+
 import '../../../../core/widgets/custom_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/mediaquery_size.dart';
@@ -43,7 +45,7 @@ class WorkoutDetailsViewBody extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: [
                     SliverPadding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       sliver: SliverAppBar(
                         automaticallyImplyLeading: false,
                         backgroundColor: Colors.transparent,
@@ -108,7 +110,18 @@ class WorkoutDetailsViewBody extends StatelessWidget {
         }
 
         if (state is GetExcerciseLoading) {
-          return const Center(child: CircularProgressIndicator.adaptive());
+          return Column(
+            children: [
+              VerticalSpace(context.height * 0.5),
+              Center(
+                child: Lottie.asset(
+                  'assets/animation/loading_animation.json',
+                  height: 100.h,
+                  width: 100.w,
+                ),
+              ),
+            ],
+          );
         }
         return const SizedBox.shrink();
       },

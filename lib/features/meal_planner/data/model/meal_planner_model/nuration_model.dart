@@ -1,10 +1,10 @@
 class NutritionModel {
-  final int calories;
-  final int protein;
-  final int fat;
-  final int carbs;
-  final int fiber;
-  final int sugar;
+  final num calories;
+  final num protein;
+  final num fat;
+  final num carbs;
+  final num fiber;
+  final num sugar;
   final String id;
 
   const NutritionModel({

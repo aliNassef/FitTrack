@@ -1,3 +1,8 @@
+import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
+import 'package:fit_track_app/core/helpers/toast_dialog.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../../../core/widgets/custom_failure_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/padding_extension.dart';
@@ -23,7 +28,18 @@ class WorkoutExerciseViewBody extends StatelessWidget {
       child: BlocBuilder<GetExcerciseDetailsCubit, GetExcerciseDetailsState>(
           builder: (context, state) {
         if (state is GetExcerciseDetailsLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return Column(
+            children: [
+              VerticalSpace(context.height * 0.5),
+              Center(
+                child: Lottie.asset(
+                  'assets/animation/loading_animation.json',
+                  height: 100.h,
+                  width: 100.w,
+                ),
+              ),
+            ],
+          );
         }
 
         if (state is GetExcerciseDetailsError) {
@@ -85,7 +101,13 @@ class WorkoutExerciseViewBody extends StatelessWidget {
                 customRepetitions: state.exerciseDetails.customRepetitions,
               ),
               const VerticalSpace(30),
-              const DefaultAppButton(text: 'Save'),
+              DefaultAppButton(
+                text: 'Save',
+                onPressed: () {
+                  showToast(text: 'Saved');
+                  Navigator.of(context).pop();
+                },
+              ),
               const VerticalSpace(30),
             ],
           );

@@ -1,6 +1,3 @@
-
-import 'equipment_model.dart';
-
 class ExerciseModel {
   final String id;
   final String workout;
@@ -8,7 +5,6 @@ class ExerciseModel {
   final int duration;
   final int repetitions;
   final String? image;
-  final List<EquipmentModel> equipment;
   final String difficulty;
   final int caloriesBurned;
   final DateTime createdAt;
@@ -21,7 +17,6 @@ class ExerciseModel {
     required this.duration,
     required this.repetitions,
     this.image,
-    required this.equipment,
     required this.difficulty,
     required this.caloriesBurned,
     required this.createdAt,
@@ -36,9 +31,6 @@ class ExerciseModel {
       duration: json['duration'],
       repetitions: json['repetitions'],
       image: json['image'],
-      equipment: (json['equipment'] as List)
-          .map((e) => EquipmentModel.fromJson(e))
-          .toList(),
       difficulty: json['difficulty'],
       caloriesBurned: json['caloriesBurned'],
       createdAt: DateTime.parse(json['createdAt']),
@@ -54,7 +46,6 @@ class ExerciseModel {
       'duration': duration,
       'repetitions': repetitions,
       'image': image,
-      'equipment': equipment.map((e) => e.toJson()).toList(),
       'difficulty': difficulty,
       'caloriesBurned': caloriesBurned,
       'createdAt': createdAt.toIso8601String(),

@@ -13,10 +13,10 @@ class GetEquipmentByIdCubit extends Cubit<GetEquipmentByIdState> {
 
   void getEquipmentById(String equipmentId) async {
     emit(GetEquipmentByIdLoading());
-    final equipmentOrFailure = await repo.getEquipment(equipmentId);
-    equipmentOrFailure.fold(
-      (failure) => emit(GetEquipmentByIdError(errMessage: failure.errMessage)),
-      (equipment) => emit(GetEquipmentByIdSuccess(equipment: equipment)),
-    );
+    // final equipmentOrFailure = await repo.getEquipment(equipmentId);
+    // equipmentOrFailure.fold(
+    //   (failure) => emit(GetEquipmentByIdError(errMessage: failure.errMessage)),
+    //   (equipment) => emit(GetEquipmentByIdSuccess(equipment: equipment)),
+    // );
   }
 }
