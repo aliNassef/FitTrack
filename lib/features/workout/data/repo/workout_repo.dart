@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import '../model/equipment_model.dart';
 import '../model/excersise_details_model.dart';
 
 import '../../../../core/errors/failure.dart';

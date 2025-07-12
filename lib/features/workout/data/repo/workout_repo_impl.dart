@@ -2,7 +2,6 @@ import '../model/excersise_model.dart';
 import 'workout_repo.dart';
 
 import '../datasource/workout_remote_datasource.dart';
-import '../model/equipment_model.dart';
 import '../model/excersise_details_model.dart';
 import '../model/workout_model.dart';
 import 'package:dartz/dartz.dart';

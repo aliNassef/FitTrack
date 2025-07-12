@@ -8,7 +8,6 @@ class SignupWelcomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        bottom: true,
         child: SingleChildScrollView(
           child: SignupWelcomeViewBody(),
         ),

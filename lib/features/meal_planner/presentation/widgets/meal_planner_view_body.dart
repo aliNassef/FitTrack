@@ -1,7 +1,5 @@
 import 'package:fit_track_app/core/extensions/mediaquery_size.dart';
-import 'package:fit_track_app/core/helpers/show_loading_box.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../cubits/get_meal_planner_cubit/get_meal_planner_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

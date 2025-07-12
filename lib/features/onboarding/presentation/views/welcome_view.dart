@@ -15,60 +15,62 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: context.width,
-        height: context.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: AppGradients.pinkGradient,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Spacer(),
-            Image.asset(
-              AppImages.logo,
+      body: SafeArea(
+        child: Container(
+          width: context.width,
+          height: context.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: AppGradients.pinkGradient,
             ),
-            ShaderMask(
-              shaderCallback: (Rect bounds) {
-                return const LinearGradient(
-                  colors: [
-                    Color(0xffFFFFFF),
-                    Color(0xffB8B2B2),
-                  ],
-                ).createShader(bounds);
-              },
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'FIT',
-                      style: AppStyles.bold36.copyWith(
-                        color: Colors.white,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Image.asset(
+                AppImages.logo,
+              ),
+              ShaderMask(
+                shaderCallback: (Rect bounds) {
+                  return const LinearGradient(
+                    colors: [
+                      Color(0xffFFFFFF),
+                      Color(0xffB8B2B2),
+                    ],
+                  ).createShader(bounds);
+                },
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'FIT',
+                        style: AppStyles.bold36.copyWith(
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    TextSpan(
-                      text: 'Track',
-                      style: AppStyles.bold36,
-                    ),
-                  ],
+                      TextSpan(
+                        text: 'Track',
+                        style: AppStyles.bold36,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Text(
-              'Everyone can be Fit and Healthy',
-              style: AppStyles.regular18.copyWith(
-                color: Colors.white,
+              Text(
+                'Everyone can be Fit and Healthy',
+                style: AppStyles.regular18.copyWith(
+                  color: Colors.white,
+                ),
               ),
-            ),
-            const Spacer(),
-            DefaultAppButton(
-              text: 'Get Started',
-              onPressed: () => _goToOnboardingPage(context),
-            ).withHorizontalPadding(30),
-            const VerticalSpace(40),
-          ],
+              const Spacer(),
+              DefaultAppButton(
+                text: 'Get Started',
+                onPressed: () => _goToOnboardingPage(context),
+              ).withHorizontalPadding(30),
+              const VerticalSpace(40),
+            ],
+          ),
         ),
       ),
     );
